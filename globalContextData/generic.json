@@ -1,0 +1,209 @@
+[
+  {
+    "key" :"SystemVars" ,
+    "value" :  {
+              "responseTimeout":10000,
+              "delaySize":1000,
+              "secret":"T0K3NG3N3RAT0R"}
+  },
+  {
+    "key" :"applicationId" ,
+    "value" : "5bacdd9fb9bf1c120bef1088"
+  },
+  {
+    "key" :"gadgetObjects" ,
+    "value" :{
+                 "datePickerOptions":{
+                    "autoClose":true
+                 },
+                 "dynamic-text-area":{
+                    "options":{
+                       "display":"flex",
+                       "field-display":"flex",
+                       "text-align":"center",
+                       "font-size":12,
+                       "font-weight":400,
+                       "font-family":"arial",
+                       "color":"#ccc",
+                       "label-font-size":16,
+                       "label-font-weight":400,
+                       "label-font-family":"arial",
+                       "label-color":"black",
+                       "label-margin-top":0,
+                       "label-margin-right":10,
+                       "label-margin-bottom":10,
+                       "label-margin-left":0,
+                       "label-padding-top":0,
+                       "label-padding-right":0,
+                       "label-padding-bottom":0,
+                       "label-padding-left":0,
+                       "value-font-size":14,
+                       "value-font-weight":400,
+                       "value-family":"verdana",
+                       "value-color":"gray",
+                       "value-margin-top":0,
+                       "value-margin-right":0,
+                       "value-margin-bottom":0,
+                       "value-margin-left":0,
+                       "value-padding-top":0,
+                       "value-padding-right":0,
+                       "value-padding-bottom":0,
+                       "value-padding-left":0,
+                       "label-position":"top",
+                       "margin-top":0,
+                       "margin-right":20,
+                       "margin-bottom":0,
+                       "margin-left":0,
+                       "number-columns":2
+                    }
+                 },
+                 "customForm":{
+                    "timeArray":{
+                       "00:00":"00:00",
+                       "00:30":"00:30",
+                       "01:00":"01:00",
+                       "01:30":"01:30",
+                       "02:00":"02:00",
+                       "02:30":"02:30",
+                       "03:00":"03:00",
+                       "03:30":"03:30",
+                       "04:00":"04:00",
+                       "04:30":"04:30",
+                       "05:00":"05:00",
+                       "05:30":"05:30",
+                       "06:00":"06:00",
+                       "06:30":"06:30",
+                       "07:00":"07:00",
+                       "07:30":"07:30",
+                       "08:00":"08:00",
+                       "08:30":"08:30",
+                       "09:00":"09:00",
+                       "09:30":"09:30",
+                       "10:00":"10:00",
+                       "10:30":"10:30",
+                       "11:00":"11:00",
+                       "11:30":"11:30",
+                       "12:00":"12:00",
+                       "12:30":"12:30",
+                       "13:00":"13:00",
+                       "13:30":"13:30",
+                       "14:00":"14:00",
+                       "14:30":"14:30",
+                       "15:00":"15:00",
+                       "15:30":"15:30",
+                       "16:00":"16:00",
+                       "16:30":"16:30",
+                       "17:00":"17:00",
+                       "17:30":"17:30",
+                       "18:00":"18:00",
+                       "18:30":"18:30",
+                       "19:00":"19:00",
+                       "19:30":"19:30",
+                       "20:00":"20:00",
+                       "20:30":"20:30",
+                       "21:00":"21:00",
+                       "21:30":"21:30",
+                       "22:00":"22:00",
+                       "22:30":"22:30",
+                       "23:00":"23:00",
+                       "23:30":"23:30"
+                    }
+                 }
+              }
+  },
+  {
+    "key" :"icons" ,
+    "value" : {
+               "fas":{
+                  "check":"fas fa-check-circle",
+                  "open":"fas fa-angle-double-right",
+                  "organization":"fas fa-briefcase",
+                  "project":"fas fa-project-diagram",
+                  "users":"fas fa-users",
+                  "participants":"fas fa-address-book",
+                  "work_package":"fas fa-cube",
+                  "settings":"fas fa-wrench",
+                  "create":"fas fa-plus",
+                  "Equipment":"fas fa-screwdriver",
+                  "Travel & subsistence":"fas fa-plane",
+                  "Subcontracting":"fas fa-male",
+                  "Personnel cost":"fas fa-clock",
+                  "Overhead":"fas fa-building",
+                  "Consumables":"fas fa-check-circle",
+                  "Other":"fas fa-check-circle",
+                  "dashboard":"fas fa-tachometer-alt",
+                  "team":"fas fa-cube",
+                  "epics":"fas fa-building",
+                  "user":"fas fa-male",
+                  "time":"far fa-clock",
+                  "logout":"fas fa-sign-out-alt",
+                  "trophy":"fas fa-trophy",
+                  "calendar":"fas fa-calendar",
+                  "rocket":"fas fa-rocket",
+                  "edit":"fas fa-edit",
+                  "delete":"fas fa-trash-alt",
+                  "euro":"€",
+                  "file_management":"fas fa-folder",
+                  "back":"fas fa-reply",
+                  "clock":"fas fa-clock",
+                  "sun":"fas fa-sun"
+               },
+               "UserIcons":{
+                  "User":"/SystemFiles/icons/",
+                  "UserName":"user Icon.png",
+                  "Admin":"/SystemFiles/icons/",
+                  "AdminName":"admin.png",
+                  "Triangle":"SystemFiles/icons/TrangleIcon.svg"
+               },
+               "images":{
+                  "organization":"/SystemFiles/icons/icon_organization.svg",
+                  "project":"/SystemFiles/icons/icon_rocket.svg",
+                  "employee":"/SystemFiles/icons/icon_rocket.svg",
+                  "user":"/SystemFiles/icons/icon_user.svg"
+               }
+            }
+  },
+  {
+    "key" :"mailgun" ,
+    "value" : {
+          "apiKey":"key-b869861dfdc990056309323d41059b4c",
+          "domain":"mail.revotio.com",
+          "from":"postmaster@mail.revotio.com"
+    }
+  },
+  {
+    "key" :"permissions" ,
+    "value" :{
+           "name":{
+              "Administrator":0,
+              "User":1,
+              "Scoped":2
+           },
+           "ID":{
+              "0":"Administrator",
+              "1":"User",
+              "2":"Scoped"
+           }
+        }
+  },
+  {
+    "key" :"table" ,
+    "value" :{
+               "tableTitleStyles":{
+                "padding-top":"20px",
+                "font-size":"30px",
+                "margin-bottom":"0px",
+                "text-align":"center"
+               }
+            }
+  },
+  {
+    "key" :"topbar_design" ,
+    "value" :{
+        "background-color":"#1D2531",
+        "position":"sticky",
+        "top":0,
+        "z-index":1
+      }
+  },
+]
