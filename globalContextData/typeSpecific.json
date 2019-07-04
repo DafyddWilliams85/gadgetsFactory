@@ -39,7 +39,7 @@
                   {
                   "key" :"MasterOrganizationData" ,
                   "value" :   {"_id":"5b3360ce41c82d3f438035cb"}
-                  },
+                  }
 
 
 
@@ -58,7 +58,7 @@
                     {
                       "key" :  "name",
                         "value" :"pmt-dev-db"}
-                      ],
+                      ]
 
           },
 
@@ -75,7 +75,7 @@
                                     {
                                       "key" :  "name",
                                         "value" :"pmt-dev-db"}
-                                      ],
+                                      ]
 
                           }
 
