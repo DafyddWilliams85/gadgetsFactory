@@ -1,0 +1,82 @@
+
+{
+"development" : [
+                  {
+                  "key" :"DB_data" ,
+                  "value" :   {
+                                  "connection":"mongodb://admin:lADOodCgW0vDAKbE@proddb-shard-00-00-mkgff.mongodb.net:27017,proddb-shard-00-01-mkgff.mongodb.net:27017,proddb-shard-00-02-mkgff.mongodb.net:27017/admin?ssl=true&replicaSet=ProdDB-shard-0",
+                                  "appDB":"pmt-dev-db"
+                              }
+                  },
+                  {
+                  "key" :"DomainProperties" ,
+                  "value" :  {
+                                    "dir":"/opt/revotio/public/webpages/",
+                                    "url":"http://nodeapi:1880/",
+                                    "prodUrl":"https://complete.revotio.com/",
+                                    "port":"1880/",
+                                    "DefaultPage":"organizations global",
+                                    "NonAuthDefaultPage":"user authentication",
+                                    "ClientDefaultPage":"organization overview",
+                                    "PNODefaultPage":"organizations global",
+                                    "StillSessionTime":600,
+                                    "RootDomain":"http://localhost:1880/",
+                                    "publicFolder":"/var/www/cml.revotio.com/",
+                                    "filesFolder":"/files/",
+                                    "rootPath":"/files/",
+                                    "rootFolder":"/var/www/cml.revotio.com/",
+                                    "RevotioUser":"admin",
+                                    "RevotioUserPassword":"vpPhFHspAaPcFrEVotu3CVRQ",
+                                    "version":"NEW",
+                                    "routing":"nodeAPI",
+                                    "form-menu":"http://form_menu:1880/"
+                                }
+                  },
+                  {
+                  "key" :"MasterOrganizationData" ,
+                  "value" :   {"_id":"5b3360ce41c82d3f438035cb"}
+                  },
+                  {
+                  "key" :"MasterOrganizationData" ,
+                  "value" :   {"_id":"5b3360ce41c82d3f438035cb"}
+                  }
+
+
+
+
+                ],
+"staging" : {
+
+        "DBDataConnection" :"mongodb://admin:lADOodCgW0vDAKbE@proddb-shard-00-00-mkgff.mongodb.net:27017,proddb-shard-00-01-mkgff.mongodb.net:27017,proddb-shard-00-02-mkgff.mongodb.net:27017/admin?ssl=true&replicaSet=ProdDB-shard-0",
+        "MongoDbConnection" : "mongodb://proddb-shard-00-00-mkgff.mongodb.net:27017,proddb-shard-00-01-mkgff.mongodb.net:27017,proddb-shard-00-02-mkgff.mongodb.net:27017/pmt-dev-db?ssl=true&replicaSet=ProdDB-shard-0&authSource=admin&retryWrites=true",
+        "MongoDbName" :"pmt-dev-db",
+        "MongoDbUser" :"admin",
+        "MongoDbPassword" :"lADOodCgW0vDAKbE",
+        "MongoDb2Match" :[{
+                    "key" : "type",
+                    "value" : "mongodb2"},
+                    {
+                      "key" :  "name",
+                        "value" :"pmt-dev-db"}
+                      ]
+
+          },
+
+  "production" : {
+
+                        "DBDataConnection" :"mongodb://admin:lADOodCgW0vDAKbE@proddb-shard-00-00-mkgff.mongodb.net:27017,proddb-shard-00-01-mkgff.mongodb.net:27017,proddb-shard-00-02-mkgff.mongodb.net:27017/admin?ssl=true&replicaSet=ProdDB-shard-0",
+                        "MongoDbConnection" : "mongodb://proddb-shard-00-00-mkgff.mongodb.net:27017,proddb-shard-00-01-mkgff.mongodb.net:27017,proddb-shard-00-02-mkgff.mongodb.net:27017/pmt-dev-db?ssl=true&replicaSet=ProdDB-shard-0&authSource=admin&retryWrites=true",
+                        "MongoDbName" :"pmt-dev-db",
+                        "MongoDbUser" :"admin",
+                        "MongoDbPassword" :"lADOodCgW0vDAKbE",
+                        "MongoDb2Match" :[{
+                                    "key" : "type",
+                                    "value" : "mongodb2"},
+                                    {
+                                      "key" :  "name",
+                                        "value" :"pmt-dev-db"}
+                                      ]
+
+                          }
+
+}

@@ -1,0 +1,32 @@
+
+{
+  "DB_data"  :   {
+                                  "connection":"mongodb://admin:lADOodCgW0vDAKbE@proddb-shard-00-00-mkgff.mongodb.net:27017,proddb-shard-00-01-mkgff.mongodb.net:27017,proddb-shard-00-02-mkgff.mongodb.net:27017/admin?ssl=true&replicaSet=ProdDB-shard-0",
+                                  "appDB":"pmt-dev-db"
+
+                  },
+"DomainProperties"  :  {
+                                    "dir":"/opt/revotio/public/webpages/",
+                                    "url":"http://nodeapi:1880/",
+                                    "prodUrl":"https://complete.revotio.com/",
+                                    "port":"1880/",
+                                    "DefaultPage":"organizations global",
+                                    "NonAuthDefaultPage":"user authentication",
+                                    "ClientDefaultPage":"organization overview",
+                                    "PNODefaultPage":"organizations global",
+                                    "StillSessionTime":600,
+                                    "RootDomain":"http://localhost:1880/",
+                                    "publicFolder":"/var/www/cml.revotio.com/",
+                                    "filesFolder":"/files/",
+                                    "rootPath":"/files/",
+                                    "rootFolder":"/var/www/cml.revotio.com/",
+                                    "RevotioUser":"admin",
+                                    "RevotioUserPassword":"vpPhFHspAaPcFrEVotu3CVRQ",
+                                    "version":"NEW",
+                                    "routing":"nodeAPI",
+                                    "form-menu":"http://form_menu:1880/"
+                                },
+
+
+"MasterOrganizationData" :   {"_id":"5b3360ce41c82d3f438035cb"}
+                  }
