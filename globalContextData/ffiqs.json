@@ -15,7 +15,7 @@
                         "url":"http://localhost:1880/",
                         "prodUrl":"https://ffiqs.revotio.com",
                         "port":"1880/",
-                        "DefaultPage" : "organizations global" , //  "projects global", // 
+                        "DefaultPage" : "organizations global" ,
                         "NonAuthDefaultPage" : "user authentication",
                         "ClientDefaultPage" : "organization overview",
                         "PNODefaultPage": "organizations global" ,
