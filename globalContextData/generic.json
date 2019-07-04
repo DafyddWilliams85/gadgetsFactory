@@ -1,18 +1,11 @@
-[
-  {
-    "key" :"SystemVars" ,
-    "value" :  {
+{
+
+"SystemVars" :  {
               "responseTimeout":10000,
               "delaySize":1000,
-              "secret":"T0K3NG3N3RAT0R"}
+              "secret":"T0K3NG3N3RAT0R"
   },
-  {
-    "key" :"applicationId" ,
-    "value" : "5bacdd9fb9bf1c120bef1088"
-  },
-  {
-    "key" :"gadgetObjects" ,
-    "value" :{
+"gadgetObjects" :{
                  "datePickerOptions":{
                     "autoClose":true
                  },
@@ -109,11 +102,9 @@
                        "23:30":"23:30"
                     }
                  }
-              }
+
   },
-  {
-    "key" :"icons" ,
-    "value" : {
+"icons" : {
                "fas":{
                   "check":"fas fa-check-circle",
                   "open":"fas fa-angle-double-right",
@@ -161,19 +152,15 @@
                   "employee":"/SystemFiles/icons/icon_rocket.svg",
                   "user":"/SystemFiles/icons/icon_user.svg"
                }
-            }
+
   },
-  {
-    "key" :"mailgun" ,
-    "value" : {
+"mailgun" : {
           "apiKey":"key-b869861dfdc990056309323d41059b4c",
           "domain":"mail.revotio.com",
           "from":"postmaster@mail.revotio.com"
-    }
+
   },
-  {
-    "key" :"permissions" ,
-    "value" :{
+"permissions" :{
            "name":{
               "Administrator":0,
               "User":1,
@@ -184,26 +171,21 @@
               "1":"User",
               "2":"Scoped"
            }
-        }
+
   },
-  {
-    "key" :"table" ,
-    "value" :{
+"table"  :{
                "tableTitleStyles":{
                 "padding-top":"20px",
                 "font-size":"30px",
                 "margin-bottom":"0px",
                 "text-align":"center"
                }
-            }
+
   },
-  {
-    "key" :"topbar_design" ,
-    "value" :{
+"topbar_design" :{
         "background-color":"#1D2531",
         "position":"sticky",
         "top":0,
         "z-index":1
       }
-  }
-]
+    }
