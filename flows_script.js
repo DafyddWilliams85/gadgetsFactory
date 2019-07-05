@@ -1,20 +1,14 @@
-var fs = require('fs-extra');
+var fs    = require('fs-extra');
+var shell = require('shelljs');
 // var cmd = require('node-cmd');
 
-// set settings.js
-// fs.moveSync(__dirname + "/settings.js", '/data/settings.js')
-
-global.globalString = "a context chac";
-
-console.log(global.globalString )
-
 console.log({
-
   "test" : "flows_scrips RUNNNN!!!!!!!",
   "dir":__dirname,
     "database": JSON.parse(fs.readFileSync(__dirname+"/database.json")),
-    [process.env.DBTYPE + "_database"]: JSON.parse(fs.readFileSync(__dirname+"/database.json"))[process.env.DBTYPE],
+    [process.env.TYPE + "_database"]: JSON.parse(fs.readFileSync(__dirname+"/database.json"))[process.env.TYPE],
     APP_ID:process.env.APP_ID,
+    shell:shell
 }) ;
 var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, database  ){
 
@@ -26,34 +20,17 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
   fs.writeFile(__dirname + '/old/flows_cred.json', flows_cred, 'utf8');
   var database = JSON.parse(fs.readFileSync(database));
 
-
-console.log(flows_cred)
   var subflowsReplace     = [];
   var createdElements     = [];
   var deletedElements     = [];
 
-  // flows.forEach(function(item) {
-  //       if (item.type === "subflow"){
-  //           subflowList.forEach(function(subflowListItem) {
-  //                 if (subflowListItem ===  (item.name+".json")){
-  //                       subflowsReplace.push({name :item.name , id: item.id})
-  //                         JSON.parse(fs.readFileSync(__dirname + "/flows/" + item.name+ ".json")).forEach(function(subflowListItem) {
-  //                                 if ( subflowListItem.hasOwnProperty("z") &&  subflowListItem.z ===  item.id){
-  //                                     createdElements.push(subflowListItem)
-  //                                 }
-  //                         })
-  //                 }
-  //           })
-  //       };
-  //   })
-
     flows.forEach(function(item) {
     // database
-    var match = true
+    var match = true;
 
-    database[process.env.DBTYPE].match.forEach(function(MongoDb2MatchItem) {
+    database[process.env.TYPE].match.forEach(function(MongoDb2MatchItem) {
       if (item.hasOwnProperty(MongoDb2MatchItem.key) === false || item[MongoDb2MatchItem.key] !== MongoDb2MatchItem.value){
-        match = false
+        match = false;
       }
     });
 
@@ -62,34 +39,18 @@ console.log(flows_cred)
       // update cred object
       if (flows_cred.hasOwnProperty(item.id)){
         console.log("flow cred change action")
-         flows_cred[item.id].user       = database[process.env.DBTYPE].username;
-          flows_cred[item.id].password  = database[process.env.DBTYPE].password;
-          item.uri = database[process.env.DBTYPE].connection ;
-          item.name = database[process.env.DBTYPE].name ;
+         flows_cred[item.id].user       = database[process.env.TYPE].username;
+          flows_cred[item.id].password  = database[process.env.TYPE].password;
+          item.uri = database[process.env.TYPE].connection ;
+          item.name = database[process.env.TYPE].name ;
       }
     }
 
-    // subflow
     replaced = false
-    // if (item.hasOwnProperty("z") && item.z.length > 1 ){
-    //   subflowsReplace.forEach(function(subflowsReplaceItem) {
-    //     if (item.z === subflowsReplaceItem.id ){
-    //       replaced = true
-    //         deletedElements.push(item)
-    //     }
-    //   })
-    //   if (replaced === false){
-    //      createdElements.push(item)
-    //   }
-    // } else  {
+
       createdElements.push(item)
-    // }
 
   });
-
-  flowsLocation, flowsCredLocation, database
-
-
 
   var createdElements_json_flows = JSON.stringify(createdElements);
   fs.writeFile(flowsLocation, createdElements_json_flows, 'utf8');
@@ -99,13 +60,13 @@ console.log(flows_cred)
   fs.writeFile(__dirname + "/deletedSubflowItems_json_flow.json", deletedSubflowItems_json_flows, 'utf8');
 
 };
-
     flows_flows_credActions(
       __dirname+ "/flow.json",
       __dirname+ "/flow_cred.json",
       __dirname+ "/database.json"
     )
 
-
-
-// }
+shell.exec('pm2 restart ecosystem.config.js --env ' + process.env.TYPE , function(code, output) {
+      console.log('Exit code:', code);
+      console.log('Program output:', output);
+    });
