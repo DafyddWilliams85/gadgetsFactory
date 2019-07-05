@@ -29,3 +29,5 @@ cd  ../../../../var/www/pagePublisher &&  echo In PagePublisherFolder && npm i f
 echo  baseUrl in configValue.js file changed to : $API_URL
 
 cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i fs-extra && echo fs-extra installed in pmt_baseApp && npm i shelljs &&  echo shelljs installed in pmt_baseApp && TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
+
+rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
