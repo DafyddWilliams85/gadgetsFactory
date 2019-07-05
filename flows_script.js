@@ -1,16 +1,32 @@
 var fs = require('fs-extra');
-var cmd = require('node-cmd');
+// var cmd = require('node-cmd');
 
 // set settings.js
 // fs.moveSync(__dirname + "/settings.js", '/data/settings.js')
-global.set("flows_scrips", "RUNNNN!!!!!!!") ;
-var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, subFlowLocation, database, github  ){
+
+global.globalString = "a context chac";
+
+console.log(global.globalString )
+
+console.log({
+
+  "test" : "flows_scrips RUNNNN!!!!!!!",
+  "dir":__dirname,
+    "database": JSON.parse(fs.readFileSync(__dirname+"/database.json")),
+    [process.env.DBTYPE + "_database"]: JSON.parse(fs.readFileSync(__dirname+"/database.json"))[process.env.DBTYPE],
+    APP_ID:process.env.APP_ID,
+}) ;
+var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, database  ){
+
+ fs.ensureDirSync(__dirname + '/old/');
 
   var flows = JSON.parse(fs.readFileSync(flowsLocation));
+  fs.writeFile(__dirname + '/old/flow.json', flows, 'utf8');
   var flows_cred = JSON.parse(fs.readFileSync(flowsCredLocation));
-  var subflowList = fs.readdirSync(subFlowLocation);
+  fs.writeFile(__dirname + '/old/flows_cred.json', flows_cred, 'utf8');
   var database = JSON.parse(fs.readFileSync(database));
-  var github = JSON.parse(fs.readFileSync(github));
+
+
 console.log(flows_cred)
   var subflowsReplace     = [];
   var createdElements     = [];
@@ -35,22 +51,21 @@ console.log(flows_cred)
     // database
     var match = true
 
-    database[CONTAINER_TYPE].MongoDb2Match.forEach(function(MongoDb2MatchItem) {
+    database[process.env.DBTYPE].match.forEach(function(MongoDb2MatchItem) {
       if (item.hasOwnProperty(MongoDb2MatchItem.key) === false || item[MongoDb2MatchItem.key] !== MongoDb2MatchItem.value){
         match = false
       }
     });
+
     if (match === true){
 
       // update cred object
       if (flows_cred.hasOwnProperty(item.id)){
         console.log("flow cred change action")
-         flows_cred[item.id]={
-          "user":database[CONTAINER_TYPE].MongoDbUser,
-          'password':database[CONTAINER_TYPE].MongoDbPassword
-        }
-          item.uri = database[CONTAINER_TYPE].MongoDbConnection ;
-          item.name = database[CONTAINER_TYPE].MongoDbName ;
+         flows_cred[item.id].user       = database[process.env.DBTYPE].username;
+          flows_cred[item.id].password  = database[process.env.DBTYPE].password;
+          item.uri = database[process.env.DBTYPE].connection ;
+          item.name = database[process.env.DBTYPE].name ;
       }
     }
 
@@ -72,25 +87,24 @@ console.log(flows_cred)
 
   });
 
-  var createdElements_json_flows = JSON.stringify(createdElements);
-  fs.writeFile('/data/mount/flow.json', createdElements_json_flows, 'utf8');
-  var json_flows_cred = JSON.stringify(flows_cred);
-  fs.writeFile('/data/mount/flow_cred.json', json_flows_cred, 'utf8');
-  fs.writeFile('/data/flow_cred.json', json_flows_cred, 'utf8');
-  var deletedSubflowItems_json_flows = JSON.stringify(deletedElements);
-  fs.writeFile('/data/mount/deletedSubflowItems_json_flow.json', deletedSubflowItems_json_flows, 'utf8');
+  flowsLocation, flowsCredLocation, database
 
-  console.log( "success, deletedElements = " +  deletedElements.length + ", createdElements = " +  createdElements.length + ", flows_cred = " + flows_cred );
+
+
+  var createdElements_json_flows = JSON.stringify(createdElements);
+  fs.writeFile(flowsLocation, createdElements_json_flows, 'utf8');
+  var json_flows_cred = JSON.stringify(flows_cred);
+  fs.writeFile(flowsCredLocation, json_flows_cred, 'utf8');
+  var deletedSubflowItems_json_flows = JSON.stringify(deletedElements);
+  fs.writeFile(__dirname + "/deletedSubflowItems_json_flow.json", deletedSubflowItems_json_flows, 'utf8');
 
 };
 
-    // flows_flows_credActions(
-    //   "/data/flow.json",               // flowsLocation
-    //   "/data/flow_cred.json",          // flowsCredLocation
-    //     __dirname+ "/flows/",             // subFlowLocation
-    //     __dirname + "/database.json",     // database
-    //     __dirname + "/github.json")       // github
-    //   }
+    flows_flows_credActions(
+      __dirname+ "/flow.json",
+      __dirname+ "/flow_cred.json",
+      __dirname+ "/database.json"
+    )
 
 
 
