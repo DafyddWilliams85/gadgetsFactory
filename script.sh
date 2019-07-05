@@ -14,9 +14,9 @@ read API_URL
 echo 6/6 Finally the pagePublisher Branch ?
 read pagePublisherBranch
 
-rm -rf "../var/www/pagePublisher"
+rm -rf "../../../../var/www/pagePublisher"
 
-mkdir "../var/www/pagePublisher"
+mkdir "../../../../var/www/pagePublisher"
 
 echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,3 = GIT_USERNAME = $GIT_USERNAME ,4 = GIT_PASSWORD = $GIT_PASSWORD , 5 = API_URL = $API_URL , 6 = pagePublisherBranch = $pagePublisherBranch ,
 
@@ -24,7 +24,7 @@ npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-ext
 
 echo  pagePublisher branch : $pagePublisherBranch cloned
 
-cd ../var/www/pagePublisher &&  echo In PagePublisherFolder  && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL node pagePublisherStartScript.js
+cd  ../../../../var/www/pagePublisher &&  echo In PagePublisherFolder && npm i fs-extra && echo fs-extra installed  && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL node pagePublisherStartScript.js
 
 echo  baseUrl in configValue.js file changed to : $API_URL
 

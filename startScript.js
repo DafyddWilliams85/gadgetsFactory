@@ -15,7 +15,7 @@ console.log({
 const remote = `https://${GIT_USERNAME}:${GIT_PASSWORD}@${"github.com/DafyddWilliams85/pagePublisher.git"}` ;
 
 cmd.get(
-  'git clone -b ' + BRANCH  + " "+ remote + ' ../var/www/pagePublisher',
+  'git clone -b ' + BRANCH  + " "+ remote + ' ../../../../var/www/pagePublisher',
   function(err, data, stderr){
     if (err){
       console.log(err);
