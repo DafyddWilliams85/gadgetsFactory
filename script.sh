@@ -34,6 +34,8 @@ cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i fs-extra && echo fs-ex
 
 rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
 
+pm2 kill 'all' && pm2 del 'all' 
+
 cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
 
 cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID  pm2 start 'npm start' --name 'pagePublisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
