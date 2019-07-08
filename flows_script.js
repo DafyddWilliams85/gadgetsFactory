@@ -1,15 +1,6 @@
 var fs    = require('fs-extra');
-var shell = require('shelljs');
-// var cmd = require('node-cmd');
+// var shell = require('shelljs');
 
-console.log({
-  "test" : "flows_scrips RUNNNN!!!!!!!",
-  "dir":__dirname,
-    "database": JSON.parse(fs.readFileSync(__dirname+"/database.json")),
-    [process.env.TYPE + "_database"]: JSON.parse(fs.readFileSync(__dirname+"/database.json"))[process.env.TYPE],
-    APP_ID:process.env.APP_ID,
-    shell:shell
-}) ;
 var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, database  ){
 
  fs.ensureDirSync(__dirname + '/old/');
@@ -66,7 +57,9 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
       __dirname+ "/database.json"
     )
 
-shell.exec('pm2 restart ecosystem.config.js --env ' + process.env.TYPE , function(code, output) {
-      console.log('Exit code:', code);
-      console.log('Program output:', output);
-    });
+// console.log("pre PM2 start with TYPE === " + process.env.TYPE )
+// shell.exec('pm2 restart ../../../../../root/ecosystem.config.js --env ' + process.env.TYPE , function(code, output) {
+//       console.log('Exit code:', code);
+//       console.log('Program output:', output);
+//     });
+// console.log("POST PM2 start with TYPE === " + process.env.TYPE )
