@@ -29,11 +29,11 @@ echo  pagePublisher branch : $pagePublisherBranch cloned
 cd  ../../../../var/www/pagePublisher && echo In PagePublisherFolder && npm i && echo In PagePublisherFolder INSTALLED && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL node pagePublisherStartScript.js
 
 echo  baseUrl in configValue.js file changed to : $API_URL
- # npm i shelljs &&  echo shelljs installed in pmt_baseApp && 
+ # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&
 cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i fs-extra && echo fs-extra installed in pmt_baseApp && TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
 rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
 
-cd ../../../../../../root/.node-red && pm2 start node-red --name 'Backend API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
+cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
 
-cd ../../../../../../var/www/pagePublisher && pm2 start 'npm start' --name 'pagePublisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID  pm2 start 'npm start' --name 'pagePublisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
