@@ -13,8 +13,8 @@
                                   },
 "DomainProperties"  :  {
                                     "dir":"/opt/revotio/public/webpages/",
-                                    "url":"http://nodeapi:1880/",
-                                    "prodUrl":"https://complete.revotio.com/",
+                                    "url":"http://localhost:1880/",
+                                    "prodUrl":"http://localhost/",
                                     "port":"1880/",
                                     "DefaultPage":"organizations global",
                                     "NonAuthDefaultPage":"user authentication",
@@ -30,7 +30,7 @@
                                     "RevotioUserPassword":"vpPhFHspAaPcFrEVotu3CVRQ",
                                     "version":"NEW",
                                     "routing":"nodeAPI",
-                                    "form-menu":"http://form_menu:1880/"
+                                    "form-menu":"http://localhost:1880/",
                                 },
 
 

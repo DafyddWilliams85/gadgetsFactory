@@ -1,26 +1,26 @@
 
 {
   "DB_data"  :   {
-                      "connection":  "mongodb://admin:mpwrff2pEzykGAWYVnjATdJi@cluster0-shard-00-00-ofn9v.mongodb.net:27017,cluster0-shard-00-01-ofn9v.mongodb.net:27017,cluster0-shard-00-02-ofn9v.mongodb.net:27017/admin?ssl=true&replicaSet=Cluster0-shard-0",
-                      "appDB" : "pno_compliance_pmt"
+                      "connection":  "mongodb://admin:FenecLCnGoMTXKXevM6YfTPo@cluster0-shard-00-00-nomsh.mongodb.net:27017,cluster0-shard-00-01-nomsh.mongodb.net:27017,cluster0-shard-00-02-nomsh.mongodb.net:27017/admin?ssl=true&replicaSet=Cluster0-shard-0",
+                      "appDB" : "cml"
                   },
 "DB_data_mongodb2"  :   {
-                        "connection":"mongodb://cluster0-shard-00-00-ofn9v.mongodb.net:27017,cluster0-shard-00-01-ofn9v.mongodb.net:27017,cluster0-shard-00-02-ofn9v.mongodb.net:27017/pno_compliance_pmt?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true",
-                        "appDB" : "pno_compliance_pmt",
+                        "connection":"mongodb://cluster0-shard-00-00-nomsh.mongodb.net:27017,cluster0-shard-00-01-nomsh.mongodb.net:27017,cluster0-shard-00-02-nomsh.mongodb.net:27017/cml?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true",
+                        "appDB" : "cml",
                         "username" : "admin",
-                        "password": "mpwrff2pEzykGAWYVnjATdJi"
+                        "password": "FenecLCnGoMTXKXevM6YfTPo"
                         },
 "DomainProperties"  :  {
                         "dir":"/opt/revotio/public/webpages/",
-                        "url":"https://services-ffiqs.revotio.com/",
-                        "prodUrl":"https://ffiqs.revotio.com",
+                        "url":"https://services-cml.revotio.com/"
+                        "prodUrl":"https://cml.revotio.com",
                         "port":"1880/",
                         "DefaultPage" : "organizations global" ,
                         "NonAuthDefaultPage" : "user authentication",
                         "ClientDefaultPage" : "organization overview",
                         "PNODefaultPage": "organizations global" ,
                         "StillSessionTime" : 600,
-                        "RootDomain": "https://ffiqs.revotio.com/",
+                        "RootDomain": "https://cml.revotio.com/",
                         "rootPath": "/files/",
                         "publicFolder": "/var/www/pagePublisher/",
                         "filesFolder":"/files/",
@@ -28,7 +28,7 @@
                         "RevotioUser" :  "admin",
                         "RevotioUserPassword": "vpPhFHspAaPcFrEVotu3CVRQ",
                         "version":"NEW",
-                        "form-menu":"https://services-ffiqs.revotio.com/",
+                        "form-menu":"https://services-cml.revotio.com/"
                 },
 "MasterOrganizationData" :   {"_id":"5b3360ce41c82d3f438035cb"}
                   }
