@@ -14,6 +14,14 @@ FRONTEND_DEVELOMENT
 5 = base_URL = https://services-frontend-development.revotio.com
 6  = pagePublisherBranch = develop ,
 
+COMPLETE
+1 = TYPE = cml,
+2 = APP_ID = 5bacdd9fb9bf1c120bef1088 ,
+3 = GIT_USERNAME = revotio ,
+4  = GIT_PASSWORD = AUwuBwEXuFsbetDTf2gp ,
+5 = base_URL = https://services-complete.revotio.com
+6  = pagePublisherBranch = develop ,
+
 FFIQS
 1 = TYPE = ffiqs,
 2 = APP_ID = 5bacdd9fb9bf1c120bef1088 ,
@@ -21,6 +29,7 @@ FFIQS
 4  = GIT_PASSWORD = AUwuBwEXuFsbetDTf2gp ,
 5 = base_URL = https://services-ffiqs.revotio.com
 6  = pagePublisherBranch = develop ,
+
 
 CML
 1 = TYPE = cml,

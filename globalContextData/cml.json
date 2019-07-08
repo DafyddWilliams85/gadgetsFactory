@@ -12,7 +12,7 @@
                         },
 "DomainProperties"  :  {
                         "dir":"/opt/revotio/public/webpages/",
-                        "url":"https://services-cml.revotio.com/"
+                        "url":"http://localhost:1880/",
                         "prodUrl":"https://cml.revotio.com",
                         "port":"1880/",
                         "DefaultPage" : "organizations global" ,
@@ -28,7 +28,7 @@
                         "RevotioUser" :  "admin",
                         "RevotioUserPassword": "vpPhFHspAaPcFrEVotu3CVRQ",
                         "version":"NEW",
-                        "form-menu":"https://services-cml.revotio.com/"
+                        "form-menu":"http://localhost:1880/"
                 },
 "MasterOrganizationData" :   {"_id":"5b3360ce41c82d3f438035cb"}
                   }

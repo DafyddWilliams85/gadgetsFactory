@@ -13,7 +13,7 @@
                                   },
 "DomainProperties"  :  {
                                 "dir":"/opt/revotio/public/webpages/",
-                                "url":"https://services-development.revotio.com/",
+                                "url":"http://localhost:1880/",
                                 "prodUrl":"https://development.revotio.com",
                                 "port":"1880/",
                                 "DefaultPage" : "organizations global" ,
@@ -28,7 +28,7 @@
                                 "RevotioUserPassword": "vpPhFHspAaPcFrEVotu3CVRQ",
                                 "version":"NEW",
                                 "routing": "local",
-                                "form-menu":"https://services-development.revotio.com/"
+                                "form-menu":"http://localhost:1880/"
                                 },
 
 
