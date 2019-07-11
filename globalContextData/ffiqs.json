@@ -28,7 +28,7 @@
                         "RevotioUser" :  "admin",
                         "RevotioUserPassword": "vpPhFHspAaPcFrEVotu3CVRQ",
                         "version":"NEW",
-                        "form-menu":"http://localhost:1880/",
+                        "form-menu":"http://localhost:1880/"
                 },
 "MasterOrganizationData" :   {"_id":"5b3360ce41c82d3f438035cb"}
                   }

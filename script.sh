@@ -34,8 +34,12 @@ cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i fs-extra && echo fs-ex
 
 rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
 
+pm2 stop all && pm2 del all
 
-pm2 stop 'Backend API = ' $TYPE && pm2 del 'Backend API = ' $TYPE
-cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend API = ' $TYPE -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
+pm2 stop 'Backend API = '$TYPE && pm2 del 'Backend API = '$TYPE
+pm2 stop $TYPE'- API' && pm2 del $TYPE'- API'
+cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name $TYPE'- API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
+
 pm2 stop 'pagePublisher = '$TYPE && pm2 del 'pagePublisher = '$TYPE
-cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID  pm2 start 'npm start' --name 'pagePublisher = '$TYPE -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+pm2 stop $TYPE'- pP' && pm2 del $TYPE'- pP'
+cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
