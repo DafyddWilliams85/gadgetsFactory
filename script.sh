@@ -26,7 +26,9 @@ npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-ext
 
 echo  pagePublisher branch : $pagePublisherBranch cloned
 
-cd  ../../../../var/www/pagePublisher && echo In PagePublisherFolder && npm i && echo In PagePublisherFolder INSTALLED && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL node pagePublisherStartScript.js
+
+
+cd  ../../../../var/www/pagePublisher && echo In PagePublisherFolder && npm i && echo In PagePublisherFolder INSTALLED && npm i fs-extra && echo fs-extra installed && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL node pagePublisherStartScript.js
 
 echo  baseUrl in configValue.js file changed to : $API_URL
  # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&
