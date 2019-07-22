@@ -23,6 +23,7 @@
                                 "StillSessionTime" : 600,
                                 "RootDomain": "https://complete.revotio.com",
                                 "rootPath": "/files/",
+                                "filesFolder": "/files/",
                                 "rootFolder": "/var/www/pagePublisher/",
                                 "RevotioUser" :  "admin",
                                 "RevotioUserPassword": "vpPhFHspAaPcFrEVotu3CVRQ",
