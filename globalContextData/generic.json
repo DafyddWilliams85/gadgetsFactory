@@ -147,10 +147,10 @@
                   "Triangle":"SystemFiles/icons/TrangleIcon.svg"
                },
                "images":{
-                  "organization":"/SystemFiles/icons/icon_organization.svg",
-                  "project":"/SystemFiles/icons/icon_rocket.svg",
-                  "employee":"/SystemFiles/icons/icon_rocket.svg",
-                  "user":"/SystemFiles/icons/icon_user.svg"
+                  "organization":"/files/SystemFiles/icons/icon_organization.svg",
+                  "project":"/files/SystemFiles/icons/icon_rocket.svg",
+                  "employee":"/files/SystemFiles/icons/icon_rocket.svg",
+                  "user":"/files/SystemFiles/icons/icon_user.svg"
                }
 
   },
