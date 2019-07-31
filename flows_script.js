@@ -51,6 +51,10 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
   fs.writeFile(__dirname + "/deletedSubflowItems_json_flow.json", deletedSubflowItems_json_flows, 'utf8');
 
 };
+
+fs.removeSync('/root/.node-red/settings.js')
+fs.copySync('settings.js', '/root/.node-red/settings.js')
+
     flows_flows_credActions(
       __dirname+ "/flow.json",
       __dirname+ "/flow_cred.json",

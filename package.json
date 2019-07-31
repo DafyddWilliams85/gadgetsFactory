@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "dependencies": {
         "fs-extra": "^8.1.0",
+        "mime": "^2.4.4",
         "node-cmd": "^3.0.0"
     },
     "node-red": {
