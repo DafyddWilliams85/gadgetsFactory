@@ -183,10 +183,26 @@
 
   },
 "topbar_design" :{
-        "background-color":"#1D2531",
-        "position":"sticky",
-        "top":0,
-        "z-index":1,
-        "height": "auto"
-      }
+      "pageSpecificContanerPlaceholder":{
+                "background-color":"#1D2531",
+                "position":"sticky",
+                "top":0,
+                "z-index":1,
+                "height": "auto",
+                "margin-right": "-20px",
+                "margin-left": "-20px",
+                "width": "auto",
+                "box-shadow": "none"
+      },
+      "23b336f8-dcc1-49b4-3554-dabbb72f8011": {
+             "width": "auto"
+        },
+        "6007a4d7-e061-c25e-1a41-ab68e220d473": {
+            "width": "auto",
+            "max-width": "85%"
+        },
+        "1a99cddc-94bb-624d-69c3-4bf91c372a8f": {
+           "width": "auto"
+        }
     }
+}

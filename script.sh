@@ -18,7 +18,7 @@ echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,3 = GIT_USERNAME = $GIT_USERNAME ,
 
 rm -rf "../../../../var/www/pagePublisher"
 
-mkdir "../../../../var/www/pagePublisher"
+# mkdir "../../../../var/www/pagePublisher"
 
 echo "pagePublisher reset completed"
 
@@ -29,7 +29,7 @@ echo  pagePublisher branch : $pagePublisherBranch cloned
 cd  ../../../../var/www/pagePublisher && echo In PagePublisherFolder && npm i && echo In PagePublisherFolder INSTALLED && npm i fs-extra && echo fs-extra installed && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL node pagePublisherStartScript.js
 
 echo  baseUrl in configValue.js file changed to : $API_URL
- # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&   rsync(settings.js ../../settings.js) && echo >>>>>rsync move completed<<<<< &&  
+ # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&   rsync(settings.js ../../settings.js) && echo >>>>>rsync move completed<<<<< &&
 
 cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i fs-extra && echo fs-extra installed in pmt_baseApp && npm install mime && echo NPM MIME installed in pmt_baseApp && TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
