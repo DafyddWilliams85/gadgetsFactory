@@ -16,6 +16,9 @@ read pagePublisherBranch
 
 echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,3 = GIT_USERNAME = $GIT_USERNAME ,4 = GIT_PASSWORD = $GIT_PASSWORD , 5 = API_URL = $API_URL , 6 = pagePublisherBranch = $pagePublisherBranch ,
 
+now=$(date +"%T")
+echo "Started @ : $now"
+
 rm -rf "../../../../var/www/pagePublisher"
 
 # mkdir "../../../../var/www/pagePublisher"
@@ -44,3 +47,6 @@ cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-
 pm2 stop 'pagePublisher = '$TYPE && pm2 del 'pagePublisher = '$TYPE
 pm2 stop $TYPE'- pP' && pm2 del $TYPE'- pP'
 cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+
+now=$(date +"%T")
+echo "Completed @ : $now"
