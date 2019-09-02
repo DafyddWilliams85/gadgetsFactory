@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # turn on bash's job control
-echo 1/6 Hello, what type of application would you like to deploy?
+echo 1/7 Hello, what type of application would you like to deploy?
 read TYPE
-echo 2/6 Whats the app_ id?
+echo 2/7 Whats the app_ id?
 read APP_ID
 echo 3/7 Deployment type ?
 read DEPLOYMENTTYPE

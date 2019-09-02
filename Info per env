@@ -1,7 +1,7 @@
 DEVELOPMENT
 1 = TYPE = development,
 2 = APP_ID = 5bacdd9fb9bf1c120bef1088 ,
-3 = DEPLOYMENTTYPE = production,
+3 = DEPLOYMENTTYPE = production, // development,
 4 = GIT_USERNAME = revotio ,
 5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 6 = base_URL = https://services-development.revotio.com
@@ -10,7 +10,7 @@ DEVELOPMENT
 DEVELOPMENT FFIQS
 1 = TYPE = development-ffiqs,
 2 = APP_ID = 5bacdd9fb9bf1c120bef1088 ,
-3 = DEPLOYMENTTYPE = production,
+3 = DEPLOYMENTTYPE = production, // development,
 4 = GIT_USERNAME = revotio ,
 5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 6 = base_URL = https://services-development.revotio.com
@@ -19,7 +19,16 @@ DEVELOPMENT FFIQS
 DEVELOPMENT CML
 1 = TYPE = development-cml,
 2 = APP_ID = 5bacdd9fb9bf1c120bef1088 ,
-3 = DEPLOYMENTTYPE = production,
+3 = DEPLOYMENTTYPE = production, // development,
+4 = GIT_USERNAME = revotio ,
+5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
+6 = base_URL = https://services-development.revotio.com
+7  = pagePublisherBranch = develop ,
+
+DEVELOPMENT DEMO
+1 = TYPE = development-demo,
+2 = APP_ID = 5bacdd9fb9bf1c120bef1088 ,
+3 = DEPLOYMENTTYPE = production, // development,
 4 = GIT_USERNAME = revotio ,
 5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 6 = base_URL = https://services-development.revotio.com

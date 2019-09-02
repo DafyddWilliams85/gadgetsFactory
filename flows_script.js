@@ -41,7 +41,26 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
      process.env.DEPLOYMENTTYPE.toLowerCase() === "production" &&
      item.type === "debug"
    ){
-        item.active  = false
+        if (item.name !== "ERROR"){
+          item.active  = false
+        } else {
+          item.active  = true
+        }
+
+   } else if (
+     process.env.DEPLOYMENTTYPE.toLowerCase() === "development" &&
+     item.type === "debug"
+   ){
+       item.active  = true
+   }  else if (
+     process.env.DEPLOYMENTTYPE.toLowerCase() === "staging" &&
+     item.type === "debug"
+   ){
+     if (item.name !== "ERROR"){
+       item.active  = false
+     } else {
+       item.active  = true
+     }
    }
 
 
