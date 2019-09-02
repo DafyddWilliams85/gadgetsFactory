@@ -37,9 +37,19 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
       }
     }
 
-    replaced = false
+    if (
+     process.env.DEPLOYMENTTYPE.toLowerCase() === "production" &&
+     item.type === "debug"
+   ){
+        item.active  = false
+   }
 
-      createdElements.push(item)
+
+       replaced = false
+       createdElements.push(item)
+
+
+
 
   });
 

@@ -5,19 +5,21 @@ echo 1/6 Hello, what type of application would you like to deploy?
 read TYPE
 echo 2/6 Whats the app_ id?
 read APP_ID
-echo 3/6 GitHub username?
+echo 3/7 Deployment type ?
+read DEPLOYMENTTYPE
+echo 4/7 GitHub username?
 read GIT_USERNAME
-echo 4/6 GitHub password?
+echo 5/7 GitHub password?
 read GIT_PASSWORD
-echo 5/6 nodeAPI URL ? Should be services- + root domain
+echo 6/7 nodeAPI URL ? Should be services- + root domain
 read API_URL
-echo 6/6 Finally the pagePublisher Branch ?
+echo 7/7 Finally the pagePublisher Branch ?
 read pagePublisherBranch
 
 sudo apt-get install fortune cowsay -y
 sudo apt-get install figlet -y
 
-echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,3 = GIT_USERNAME = $GIT_USERNAME ,4 = GIT_PASSWORD = $GIT_PASSWORD , 5 = API_URL = $API_URL , 6 = pagePublisherBranch = $pagePublisherBranch | cowsay ,
+echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch | cowsay ,
 
 now=$(date +"%T")
 figlet "Started @ : $now"
@@ -37,7 +39,7 @@ cd  ../../../../var/www/pagePublisher && figlet In PagePublisherFolder && npm i 
 echo  baseUrl in configValue.js file changed to : $API_URL | cowsay
  # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&   rsync(settings.js ../../settings.js) && echo >>>>>rsync move completed<<<<< &&
 
-cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i fs-extra && figlet fs-extra installed in pmt_baseApp && npm install mime && figlet NPM MIME installed in pmt_baseApp && TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
+cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i fs-extra && figlet fs-extra installed in pmt_baseApp && npm install mime && figlet NPM MIME installed in pmt_baseApp && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
 rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
 
