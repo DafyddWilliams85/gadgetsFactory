@@ -267,7 +267,8 @@ module.exports = {
       // file : require('file-system'),
       mongodbTools:require('node-red-mongodb-tool-belt'),
       xmldoc: require('xmldoc'),
-      mime :require('mime')
+      mime :require('mime'),
+      mime :require('request')
     },
 
     // Context Storage
