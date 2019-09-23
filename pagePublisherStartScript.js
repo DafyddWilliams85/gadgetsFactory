@@ -23,7 +23,7 @@ if (process.env.pagePublisherVersion === "NEW"){
 
 
   console.log(results)
-  
+
 } else {
 
     var configValue = fs.readFileSync(__dirname +"/js/value/configValue.js").toString('utf8')
