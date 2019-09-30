@@ -30,6 +30,11 @@ rm -rf "../../../../var/www/pagePublisher"
 
 echo "pagePublisher reset completed" | cowsay
 
+rm -rf "../../../../../../root/pagePublisher.log"
+rm -rf "../../../../../../root/node-redLogs.log"
+
+echo "Log files removed" | cowsay
+
 npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed &&  BRANCH=$pagePublisherBranch GIT_USERNAME=$GIT_USERNAME GIT_PASSWORD=$GIT_PASSWORD PAGE_PUBLISHER_VERSION=$pagePublisherVersion node startScript.js
 
 echo  pagePublisher branch : $pagePublisherBranch cloned | cowsay

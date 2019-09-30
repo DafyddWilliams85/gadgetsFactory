@@ -7,7 +7,7 @@ const replace_in_file = require('replace-in-file');
 var API_URL = process.env.API_URL
 
 if (process.env.pagePublisherVersion === "NEW"){
-    var configValue = fs.readFileSync(__dirname +"/src/common/config.js").toString('utf8')
+    var configValue = fs.readFileSync(__dirname +"/src/common/api_config.js").toString('utf8')
 
     console.log(configValue)
 
@@ -15,7 +15,7 @@ if (process.env.pagePublisherVersion === "NEW"){
     // console.log(configValue)
 
     const results = replace_in_file.sync({
-      files: __dirname +"/src/common/config.js",
+      files: __dirname +"/src/common/api_config.js",
       from: /baseUrlPlaceholder/g,
       to:  API_URL,
       countMatches: true
