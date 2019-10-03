@@ -68,13 +68,13 @@ if [ "$pagePublisherVersion" = "OLD" ]
 then
   cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
   echo OLD pagePublisher started
-elif [ "$DEPLOYMENTTYPE" = "production" ]
+elif [ "$pagePublisherBranch" = "develop" ]
 then
-  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-  echo NEW PROD pagePublisher started
+  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+  echo NEW DEV pagePublisher started
 else
-    cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-    echo NEW DEV pagePublisher started
+  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+  echo NEW PROD pagePublisher started
 fi
 
 
