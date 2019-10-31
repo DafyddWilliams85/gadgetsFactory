@@ -1,0 +1,72 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mailgun', {
+        category: 'social',
+        color: 'rgb( 63, 173, 181)',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        align: "right",
+        icon: "envelope.png",
+        paletteLabel: 'mailgun',
+        label: function() { return this.name || "ui mailgun"; },
+        labelStyle: function() { return this.name?"node_label_italic":""; }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="mailgun">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-emailprovider"><i class="fa fa-mail"></i> <span data-i18n="file.label.emailprovider"></span>Email Provider</label>
+        <select id="node-input-email-provider" style="width:250px;">
+                <option value="Mailgun">Mailgun</option>
+        </select>
+    </div>
+
+    <div class="form-row node-input-mg-domain">
+     <label for="node-input-emaildomain"><i class="fa fa-file"></i> <span data-i18n="file.label.emaildomain"></span>Email domain</label>
+     <input id="node-input-emaildomain" type="text">
+    </div>
+
+    <div class="form-row node-input-mg-domain">
+     <label for="node-input-emaildomain"><i class="fa fa-file"></i> <span data-i18n="file.label.emaildomain"></span>Mailgun API Key</label>
+     <input id="node-input-emaildomain" type="text">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="mailgun">
+    <p>Sends and receive emails via mailgun API</p>
+    <b>The inbound msg should be formated like the example below, adjusting mydomain.com to yours</b>
+    <ul>
+        <li>
+            <p>The email object contains the api key, the headers, the email data and the email html template</p>
+
+        </li>
+        <li>
+            <b>This is and example of a mail object for the msg with the mandatory email headers:</b>
+            <pre>{
+                   "apiKey":"5t30caa2e664054f2add1cdf752cd5a-bd350f28-d9a37932",
+                   "domain":"mail.yourdomain.com",
+                   "emailHeaders":{
+                      "from":"My mail service <postmaster@mail.yourdomain.com>",
+                      "to":"jhondoe@yahoo.com",
+                      "subject":"Test with mailgun",
+                      "body":"Test with mailgun"
+                   },
+                   "emailData":{
+                      "optional key-one":"some value",
+                      "optional key-two":"some other value !!!"
+                   },
+                   "emailTemplate":"<html>Here you should put your HTML template</html>"
+                }
+            </pre>
+
+        </li>
+    </ul>
+</script>

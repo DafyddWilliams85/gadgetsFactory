@@ -48,7 +48,15 @@ cd  ../../../../var/www/pagePublisher && figlet In PagePublisherFolder && npm in
 echo  baseUrl in configValue.js file changed to : $API_URL | cowsay
  # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&   rsync(settings.js ../../settings.js) && echo >>>>>rsync move completed<<<<< &&
 
-cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i exceljs && figlet exceljs installed in pmt_baseApp && npm i fs-extra && figlet fs-extra installed in pmt_baseApp && npm install mime && figlet NPM MIME installed in pmt_baseApp && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
+cd ../../../root/.node-red/ && npm i exceljs && figlet exceljs installed in node red ROOT && npm i fs-extra && figlet fs-extra installed node red ROOT && npm install mime && figlet NPM MIME installed node red ROOT
+
+cp -r ../../../../../root/.node-red/projects/pmt_baseApp/customNodeModules/node-red-mongodb-tool-belt ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cd ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && npm i && echo node-red-mongodb-tool-belt INSTALLED
+cp -r ../../../../../root/.node-red/projects/pmt_baseApp/customNodeModules/node-red-contrib-mongodb2 ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cd ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && npm i && echo node-red-contrib-mongodb2 INSTALLED
+cp -r ../../../../../root/.node-red/projects/pmt_baseApp/customNodeModules/node-red-fsmanager ../../../../../root/.node-red/node_modules/node-red-fsmanager && cd ../../../../../root/.node-red/node_modules/node-red-fsmanager && npm i && echo node-red-fsmanager INSTALLED
+cp -r ../../../../../root/.node-red/projects/pmt_baseApp/customNodeModules/node-red-mailgun ../../../../../root/.node-red/node_modules/node-red-mailgun && cd ../../../../../root/.node-red/node_modules/node-red-mailgun && npm i && echo node-red-mailgun INSTALLED
+
+ # && npm i exceljs && figlet exceljs installed in pmt_baseApp && npm i fs-extra && figlet fs-extra installed in pmt_baseApp && npm install mime && figlet NPM MIME installed in pmt_baseApp &&
+cd ../../../../../root/.node-red/projects/pmt_baseApp/ && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
 rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
 
@@ -76,9 +84,6 @@ else
   cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
   echo NEW PROD pagePublisher started
 fi
-
-
-
 
 figlet DONE :-D
 

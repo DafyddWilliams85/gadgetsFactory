@@ -1,0 +1,110 @@
+# A node red node typically consist of a pair of files; a JavaScript file that defines what the node does, and an html file that defines the node’s properties, edit dialog and help text.
+
+A package.json file is used to package it all together as an npm module.
+
+## In the case of the mailngun node we have :
+
+The package.json wish contains a two dependencies the mailgun-js and the mailcomposer modules, the mailgun-js is the client module for the mailgun API, the mailcomposer is to build the email in the correct way in order to be processed by the mailgun API
+
+{
+  "name": "node-red-mailgun",
+  "version": "0.1.0",
+  "description": "Node Red Node, Mail Gun API",
+  "keywords": [
+    "node-red",
+    "mailgun"
+  ],
+  "author": {
+    "name": "Bruno"
+  },
+  "license": "Comercial",
+  "dependencies": {
+    "mailgun-js": "*",
+    "mailcomposer": "^4.0.2"
+    },
+  "engines": {
+    "node": "*"
+  },
+  "node-red": {
+    "nodes": {
+      "mailgun": "mailgun.js"
+    }
+  }
+}
+
+
+## Then we have the  JavaScript file fsmanager.js
+
+the file is made of the node-red wraper like any other node and it starts with a mandatory:
+
+module.exports = function (RED) {
+
+## Then  just after at the top we require the  mailcomposer module.
+
+    var mailcomposer = require('mailcomposer');
+
+## Then it starts the main function that will be registered with node-red as being the node this is default from node-red
+
+    function MailgunNode(n) {
+
+        RED.nodes.createNode(this, n);
+
+        var node = this;
+
+##  With this we can use the node methods so will use the default listen to get the input msg and check if the payload is correct if it's not we send an error
+
+ node.on('input', function (msg) {
+
+            iif (!msg.payload ||
+             typeof msg.payload !== "object" ||
+             !msg.payload.domain ||
+             !msg.payload.apiKey ||
+             !msg.payload.emailHeaders ||
+             !msg.payload.emailTemplate ||
+             !msg.payload.emailHeaders.to) {
+
+                this.send({error:'the msg is not correct!',msg:msg});
+                return;
+            }
+
+## If everything is ok with the mail object then we instaciate the mailgun library with the credentials send on msg.payload
+
+            else{
+              // MAILGUN SETUP
+              var mailgun = require('mailgun-js')({
+                  apiKey:  msg.payload.apiKey,
+                  domain: msg.payload.domain
+              });
+            }
+
+
+
+## Then we use the mailcomposer to build the email for us based on the msg.payload
+
+          var mail = mailcomposer({
+                from: msg.payload.emailHeaders.from,
+                to: msg.payload.emailHeaders.to,
+                subject: msg.payload.emailHeaders.subject,
+                body: msg.payload.emailHeaders.body,
+                html: msg.payload.emailTemplate
+            });
+
+          mail.build(function (mailBuildError, message) {  
+
+## the inside the build call if everything goes well will perfom the mailgun API call to send the email if it's sucessful it issues a message with an json object stating to the node stating send:'true' and msg with the response of mailgun otherwise we send the error coming from mailgun 
+
+
+                var dataToSend = {
+                    to: msg.payload.emailHeaders.to,
+                    message: message.toString('ascii')
+                };
+
+                mailgun.messages().sendMime(dataToSend, function (sendError, body) {
+                    if (sendError) {
+                        node.send({send:sendError});
+                        return;
+                    }
+                    node.send({send:'true',msg:body});
+                });
+
+    
