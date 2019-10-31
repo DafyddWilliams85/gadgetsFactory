@@ -1,0 +1,25 @@
+{
+  "name": "node-red-mailgun",
+  "version": "0.1.0",
+  "description": "Node Red Node, Mail Gun API",
+  "keywords": [
+    "node-red",
+    "mailgun"
+  ],
+  "author": {
+    "name": "Bruno"
+  },
+  "license": "Comercial",
+  "dependencies": {
+    "mailgun-js": "*",
+    "mailcomposer": "^4.0.2"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "node-red": {
+    "nodes": {
+      "mailgun": "mailgun.js"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "node-red-fsmanager",
+  "version": "0.1.0",
+  "description": "Node Red Node, adavanced file system mamager",
+  "author": {
+    "name": "Bruno de Sousa"
+  },
+  "license": "Comercial",
+  "dependencies": {
+    "fs-jetpack": "^2.1.1"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "node-red": {
+    "nodes": {
+      "fsmanager": "fsmanager.js"
+    }
+  }
+}

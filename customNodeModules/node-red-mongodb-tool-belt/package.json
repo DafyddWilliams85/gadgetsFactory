@@ -1,0 +1,19 @@
+{
+  "name": "node-red-mongodb-tool-belt",
+  "version": "0.1.0",
+  "description": "Node Red Tools Module for MongoDB",
+  "keywords": [
+    "node-red",
+    "mongodb"
+  ],
+  "author": {
+    "name": "Bruno de Sousa"
+  },
+  "license": "Comercial",
+  "dependencies": {
+    "mongoose": "^4.13.15"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
