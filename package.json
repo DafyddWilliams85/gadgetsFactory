@@ -3,6 +3,7 @@
     "description": "A Node-RED Project",
     "version": "0.0.1",
     "dependencies": {
+        "exceljs": "^3.1.0",
         "fs-extra": "^8.1.0",
         "mime": "^2.4.4",
         "node-cmd": "^3.0.0"

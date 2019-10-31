@@ -48,7 +48,7 @@ cd  ../../../../var/www/pagePublisher && figlet In PagePublisherFolder && npm in
 echo  baseUrl in configValue.js file changed to : $API_URL | cowsay
  # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&   rsync(settings.js ../../settings.js) && echo >>>>>rsync move completed<<<<< &&
 
-cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i fs-extra && figlet fs-extra installed in pmt_baseApp && npm install mime && figlet NPM MIME installed in pmt_baseApp && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
+cd ../../../root/.node-red/projects/pmt_baseApp/ && npm i exceljs && figlet exceljs installed in pmt_baseApp && npm i fs-extra && figlet fs-extra installed in pmt_baseApp && npm install mime && figlet NPM MIME installed in pmt_baseApp && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
 rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
 

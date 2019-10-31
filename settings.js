@@ -268,6 +268,8 @@ module.exports = {
       mongodbTools:require('node-red-mongodb-tool-belt'),
       xmldoc: require('xmldoc'),
       mime :require('mime'),
+      exceljs :require('exceljs'),
+      // exceljs :require('exceljs/modern.nodejs'),
       // mime :require('request')
     },
 
