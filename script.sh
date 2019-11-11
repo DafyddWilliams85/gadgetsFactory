@@ -1,27 +1,29 @@
 #!/bin/bash
 
 # turn on bash's job control
-echo 1/8 Hello, what type of application would you like to deploy?
+echo 1/9 Hello, what type of application would you like to deploy?
 read TYPE
-echo 2/8 Whats the app_ id?
+echo 2/9 Whats the app_ id?
 read APP_ID
-echo 3/8 Deployment type ?
+echo 3/9 Deployment type ?
 read DEPLOYMENTTYPE
-echo 4/8 GitHub username?
+echo 4/9 GitHub username?
 read GIT_USERNAME
-echo 5/8 GitHub password?
+echo 5/9 GitHub password?
 read GIT_PASSWORD
-echo 6/8 nodeAPI URL ? Should be services- + root domain
+echo 6/9 nodeAPI URL ? Should be services- + root domain
 read API_URL
-echo 7/8 the pagePublisher Branch ?
+echo 7/9 the pagePublisher Branch ?
 read pagePublisherBranch
-echo 8/8 Finally the pagePublisher version , options are NEW or OLD  ?
+echo 8/9 Web socket connection  ?
+read WSS_BASE_URL
+echo 8/9 Finally the pagePublisher version , options are NEW or OLD  ?
 read pagePublisherVersion
 
 sudo apt-get install fortune cowsay -y
 sudo apt-get install figlet -y
 
-echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = pagePublisherVersion = $pagePublisherVersion ,
+echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = WSS_BASE_URL = WSS_BASE_URL, 9, pagePublisherVersion = $pagePublisherVersion ,
 
 now=$(date +"%T")
 figlet "Started @ : $now"
@@ -43,7 +45,7 @@ cp  ../../../../root/.node-red/projects/pmt_baseApp/pagePublisherStartScript.js 
 
 echo  pagePublisherStartScript.js copied | cowsay
 
-cd  ../../../../var/www/pagePublisher && figlet In PagePublisherFolder && npm install && figlet In PagePublisherFolder INSTALLED && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL pagePublisherVersion=$pagePublisherVersion node pagePublisherStartScript.js
+cd  ../../../../var/www/pagePublisher && figlet In PagePublisherFolder && npm install && figlet In PagePublisherFolder INSTALLED && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL pagePublisherVersion=$pagePublisherVersion node pagePublisherStartScript.js
 
 echo  baseUrl in configValue.js file changed to : $API_URL | cowsay
  # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&   rsync(settings.js ../../settings.js) && echo >>>>>rsync move completed<<<<< &&

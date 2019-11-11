@@ -5,8 +5,9 @@ DEVELOPMENT
 4 = GIT_USERNAME = revotio ,
 5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 6 = base_URL = https://services-development.revotio.com
-7  = pagePublisherBranch = develop ,
-8 = OLD, // OLD - NEW
+7 = pagePublisherBranch = develop ,
+8 = wss://services-development.revotio.com/ws/chat
+9 = OLD, // OLD - NEW
 
 DEVELOPMENT FFIQS
 1 = TYPE = development-ffiqs,
@@ -16,7 +17,8 @@ DEVELOPMENT FFIQS
 5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 6 = base_URL = https://services-development.revotio.com
 7  = pagePublisherBranch = develop ,
-8 = OLD, // OLD - NEW
+8 = wss://services-development.revotio.com/ws/chat
+9 = OLD, // OLD - NEW
 
 DEVELOPMENT CML
 1 = TYPE = development-cml,
@@ -26,7 +28,8 @@ DEVELOPMENT CML
 5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 6 = base_URL = https://services-development.revotio.com
 7  = pagePublisherBranch = develop ,
-8 = OLD, // OLD - NEW
+8 = wss://services-development.revotio.com/ws/chat
+9 = OLD, // OLD - NEW
 
 DEVELOPMENT DEMO
 1 = TYPE = development-demo,
@@ -36,7 +39,8 @@ DEVELOPMENT DEMO
 5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 6 = base_URL = https://services-development.revotio.com
 7  = pagePublisherBranch = develop ,
-8 = OLD, // OLD - NEW
+8 = wss://services-development.revotio.com/ws/chat
+9 = OLD, // OLD - NEW
 
 FRONTEND_DEVELOMENT
 1 = TYPE = frontend_development,
@@ -46,7 +50,8 @@ FRONTEND_DEVELOMENT
 5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 6 = base_URL = https://services-frontend-development.revotio.com
 7  = pagePublisherBranch = develop ,
-8 = NEW, // OLD - NEW
+8 = wss://services-development.revotio.com/ws/chat
+9 = NEW , // OLD - NEW
 
 COMPLETE
 1 = TYPE = cml,
@@ -56,7 +61,8 @@ COMPLETE
 5  = GIT_PASSWORD =jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 6 = base_URL = https://services-complete.revotio.com
 7  = pagePublisherBranch = develop ,
-8 = OLD, // OLD - NEW
+8 = wss://services-development.revotio.com/ws/chat
+9 = OLD, // OLD - NEW
 
 FFIQS
 1 = TYPE = ffiqs,
@@ -66,7 +72,8 @@ FFIQS
 5  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh,
 6 = base_URL = https://services-ffiqs.revotio.com
 7  = pagePublisherBranch = develop ,
-8 = OLD, // OLD - NEW
+8 = wss://services-development.revotio.com/ws/chat
+9 = OLD, // OLD - NEW
 
 CML
 1 = TYPE = cml,
@@ -76,4 +83,5 @@ CML
 4  = GIT_PASSWORD = jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
 5 = base_URL = https://services-cml.revotio.com
 6  = pagePublisherBranch = develop ,
-8 = OLD, // OLD - NEW
+8 = wss://services-development.revotio.com/ws/chat
+9 = OLD, // OLD - NEW
