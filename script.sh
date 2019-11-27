@@ -60,19 +60,31 @@ rm -rf ../../../../../root/.node-red/node_modules/node-red-mailgun && cp -r ../.
  # && npm i exceljs && figlet exceljs installed in pmt_baseApp && npm i fs-extra && figlet fs-extra installed in pmt_baseApp && npm install mime && figlet NPM MIME installed in pmt_baseApp &&
 cd ../../../../../root/.node-red/projects/pmt_baseApp/ && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
+rm -rf ../../../../../files/SystemFiles
+mkdir -p ../../../../../files/SystemFiles
+cp -r ../../../../../root/.node-red/projects/pmt_baseApp/files/SystemFiles ../../../../../files
+echo  Content of files/ is now: | cowsay
+
+for entry in "../../../../../files"/*
+do
+  echo "$entry"
+done
+
 rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
 
 pm2 stop all && pm2 del all
 
-pm2 stop 'Backend API = '$TYPE && pm2 del 'Backend API = '$TYPE
-pm2 stop $TYPE'- API' && pm2 del $TYPE'- API'
-cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name $TYPE'- API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
-
-pm2 stop 'pagePublisher = '$TYPE && pm2 del 'pagePublisher = '$TYPE
-pm2 stop $TYPE'- pP' && pm2 del $TYPE'- pP'
+# pm2 stop 'Backend API = '$TYPE && pm2 del 'Backend API = '$TYPE
+# pm2 stop $TYPE'- API' && pm2 del $TYPE'- API'
+echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
+cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend - API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
+echo Backend started
+# pm2 stop 'pagePublisher = '$TYPE && pm2 del 'pagePublisher = '$TYPE
+# pm2 stop $TYPE'- pP' && pm2 del $TYPE'- pP'
 # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
 
 figlet Lets fire them up!!!!
+
 figlet $pagePublisherVersion  $DEPLOYMENTTYPE
 if [ "$pagePublisherVersion" = "OLD" ]
 then

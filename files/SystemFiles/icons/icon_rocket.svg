@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_rocket</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="1.02240115%" id="linearGradient-1">
+            <stop stop-color="#7D5BE2" offset="0%"></stop>
+            <stop stop-color="#9D8FE3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_rocket">
+            <circle id="Base" fill="url(#linearGradient-1)" cx="30" cy="30" r="30"></circle>
+            <path d="M31.2634277,45 L31,44 L30.5,47.0828857 L30,44 L29.7208252,45 L27,43 L34,43 L31.2634277,45 Z M22,43 C22.3827468,43 18,39.8122786 18,33 C18,28.9336875 21.8614139,28 22,28 C21.8614139,28 22.1220803,33.0550964 24,39 C22.0697602,41.0214482 22.3827468,43 22,43 Z M30,15 L30,12 L31,12 L31,15 C32.1337487,15.836796 35.50523,18.8956195 37,24 L24,24 C25.4447777,19.036796 28.7622673,15.9178974 30,15 Z M27,42 C26.6519106,42 24.0000004,33.1075383 24,29 C24.0000004,27.7572438 23.9980842,26.339576 24,25 L37,25 C37.012372,26.3415783 36.9999173,27.7592462 37,29 C36.9999173,33.0524735 34.3566296,42 34,42 L27,42 Z M30.5,32 C31.8807119,32 33,30.8807119 33,29.5 C33,28.1192881 31.8807119,27 30.5,27 C29.1192881,27 28,28.1192881 28,29.5 C28,30.8807119 29.1192881,32 30.5,32 Z M39,43 C38.6172532,43 38.9302398,41.0214482 37,39 C38.8779197,33.0550964 39.1395204,28 39,28 C39.1395204,28 43,28.9336875 43,33 C43,39.8122786 38.6172532,43 39,43 Z" id="Rocket-Icon" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

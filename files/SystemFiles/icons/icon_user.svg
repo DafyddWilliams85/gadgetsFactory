@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_user</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#C8270C" offset="0%"></stop>
+            <stop stop-color="#F45438" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_user">
+            <circle id="Users-background" fill="url(#linearGradient-1)" cx="30" cy="30" r="30"></circle>
+            <g id="Users-icon" transform="translate(18.000000, 16.000000)" fill="#FFFFFF">
+                <ellipse id="Oval" cx="12.3333333" cy="7.308" rx="6.5" ry="6.786"></ellipse>
+                <path d="M0.0555555556,29 C0.0555555556,21.228 5.55555556,14.906 12.2777778,14.906 C19,14.906 24.5,21.228 24.5,29 L0.0555555556,29 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
