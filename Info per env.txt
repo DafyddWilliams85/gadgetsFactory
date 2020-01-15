@@ -81,8 +81,8 @@ CML
 3 = DEPLOYMENTTYPE 		= production, // development,
 4 = GIT_USERNAME 		= revotio ,
 5 = GIT_PASSWORD 		= jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh ,
-6 = base_URL 			= https://services-cml
+6 = base_URL 			= https://services-new-cml.revotio.com
 7 = pagePublisherBranch 	= develop ,
-8 = WebSocket url 		= wss://services-cml.revotio.com/ws/chat
+8 = WebSocket url 		= wss://services-new-cml.revotio.com/ws/chat
 9 = Publisher version		= OLD, // OLD - NEW
 

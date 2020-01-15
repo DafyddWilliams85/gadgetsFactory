@@ -269,8 +269,9 @@ module.exports = {
       xmldoc: require('xmldoc'),
       mime :require('mime'),
       exceljs :require('exceljs'),
-      // exceljs :require('exceljs/modern.nodejs'),
-      // mime :require('request')
+      nodemailer :require('nodemailer'),
+      request : require('request'),
+      nodemailer_mailgun_transport : require('nodemailer-mailgun-transport')
     },
 
     // Context Storage
