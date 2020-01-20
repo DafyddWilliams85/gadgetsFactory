@@ -57,42 +57,37 @@ var resolveAsync = function(dbObj, node, _callback) {
         node.error(err);
         return;
     } else {
-
         if (dbObj.operation === 'find'){
             isFind = true;
         }
         if (dbObj.operation.indexOf('update') !== -1){
-
             isUpdate = true;
-
             console.log('isUpdate yeahhh');
-
             if (dbObj.query.update) {
-
                 update = dbObj.query.update;
-
+                console.log({update:update });
             } else {
 
                 err = {
                     Error: dbObj.operation+' has a wrong update object!'
                 }
                 node.error(err);
+                console.log({err:err });
                 return;
             }
             if (dbObj.query.options) {
 
                 options = dbObj.query.options;
-
+                console.log({options:options });
             } else {
 
                 err = {
                     Error: dbObj.operation+' has a wrong options object!'
                 }
+                console.log({err:err });
                 node.error(err);
                 return;
             }
-
-
         }
         if (dbObj.operation.indexOf('aggregate') !== -1) {
             isAggregate = true;
@@ -113,45 +108,49 @@ var resolveAsync = function(dbObj, node, _callback) {
         err = {
             Error: 'Wrong query'
         }
+
         node.error(err);
         return;
     } else {
         query = dbObj.query.query;
+
     }
     // dbObj.query.projection
     if (dbObj.query.projection) {
-
         projection = dbObj.query.projection;
 
     } else {
-
         projection = '';
     }
-
 
     MongoClient.connect(connUrl, function(err, db) {
 
         if (err) {
-			node.error(err);
+            console.log({err:err, text:"server response - connection error" });
+			       node.error(err);
         return;
 		}
 		else {
-
 	        dbo = db.db(database);
-
 	        collection = dbo.collection(collStr);
-
 	        if (isFind) {
 
 	            collection[operation](query, projection).toArray(function(err, result) {
 
 	                if (err) {
-						node.error(err);
+						              node.error(err);
+                          console.log({err:err, text: "find error"});
         				return;
 					}else {
-						_callback(result);
-					}
 
+              if (result.result) {
+                	_callback(result.result);
+
+              } else {
+                	_callback(result);
+
+              }
+					}
 	                db.close();
 	            });
 
@@ -160,11 +159,18 @@ var resolveAsync = function(dbObj, node, _callback) {
                 collection[operation](query, update, options, function(err, result) {
 
                     if (err) {
+                       console.log({err:err, text: "update error"});
                         node.error(err);
                         return;
-                    }else {
+                    } else {
 
-                        _callback(result);
+                      if (result.result) {
+                          _callback(result.result);
+
+                      } else {
+                          _callback(result);
+
+                      }
                     }
 
                     db.close();
@@ -175,13 +181,19 @@ var resolveAsync = function(dbObj, node, _callback) {
 	            collection.aggregate(query, function(err, result) {
 
 	                if (err) {
-						node.error(err);
+                      console.log({err:err, text: "isAggregate err"});
+						                node.error(err);
         				return;
 					}else {
+            if (result.result) {
+                _callback(result.result);
 
-						_callback(result);
+            } else {
+                _callback(result);
+
+            }
+
 					}
-
 	                db.close();
 	            });
 
@@ -193,9 +205,14 @@ var resolveAsync = function(dbObj, node, _callback) {
 						node.error(err);
         				return;
 					}else {
-						_callback(result);
-					}
+            if (result.result) {
+                _callback(result.result);
 
+            } else {
+                _callback(result);
+
+            }
+					}
 	                db.close();
 	            });
 	        }
