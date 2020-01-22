@@ -62,29 +62,29 @@ var resolveAsync = function(dbObj, node, _callback) {
         }
         if (dbObj.operation.indexOf('update') !== -1){
             isUpdate = true;
-            console.log('isUpdate yeahhh');
+            // console.log('isUpdate yeahhh');
             if (dbObj.query.update) {
                 update = dbObj.query.update;
-                console.log({update:update });
+                // console.log({update:update });
             } else {
 
                 err = {
                     Error: dbObj.operation+' has a wrong update object!'
                 }
                 node.error(err);
-                console.log({err:err });
+                // console.log({err:err });
                 return;
             }
             if (dbObj.query.options) {
 
                 options = dbObj.query.options;
-                console.log({options:options });
+                // console.log({options:options });
             } else {
 
                 err = {
                     Error: dbObj.operation+' has a wrong options object!'
                 }
-                console.log({err:err });
+                // console.log({err:err });
                 node.error(err);
                 return;
             }
@@ -126,7 +126,7 @@ var resolveAsync = function(dbObj, node, _callback) {
     MongoClient.connect(connUrl, function(err, db) {
 
         if (err) {
-            console.log({err:err, text:"server response - connection error" });
+            // console.log({err:err, text:"server response - connection error" });
 			       node.error(err);
         return;
 		}
@@ -139,7 +139,7 @@ var resolveAsync = function(dbObj, node, _callback) {
 
 	                if (err) {
 						              node.error(err);
-                          console.log({err:err, text: "find error"});
+                          // console.log({err:err, text: "find error"});
         				return;
 					}else {
 
@@ -159,7 +159,7 @@ var resolveAsync = function(dbObj, node, _callback) {
                 collection[operation](query, update, options, function(err, result) {
 
                     if (err) {
-                       console.log({err:err, text: "update error"});
+                       // console.log({err:err, text: "update error"});
                         node.error(err);
                         return;
                     } else {
@@ -181,7 +181,7 @@ var resolveAsync = function(dbObj, node, _callback) {
 	            collection.aggregate(query, function(err, result) {
 
 	                if (err) {
-                      console.log({err:err, text: "isAggregate err"});
+                      // console.log({err:err, text: "isAggregate err"});
 						                node.error(err);
         				return;
 					}else {

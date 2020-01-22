@@ -45,6 +45,12 @@ cp  ../../../../root/.node-red/projects/pmt_baseApp/pagePublisherStartScript.js 
 
 echo  pagePublisherStartScript.js copied | cowsay
 
+rm -r ../../../../root/.node-red/lib
+
+cp  ../../../../root/.node-red/projects/pmt_baseApp/lib ../../../../root/.node-red/lib
+
+echo  lib folder updated | cowsay
+
 cd  ../../../../var/www/pagePublisher && figlet In PagePublisherFolder && npm install && figlet In PagePublisherFolder INSTALLED && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL pagePublisherVersion=$pagePublisherVersion node pagePublisherStartScript.js
 
 echo  baseUrl in configValue.js file changed to : $API_URL | cowsay
