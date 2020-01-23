@@ -1,23 +1,25 @@
 #!/bin/bash
 
 # turn on bash's job control
-echo 1/9 Hello, what type of application would you like to deploy?
+echo 1/10 Hello, what type of application would you like to deploy?
 read TYPE
-echo 2/9 Whats the app_ id?
+echo 2/v Whats the app_ id?
 read APP_ID
-echo 3/9 Deployment type ?
+echo 3/10 Deployment type ?
 read DEPLOYMENTTYPE
-echo 4/9 GitHub username?
+echo 4/10 GitHub username?
 read GIT_USERNAME
-echo 5/9 GitHub password?
+echo 5/10 GitHub password?
 read GIT_PASSWORD
-echo 6/9 nodeAPI URL ? Should be services- + root domain
+echo 6/10 nodeAPI URL ? Should be services- + root domain
 read API_URL
-echo 7/9 the pagePublisher Branch ?
+echo 7/10 the pagePublisher Branch ?
 read pagePublisherBranch
-echo 8/9 Web socket connection  ?
+echo 8/10 Web socket connection  ?
 read WSS_BASE_URL
-echo 9/9 Finally the pagePublisher version , options are NEW or OLD  ?
+echo 9/10 App name  ?
+read APP_NAME
+echo 10/10 Finally the pagePublisher version , options are NEW or OLD  ?
 read pagePublisherVersion
 
 sudo apt-get install fortune cowsay -y
@@ -56,7 +58,7 @@ cd  ../../../../var/www/pagePublisher && figlet In PagePublisherFolder && npm in
 echo  baseUrl in configValue.js file changed to : $API_URL | cowsay
  # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&   rsync(settings.js ../../settings.js) && echo >>>>>rsync move completed<<<<< &&
 
-cd ../../../root/.node-red/ && npm i exceljs && figlet exceljs installed in node red ROOT && npm install nodemailer && figlet nodemailer installed in node red ROOT  &&  npm i request && figlet request installed in node red ROOT &&   npm i nodemailer-mailgun-transport && figlet nodemailer-mailgun-transport installed in node red ROOT &&  npm i fs-extra && figlet fs-extra installed node red ROOT && npm install mongodb && figlet NPM mongodb installed node red ROOT  && npm install mime && figlet NPM MIME installed node red ROOT
+cd ../../../root/.node-red/ && npm i jetpack && figlet jetpack installed in node red ROOT    && npm i exceljs && figlet exceljs installed in node red ROOT && npm install nodemailer && figlet nodemailer installed in node red ROOT  &&  npm i request && figlet request installed in node red ROOT &&   npm i nodemailer-mailgun-transport && figlet nodemailer-mailgun-transport installed in node red ROOT &&  npm i fs-extra && figlet fs-extra installed node red ROOT && npm install mongodb && figlet NPM mongodb installed node red ROOT  && npm install mime && figlet NPM MIME installed node red ROOT
 
 rm -rf ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cp -r ../../../../../root/.node-red/projects/pmt_baseApp/customNodeModules/node-red-mongodb-tool-belt ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cd ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && npm i -g && echo node-red-mongodb-tool-belt INSTALLED
 rm -rf ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cp -r ../../../../../root/.node-red/projects/pmt_baseApp/customNodeModules/node-red-contrib-mongodb2 ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cd ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && npm i -g && echo node-red-contrib-mongodb2 INSTALLED
@@ -98,10 +100,14 @@ then
   echo OLD pagePublisher started
 elif [ "$pagePublisherBranch" = "develop" ]
 then
-  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+  # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 'start npm run dev' --app_name=$APP_NAME --api_url=$API_URL --websocket_url=$WSS_BASE_URL --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+
   echo NEW DEV pagePublisher started
 else
-  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 'start npm run build' --app_name=$APP_NAME --api_url=$API_URL --websocket_url=$WSS_BASE_URL --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+
+  # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
   echo NEW PROD pagePublisher started
 fi
 

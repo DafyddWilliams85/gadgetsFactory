@@ -8,31 +8,31 @@ var API_URL = process.env.API_URL
 var WSS_BASE_URL = process.env.WSS_BASE_URL
 
 if (process.env.pagePublisherVersion === "NEW"){
-    httpConfigValue = fs.readFileSync(__dirname +"/src/common/configs/api_config.js").toString('utf8')
-
-        console.log(httpConfigValue)
-
-    httpResults = replace_in_file.sync({
-      files: __dirname +"/src/common/configs/api_config.js",
-      from: /baseUrlPlaceholder/g,
-      to:  API_URL,
-      countMatches: true
-    });
-
-    console.log(httpResults)
-
-    wssConfigValue = fs.readFileSync(__dirname +"/src/common/configs/api_config.js").toString('utf8')
-
-        console.log(wssConfigValue)
-
-    wssResults = replace_in_file.sync({
-      files: __dirname +"/src/common/configs/api_config.js",
-      from: /wssBaseUrlPlaceholder/g,
-      to:  WSS_BASE_URL,
-      countMatches: true
-    });
-
-  console.log(wssResults)
+  //   httpConfigValue = fs.readFileSync(__dirname +"/src/common/configs/api_config.js").toString('utf8')
+  //
+  //       console.log(httpConfigValue)
+  //
+  //   httpResults = replace_in_file.sync({
+  //     files: __dirname +"/src/common/configs/api_config.js",
+  //     from: /baseUrlPlaceholder/g,
+  //     to:  API_URL,
+  //     countMatches: true
+  //   });
+  //
+  //   console.log(httpResults)
+  //
+  //   wssConfigValue = fs.readFileSync(__dirname +"/src/common/configs/api_config.js").toString('utf8')
+  //
+  //       console.log(wssConfigValue)
+  //
+  //   wssResults = replace_in_file.sync({
+  //     files: __dirname +"/src/common/configs/api_config.js",
+  //     from: /wssBaseUrlPlaceholder/g,
+  //     to:  WSS_BASE_URL,
+  //     countMatches: true
+  //   });
+  //
+  // console.log(wssResults)
 
 } else {
 
