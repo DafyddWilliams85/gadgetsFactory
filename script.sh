@@ -1,31 +1,33 @@
 #!/bin/bash
 
 # turn on bash's job control
-echo 1/10 Hello, what type of application would you like to deploy?
-read TYPE
-echo 2/v Whats the app_ id?
-read APP_ID
-echo 3/10 Deployment type ?
-read DEPLOYMENTTYPE
-echo 4/10 GitHub username?
-read GIT_USERNAME
-echo 5/10 GitHub password?
-read GIT_PASSWORD
-echo 6/10 nodeAPI URL ? Should be services- + root domain
-read API_URL
-echo 7/10 the pagePublisher Branch ?
-read pagePublisherBranch
-echo 8/10 Web socket connection  ?
-read WSS_BASE_URL
-echo 9/10 App name  ?
-read APP_NAME
-echo 10/10 Finally the pagePublisher version , options are NEW or OLD  ?
-read pagePublisherVersion
+echo Paste your json data
+read DATA
+
+echo $DATA > DATA.json
+echo DATA.json created
 
 sudo apt-get install fortune cowsay -y
 sudo apt-get install figlet -y
+sudo apt-get install jq -y
 
-echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = WSS_BASE_URL = WSS_BASE_URL, 9, pagePublisherVersion = $pagePublisherVersion ,
+#
+TYPE=$( jq -r  '.TYPE'  DATA.json)
+APP_ID=$( jq -r  '.APP_ID'  DATA.json)
+DEPLOYMENTTYPE=$( jq -r  '.DEPLOYMENTTYPE'  DATA.json)
+GIT_USERNAME=$( jq -r  '.GIT_USERNAME'  DATA.json)
+GIT_PASSWORD=$( jq -r  '.GIT_PASSWORD'  DATA.json)
+API_URL=$( jq -r  '.API_URL'  DATA.json)
+pagePublisherBranch=$( jq -r  '.pagePublisherBranch'  DATA.json)
+WSS_BASE_URL=$( jq -r  '.WSS_BASE_URL'  DATA.json)
+APP_NAME=$( jq -r  '.APP_NAME'  DATA.json)
+PAGE_BUILDER=$( jq -r  '.PAGE_BUILDER'  DATA.json)
+PAGE_PUBLISHER_VERSION=$( jq -r  '.PAGE_PUBLISHER_VERSION'  DATA.json)
+# #
+echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = WSS_BASE_URL = $WSS_BASE_URL, 9, PAGE_PUBLISHER_VERSION = $PAGE_PUBLISHER_VERSION ,PAGE_BUILDER = $PAGE_BUILDER
+
+rm -rf "DATA.json"
+echo DATA.json removed
 
 now=$(date +"%T")
 figlet "Started @ : $now"
@@ -39,7 +41,7 @@ rm -rf "../../../../../../root/node-redLogs.log"
 
 echo "Log files removed" | cowsay
 
-npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed &&  BRANCH=$pagePublisherBranch GIT_USERNAME=$GIT_USERNAME GIT_PASSWORD=$GIT_PASSWORD PAGE_PUBLISHER_VERSION=$pagePublisherVersion node startScript.js
+npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed &&  BRANCH=$pagePublisherBranch GIT_USERNAME=$GIT_USERNAME GIT_PASSWORD=$GIT_PASSWORD PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION node startScript.js
 
 echo  pagePublisher branch : $pagePublisherBranch cloned | cowsay
 
@@ -47,16 +49,15 @@ cp  ../../../../root/.node-red/projects/pmt_baseApp/pagePublisherStartScript.js 
 
 echo  pagePublisherStartScript.js copied | cowsay
 
-rm -r ../../../../root/.node-red/lib
-
-cp  ../../../../root/.node-red/projects/pmt_baseApp/lib ../../../../root/.node-red/lib
+rm -rf ../../../../root/.node-red/lib && cp -R  ../../../../root/.node-red/projects/pmt_baseApp/lib ../../../../root/.node-red/lib
 
 echo  lib folder updated | cowsay
 
-cd  ../../../../var/www/pagePublisher && figlet In PagePublisherFolder && npm install && figlet In PagePublisherFolder INSTALLED && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL pagePublisherVersion=$pagePublisherVersion node pagePublisherStartScript.js
+cd  ../../../../var/www/pagePublisher&& figlet In PagePublisherFolder &&  rm -rf package-lock.json && figlet package-lock.json  REMOVED && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && PAGE_BUILDER=$PAGE_BUILDER APP_ID=$APP_ID API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL APP_NAME=$APP_NAME PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION node pagePublisherStartScript.js
 
-echo  baseUrl in configValue.js file changed to : $API_URL | cowsay
- # npm i shelljs &&  echo shelljs installed in pmt_baseApp &&   rsync(settings.js ../../settings.js) && echo >>>>>rsync move completed<<<<< &&
+# cd  ../../../../var/www/pagePublisher&& figlet In PagePublisherFolder &&  rm -rf package-lock.json && figlet package-lock.json  REMOVED &&  npm i && figlet PagePublisherFolder Installed && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && PAGE_BUILDER=$PAGE_BUILDER APP_ID=$APP_ID API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL APP_NAME=$APP_NAME PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION node pagePublisherStartScript.js
+
+echo  configValue.js file changed | cowsay
 
 cd ../../../root/.node-red/ && npm i jetpack && figlet jetpack installed in node red ROOT    && npm i exceljs && figlet exceljs installed in node red ROOT && npm install nodemailer && figlet nodemailer installed in node red ROOT  &&  npm i request && figlet request installed in node red ROOT &&   npm i nodemailer-mailgun-transport && figlet nodemailer-mailgun-transport installed in node red ROOT &&  npm i fs-extra && figlet fs-extra installed node red ROOT && npm install mongodb && figlet NPM mongodb installed node red ROOT  && npm install mime && figlet NPM MIME installed node red ROOT
 
@@ -65,49 +66,56 @@ rm -rf ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && c
 rm -rf ../../../../../root/.node-red/node_modules/node-red-fsmanager && cp -r ../../../../../root/.node-red/projects/pmt_baseApp/customNodeModules/node-red-fsmanager ../../../../../root/.node-red/node_modules/node-red-fsmanager && cd ../../../../../root/.node-red/node_modules/node-red-fsmanager && npm i -g && echo node-red-fsmanager INSTALLED
 rm -rf ../../../../../root/.node-red/node_modules/node-red-mailgun && cp -r ../../../../../root/.node-red/projects/pmt_baseApp/customNodeModules/node-red-mailgun ../../../../../root/.node-red/node_modules/node-red-mailgun && cd ../../../../../root/.node-red/node_modules/node-red-mailgun && npm i -g && echo node-red-mailgun INSTALLED
 
- # && npm i exceljs && figlet exceljs installed in pmt_baseApp && npm i fs-extra && figlet fs-extra installed in pmt_baseApp && npm install mime && figlet NPM MIME installed in pmt_baseApp &&
 cd ../../../../../root/.node-red/projects/pmt_baseApp/ && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
 rm -rf ../../../../../files/SystemFiles
 mkdir -p ../../../../../files/SystemFiles
 cp -r ../../../../../root/.node-red/projects/pmt_baseApp/files/SystemFiles ../../../../../files
-echo  Content of files/ is now: | cowsay
+echo  Content of SystemFiles/ is now: | cowsay
 
-for entry in "../../../../../files"/*
+for entry in "../../../../../files/SystemFiles"/*
 do
   echo "$entry"
 done
+
+rm -rf ../../../../../files/logo
+mkdir -p ../../../../../files/logo
+cp -r ../../../../../root/.node-red/projects/pmt_baseApp/files/logo ../../../../../files
+echo  Content of logo/ is now: | cowsay
+
+for entry in "../../../../../files/logo"/*
+do
+  echo "$entry"
+done
+
+cp -r ../../../../../root/.node-red/projects/pmt_baseApp/files/logo/$TYPE/favicon.ico ../../../../var/www/pagePublisher
+echo favicon.ico copied | cowsay
+
 
 rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
 
 pm2 stop all && pm2 del all
 
-# pm2 stop 'Backend API = '$TYPE && pm2 del 'Backend API = '$TYPE
-# pm2 stop $TYPE'- API' && pm2 del $TYPE'- API'
 echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
 cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend - API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
 echo Backend started
-# pm2 stop 'pagePublisher = '$TYPE && pm2 del 'pagePublisher = '$TYPE
-# pm2 stop $TYPE'- pP' && pm2 del $TYPE'- pP'
-# cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
 
 figlet Lets fire them up!!!!
 
-figlet $pagePublisherVersion  $DEPLOYMENTTYPE
-if [ "$pagePublisherVersion" = "OLD" ]
+figlet $PAGE_PUBLISHER_VERSION  $DEPLOYMENTTYPE
+if [ "$PAGE_PUBLISHER_VERSION" = "OLD" ]
 then
-  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+  cd ../../../../../../var/www/pagePublisher &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
   echo OLD pagePublisher started
 elif [ "$pagePublisherBranch" = "develop" ]
 then
   # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 'start npm run dev' --app_name=$APP_NAME --api_url=$API_URL --websocket_url=$WSS_BASE_URL --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-
+  echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
+  cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
   echo NEW DEV pagePublisher started
 else
-  cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 'start npm run build' --app_name=$APP_NAME --api_url=$API_URL --websocket_url=$WSS_BASE_URL --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-
-  # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+  echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
+  cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
   echo NEW PROD pagePublisher started
 fi
 

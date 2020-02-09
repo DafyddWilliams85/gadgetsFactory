@@ -17,15 +17,15 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
 
     flows.forEach(function(item) {
     // database
-    var match = true;
+    var dbMatch = true;
 
     database[process.env.TYPE].match.forEach(function(MongoDb2MatchItem) {
       if (item.hasOwnProperty(MongoDb2MatchItem.key) === false || item[MongoDb2MatchItem.key] !== MongoDb2MatchItem.value){
-        match = false;
+        dbMatch = false;
       }
     });
 
-    if (match === true){
+    if (dbMatch === true){
 
       // update cred object
       if (flows_cred.hasOwnProperty(item.id)){
@@ -36,6 +36,59 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
           item.name = database[process.env.TYPE].name ;
       }
     }
+
+    if (item.hasOwnProperty("type") && item.type === "function"){
+      // function node
+
+      // replace GadgetId with gadgetId
+      var GadgetId = /GadgetId/gi;
+      item.func = item.func.replace(GadgetId, 'gadgetId');
+
+      // replace GadgetName with gadgetName
+      var GadgetName = /GadgetName/gi;
+      item.func = item.func.replace(GadgetName, 'gadgetName');
+
+      // replace GadgetType with gadgetType
+      var GadgetType = /GadgetType/gi;
+      item.func = item.func.replace(GadgetType, 'gadgetType');
+
+      // replace GadgetContent with gadgetData
+      var GadgetContent = /GadgetContent/gi;
+      item.func = item.func.replace(GadgetContent, 'gadgetData');
+
+      // replace GadgetOptions with gadgetOptions
+      var GadgetOptions = /GadgetOptions/gi;
+      item.func = item.func.replace(GadgetOptions, 'gadgetOptions');
+
+      // replace GadgetSettings with gadgetOptions
+      var GadgetSettings = /GadgetSettings/gi;
+      item.func = item.func.replace(GadgetSettings, 'gadgetOptions');
+
+      // replace GadgetSettings with gadgetData
+      var gadgetSettings = /gadgetSettings/gi;
+      item.func = item.func.replace(gadgetSettings, 'gadgetOptions');
+
+      // replace GadgetData with gadgetData
+      var GadgetData = /GadgetData/gi;
+      item.func = item.func.replace(GadgetData, 'gadgetData');
+
+      // replace GadgetsList with gadgetsList
+      var GadgetsList = /GadgetsList/gi;
+      item.func = item.func.replace(GadgetsList, 'gadgetsList');
+
+      // replace ActionType with actionType
+      var ActionType = /ActionType/gi;
+      item.func = item.func.replace(ActionType, 'actionType');
+
+      // replace GadgetsList with gadgetsList
+      var DeviceId = /DeviceId/gi;
+      item.func = item.func.replace(DeviceId, 'deviceId');
+
+      // replace ActionType with actionType
+      var RevotioSessionId = /RevotioSessionId/gi;
+      item.func = item.func.replace(RevotioSessionId, 'revotioSessionId');
+  }
+
 
     if (
      process.env.DEPLOYMENTTYPE.toLowerCase() === "production" &&

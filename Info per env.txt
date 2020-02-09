@@ -7,7 +7,8 @@ DEVELOPMENT
 6 = base_URL 			= https://services-development.revotio.com
 7 = pagePublisherBranch 	= develop ,
 8 = WebSocket url 		= wss://services-development.revotio.com/ws/chat
-9 = Publisher version		= OLD, // OLD - NEW
+9 = appName			= PMT
+10 = Publisher version		= OLD, // OLD - NEW
 
 DEVELOPMENT FFIQS
 1 = TYPE 			= development-ffiqs,
@@ -18,7 +19,8 @@ DEVELOPMENT FFIQS
 6 = base_URL 			= https://services-ffiqs.revotio.com
 7 = pagePublisherBranch 	= develop ,
 8 = WebSocket url 		= wss://services-ffiqs.revotio.com/ws/chat
-9 = Publisher version		= OLD, // OLD - NEW
+9 = appName			= PMT
+10 = Publisher version		= OLD, // OLD - NEW
 
 DEVELOPMENT CML
 1 = TYPE 			= development-cml,
@@ -29,7 +31,8 @@ DEVELOPMENT CML
 6 = base_URL 			= https://services-development.revotio.com
 7 = pagePublisherBranch 	= develop ,
 8 = WebSocket url 		= wss://services-development.revotio.com/ws/chat
-9 = Publisher version		= OLD, // OLD - NEW
+9 = appName			= PMT
+10 = Publisher version		= OLD, // OLD - NEW
 
 DEVELOPMENT CML
 1 = TYPE 			= new-cml,
@@ -40,7 +43,8 @@ DEVELOPMENT CML
 6 = base_URL 			= https://services-new-cml.revotio.com
 7 = pagePublisherBranch 	= develop ,
 8 = WebSocket url 		= wss://services-new-cml.revotio.com/ws/chat
-9 = Publisher version		= OLD, // OLD - NEW
+9 = appName			= PMT
+10 = Publisher version		= OLD, // OLD - NEW
 
 DEVELOPMENT DEMO
 1 = TYPE 			= development-demo,
@@ -51,7 +55,8 @@ DEVELOPMENT DEMO
 6 = base_URL 			= https://services-development.revotio.com
 7 = pagePublisherBranch 	= develop ,
 8 = WebSocket url 		= wss://services-development.revotio.com/ws/chat
-9 = Publisher version		= OLD, // OLD - NEW
+9 = appName			= PMT
+10 = Publisher version		= OLD, // OLD - NEW
 
 FRONTEND_DEVELOMENT
 1 = TYPE 			= frontend_development,
@@ -62,7 +67,8 @@ FRONTEND_DEVELOMENT
 6 = base_URL 			= https://services-frontend-development.revotio.com
 7 = pagePublisherBranch 	= develop ,
 8 = WebSocket url 		= wss://services-development.revotio.com/ws/chat
-9 = Publisher version		= NEW, // OLD - NEW
+9 = appName			= PMT
+10 = Publisher version		= NEW, // OLD - NEW
 
 FFIQS
 1 = TYPE 			= ffiqs,
@@ -73,7 +79,8 @@ FFIQS
 6 = base_URL 			= https://services-ffiqs.revotio.com
 7 = pagePublisherBranch 	= develop ,
 8 = WebSocket url 		= wss://services-ffiqs.revotio.com/ws/chat
-9 = Publisher version		= OLD, // OLD - NEW
+9 = appName			= PMT
+10 = Publisher version		= OLD, // OLD - NEW
 
 CML
 1 = TYPE 			= cml,
@@ -84,5 +91,6 @@ CML
 6 = base_URL 			= https://services-new-cml.revotio.com
 7 = pagePublisherBranch 	= develop ,
 8 = WebSocket url 		= wss://services-new-cml.revotio.com/ws/chat
-9 = Publisher version		= OLD, // OLD - NEW
+9 = appName			= PMT
+10 = Publisher version		= OLD, // OLD - NEW
 
