@@ -87,6 +87,14 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
       // replace ActionType with actionType
       var RevotioSessionId = /RevotioSessionId/gi;
       item.func = item.func.replace(RevotioSessionId, 'revotioSessionId');
+
+      // // replace ActionType with actionType
+      // var Budget = /Budget/gi;
+      // item.func = item.func.replace(Budget, 'Payment');
+      //
+      // // replace ActionType with actionType
+      // var budget = /budget/gi;
+      // item.func = item.func.replace(budget, 'payment');
   }
 
 

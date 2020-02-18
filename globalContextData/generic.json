@@ -137,7 +137,9 @@
                   "file_management":"fas fa-folder",
                   "back":"fas fa-reply",
                   "clock":"fas fa-clock",
-                  "sun":"fas fa-sun"
+                  "sun":"fas fa-sun",
+                  "upload":  "fas fa-upload",
+                  "download": "fas fa-download"
                },
                "UserIcons":{
                   "User":"/SystemFiles/icons/",
