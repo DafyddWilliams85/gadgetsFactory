@@ -51,6 +51,20 @@ if (PAGE_PUBLISHER_VERSION === "NEW"){
 
 console.log(nameResults)
 
+nameIndexValue = fs.readFileSync(__dirname +"/index.html").toString('utf8')
+
+    console.log(nameIndexValue)
+
+nameIndexResults = replace_in_file.sync({
+  files: __dirname +"/index.html",
+  from: /pagepublisherv2/g,
+  to:  APP_NAME,
+  countMatches: true
+});
+
+console.log(nameIndexResults)
+
+
 // APP_IDConfigValue = fs.readFileSync(__dirname +"/src/common/configs/api_config.js").toString('utf8')
 //
 //     console.log(APP_IDConfigValue)
