@@ -139,7 +139,8 @@
                   "clock":"fas fa-clock",
                   "sun":"fas fa-sun",
                   "upload":  "fas fa-upload",
-                  "download": "fas fa-download"
+                  "download": "fas fa-download",
+                  "archive": "fas fa-archive"
                },
                "UserIcons":{
                   "User":"/SystemFiles/icons/",
