@@ -33,13 +33,12 @@ now=$(date +"%T")
 figlet "Started @ : $now"
 
 rm -rf "../../../../var/www/pagePublisher"
-
 echo "pagePublisher reset completed" | cowsay
 
 rm -rf "../../../../../../root/pagePublisher.log"
 rm -rf "../../../../../../root/node-redLogs.log"
-
 echo "Log files removed" | cowsay
+
 
 npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed &&  BRANCH=$pagePublisherBranch GIT_USERNAME=$GIT_USERNAME GIT_PASSWORD=$GIT_PASSWORD PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION node startScript.js
 
@@ -96,10 +95,6 @@ rm -rf "../../../../../root/.node-red/projects/pmt_baseApp/node_modules"
 
 pm2 stop all && pm2 del all
 
-echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
-cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend - API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
-echo Backend started
-
 figlet Lets fire them up!!!!
 
 figlet $PAGE_PUBLISHER_VERSION  $DEPLOYMENTTYPE
@@ -118,6 +113,10 @@ else
   cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
   echo NEW PROD pagePublisher started
 fi
+
+echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
+cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend - API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
+echo Backend started
 
 figlet DONE :-D
 
