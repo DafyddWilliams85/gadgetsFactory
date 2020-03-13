@@ -140,7 +140,8 @@
                   "sun":"fas fa-sun",
                   "upload":  "fas fa-upload",
                   "download": "fas fa-download",
-                  "archive": "fas fa-archive"
+                  "archive": "fas fa-archive",
+                  "database": "fas fa-database"
                },
                "UserIcons":{
                   "User":"/SystemFiles/icons/",
