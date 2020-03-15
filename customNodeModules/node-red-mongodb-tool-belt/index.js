@@ -18,6 +18,7 @@ var resolveAsync = function(dbObj, node, _callback) {
     var isFind = false;
     var isAggregate = false;
     var isUpdate = false;
+    var isFindOneAndUpdate = false
 
     // dbObj.connection
     if (!dbObj.connection || dbObj.connection.length == 0 || typeof dbObj.connection !== 'string' ) {
@@ -62,7 +63,7 @@ var resolveAsync = function(dbObj, node, _callback) {
         }
         if (dbObj.operation.indexOf('update') !== -1){
             isUpdate = true;
-            console.log('isUpdate yeahhh');
+            // console.log('isUpdate yeahhh');
             if (dbObj.query.update) {
                 update = dbObj.query.update;
 
@@ -89,6 +90,36 @@ var resolveAsync = function(dbObj, node, _callback) {
                 return;
             }
         }
+        if (dbObj.operation.indexOf('findOneAndUpdate') !== -1){
+            isFindOneAndUpdate = true;
+            // console.log('isUpdate yeahhh');
+            if (dbObj.query.update) {
+                update = dbObj.query.update;
+
+            } else {
+
+                err = {
+                    Error: dbObj.operation+' has a wrong findOneAndUpdate object!'
+                }
+                node.error(err);
+                console.log({err:err });
+                return;
+            }
+            if (dbObj.query.options) {
+
+                options = dbObj.query.options;
+
+            } else {
+
+                err = {
+                    Error: dbObj.operation+' has a wrong options object!'
+                }
+                console.log({err:err });
+                node.error(err);
+                return;
+            }
+        }
+
         if (dbObj.operation.indexOf('aggregate') !== -1) {
             isAggregate = true;
         }
@@ -176,7 +207,30 @@ var resolveAsync = function(dbObj, node, _callback) {
                     db.close();
                 });
 
-            } else if (isAggregate) {
+            }
+            else if (isFindOneAndUpdate) {
+
+                  collection[operation](query, update, options, function(err, result) {
+
+                      if (err) {
+                         console.log({err:err, text: "update error"});
+                          node.error(err);
+                          return;
+                      } else {
+
+                        if (result.result) {
+                            _callback(result.result);
+
+                        } else {
+                            _callback(result);
+
+                        }
+                      }
+
+                      db.close();
+                  });
+
+              }else if (isAggregate) {
 
 	            collection.aggregate(query, function(err, result) {
 

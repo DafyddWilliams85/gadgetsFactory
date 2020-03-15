@@ -23,8 +23,9 @@ WSS_BASE_URL=$( jq -r  '.WSS_BASE_URL'  DATA.json)
 APP_NAME=$( jq -r  '.APP_NAME'  DATA.json)
 PAGE_BUILDER=$( jq -r  '.PAGE_BUILDER'  DATA.json)
 PAGE_PUBLISHER_VERSION=$( jq -r  '.PAGE_PUBLISHER_VERSION'  DATA.json)
+CLUSTER=$( jq -r  '.CLUSTER'  DATA.json)
 # #
-echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = WSS_BASE_URL = $WSS_BASE_URL, 9, PAGE_PUBLISHER_VERSION = $PAGE_PUBLISHER_VERSION ,PAGE_BUILDER = $PAGE_BUILDER
+echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = WSS_BASE_URL = $WSS_BASE_URL, 9, PAGE_PUBLISHER_VERSION = $PAGE_PUBLISHER_VERSION ,PAGE_BUILDER = $PAGE_BUILDER, CLUSTER = $CLUSTER
 
 rm -rf "DATA.json"
 echo DATA.json removed
@@ -98,25 +99,54 @@ pm2 stop all && pm2 del all
 figlet Lets fire them up!!!!
 
 figlet $PAGE_PUBLISHER_VERSION  $DEPLOYMENTTYPE
-if [ "$PAGE_PUBLISHER_VERSION" = "OLD" ]
+
+if [ "$CLUSTER" = "YES" ]
 then
-  cd ../../../../../../var/www/pagePublisher &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-  echo OLD pagePublisher started
-elif [ "$pagePublisherBranch" = "develop" ]
-then
-  # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-  echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
-  cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-  echo NEW DEV pagePublisher started
+
+  if [ "$PAGE_PUBLISHER_VERSION" = "OLD" ]
+  then
+    cd ../../../../../../var/www/pagePublisher &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    echo OLD pagePublisher started
+  elif [ "$pagePublisherBranch" = "develop" ]
+  then
+    # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
+    cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    echo NEW DEV pagePublisher started
+  else
+    echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
+    cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    echo NEW PROD pagePublisher started
+  fi
+
+
+  echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
+  cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend - API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
+  echo Backend started CLUSTER
 else
-  echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
-  cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-  echo NEW PROD pagePublisher started
+
+  if [ "$PAGE_PUBLISHER_VERSION" = "OLD" ]
+  then
+    cd ../../../../../../var/www/pagePublisher &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    echo OLD pagePublisher started
+  elif [ "$pagePublisherBranch" = "develop" ]
+  then
+    # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
+    cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    echo NEW DEV pagePublisher started
+  else
+    echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
+    cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run build' --name $TYPE'- == run build >> Publisher' --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    echo NEW PROD pagePublisher started
+  fi
+
+  echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
+  cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend - API'  --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
+  echo Backend started CLUSTER
 fi
 
-echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
-cd ../../../../../../root/.node-red && TYPE=$TYPE APP_ID=$APP_ID pm2 start node-red --name 'Backend - API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
-echo Backend started
+
 
 figlet DONE :-D
 
