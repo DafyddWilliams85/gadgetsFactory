@@ -1,26 +1,19 @@
 {
-
-  "DEVELOPMENT DEMO":{"TYPE":"development-demo","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-development.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-development.revotio.com/ws/chat","APP_NAME":"PMT","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"NO"}
-  ,
-  "FFIQS PROD DB" :{"TYPE":"ffiqs-prod-db","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-ffiqs.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-ffiqs.revotio.com/ws/chat","APP_NAME":"FFIQS","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"YES"}
-  ,
-  "CML PROD DB":{"TYPE":"cml-prod-db","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-new-cml.revotio.com"","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-new-cml.revotio.com/ws/chat","APP_NAME":"CML","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW",,"CLUSTER":"YES"}
-
-
-
+"DEVELOPMENT DEMO":{"TYPE":"development-demo","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-development.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-development.revotio.com/ws/chat","APP_NAME":"PMT","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"NO"}
+,
+"FFIQS PROD DB" :{"TYPE":"ffiqs-prod-db","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-ffiqs.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-ffiqs.revotio.com/ws/chat","APP_NAME":"FFIQS","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"YES"}
+,
+"CML PROD DB":{"TYPE":"cml-prod-db","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-new-cml.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-new-cml.revotio.com/ws/chat","APP_NAME":"CML","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"YES"}
   // LEGACY
-  ,
+,
 "DEVELOPMENT":{"TYPE":"development","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-development.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-development.revotio.com/ws/chat","APP_NAME":"PMT","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW"}
 ,
 "DEVELOPMENT FFIQS" :{"TYPE":"development-ffiqs","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-ffiqs.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-ffiqs.revotio.com/ws/chat","APP_NAME":"PMT","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW"}
 ,
-
 "FRONTEND_DEVELOMENT":{"TYPE":"frontend_development","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-frontend-development.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-frontend-development.revotio.com/ws/chat","APP_NAME":"PMT","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW"}
 ,
 "FFIQS" :{"TYPE":"ffiqs","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-ffiqs.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-ffiqs.revotio.com/ws/chat","APP_NAME":"PMT","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW"}
 ,
-,
 "CML":{"TYPE":"cml","APP_ID":"5bacdd9fb9bf1c120bef1088","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-new-cml.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-new-cml.revotio.com/ws/chat","APP_NAME":"CML","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW"}
 ,
-
 }

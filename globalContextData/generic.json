@@ -132,7 +132,8 @@
                   "calendar":"fas fa-calendar",
                   "rocket":"fas fa-rocket",
                   "edit":"fas fa-edit",
-                  "delete":"fas fa-trash-alt",
+                  "deleteOLD":"fas fa-trash-alt",
+                  "delete":"delete",
                   "euro":"€",
                   "file_management":"fas fa-folder",
                   "back":"fas fa-reply",
@@ -141,7 +142,9 @@
                   "upload":  "fas fa-upload",
                   "download": "fas fa-download",
                   "archive": "fas fa-archive",
-                  "database": "fas fa-database"
+                  "databaseOLD": "fas fa-database",
+                  "database": "dashboard"
+
                },
                "UserIcons":{
                   "User":"/SystemFiles/icons/",

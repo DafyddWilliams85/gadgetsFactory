@@ -88,7 +88,7 @@ do
   echo "$entry"
 done
 
-cp -r ../../../../../root/.node-red/projects/pmt_baseApp/files/logo/$TYPE/favicon.ico ../../../../var/www/pagePublisher
+cp -r ../../../../../root/.node-red/projects/pmt_baseApp/files/logo/$TYPE/favicon.ico ../../../../var/www/pagePublisher/static
 echo favicon.ico copied | cowsay
 
 
