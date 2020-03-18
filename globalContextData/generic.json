@@ -130,7 +130,7 @@
                   "logout":"fas fa-sign-out-alt",
                   "trophy":"fas fa-trophy",
                   "calendar":"fas fa-calendar",
-                  "rocket":"fas fa-rocket",
+                  "rocket":"flight_takeoff",
                   "edit":"fas fa-edit",
                   "deleteOLD":"fas fa-trash-alt",
                   "delete":"delete",
