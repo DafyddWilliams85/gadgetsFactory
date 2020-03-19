@@ -11,6 +11,7 @@ if [ "$DATA" = "y" ]
 then
   cp  ../../../../root/.node-red/projects/pmt_baseApp/pmt_baseApp.js ../../../../root/pmt_baseApp.js
   cp  ../../../../root/.node-red/projects/pmt_baseApp/pmt_baseApp.sh ../../../../root/pmt_baseApp.sh
+  cd ../../../../root/
   source ../../../../root/pmt_baseApp.sh
 else
   figlet pmt_baseApp NOT cloned

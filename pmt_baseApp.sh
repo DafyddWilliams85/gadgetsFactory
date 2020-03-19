@@ -9,6 +9,7 @@ echo $DATA
 echo  created
 
 if [ "$DATA" = "y" ]
+then
   pm2 stop all
   figlet pm2 stoped
   rm -rf ../../../../root/.node-red/projects/pmt_baseApp
@@ -16,7 +17,6 @@ if [ "$DATA" = "y" ]
   npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed &&  node pmt_baseApp.js
   figlet pmt_baseApp cloned // pmt_baseApp script
   source ../../../../root/.node-red/projects/pmt_baseApp/script.sh
-
 else
   figlet pmt_baseApp NOT cloned // pmt_baseApp script
 fi
