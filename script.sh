@@ -40,6 +40,7 @@ rm -rf "../../../../../../root/pagePublisher.log"
 rm -rf "../../../../../../root/node-redLogs.log"
 echo "Log files removed" | cowsay
 
+cd  ../../../../root/.node-red/projects/pmt_baseApp
 
 npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed &&  BRANCH=$pagePublisherBranch GIT_USERNAME=$GIT_USERNAME GIT_PASSWORD=$GIT_PASSWORD PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION node startScript.js
 
