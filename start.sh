@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # turn on bash's job control
-echo Are you sure you want to clone the new pmt_baseApp repo? y/n
+echo Are you sure you want to clone the new revotio repo? y/n
 read DATA
 
 echo $DATA
@@ -9,10 +9,11 @@ echo  created
 
 if [ "$DATA" = "y" ]
 then
-  cp  ../../../../root/.node-red/projects/pmt_baseApp/pmt_baseApp.js ../../../../root/pmt_baseApp.js
-  cp  ../../../../root/.node-red/projects/pmt_baseApp/pmt_baseApp.sh ../../../../root/pmt_baseApp.sh
+  cp  ../../../../root/.node-red/projects/revotio/revotio.js ../../../../root/revotio.js
+  cp  ../../../../root/.node-red/projects/revotio/revotio.sh ../../../../root/revotio.sh
   cd ../../../../root/
-  source ../../../../root/pmt_baseApp.sh
+  chmod +x revotio.sh
+  source ../../../../root/revotio.sh
 else
-  figlet pmt_baseApp NOT cloned
+  figlet revotio NOT cloned
 fi
