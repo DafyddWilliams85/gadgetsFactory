@@ -7,9 +7,9 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
 
   var flows = JSON.parse(fs.readFileSync(flowsLocation));
   fs.writeFile(__dirname + '/old/flow.json', flows, 'utf8');
-  var flows_cred = JSON.parse(fs.readFileSync(flowsCredLocation));
-  fs.writeFile(__dirname + '/old/flows_cred.json', flows_cred, 'utf8');
-  var database = JSON.parse(fs.readFileSync(database));
+  // var flows_cred = JSON.parse(fs.readFileSync(flowsCredLocation));
+  // fs.writeFile(__dirname + '/old/flows_cred.json', flows_cred, 'utf8');
+  // var database = JSON.parse(fs.readFileSync(database));
 
   var subflowsReplace     = [];
   var createdElements     = [];
@@ -17,25 +17,25 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
 
     flows.forEach(function(item) {
     // database
-    var dbMatch = true;
-
-    database[process.env.TYPE].match.forEach(function(MongoDb2MatchItem) {
-      if (item.hasOwnProperty(MongoDb2MatchItem.key) === false || item[MongoDb2MatchItem.key] !== MongoDb2MatchItem.value){
-        dbMatch = false;
-      }
-    });
-
-    if (dbMatch === true){
-
-      // update cred object
-      if (flows_cred.hasOwnProperty(item.id)){
-        console.log("flow cred change action")
-         flows_cred[item.id].user       = database[process.env.TYPE].username;
-          flows_cred[item.id].password  = database[process.env.TYPE].password;
-          item.uri = database[process.env.TYPE].connection ;
-          item.name = database[process.env.TYPE].name ;
-      }
-    }
+    // var dbMatch = true;
+    //
+    // database[process.env.TYPE].match.forEach(function(MongoDb2MatchItem) {
+    //   if (item.hasOwnProperty(MongoDb2MatchItem.key) === false || item[MongoDb2MatchItem.key] !== MongoDb2MatchItem.value){
+    //     dbMatch = false;
+    //   }
+    // });
+    //
+    // if (dbMatch === true){
+    //
+    //   // update cred object
+    //   if (flows_cred.hasOwnProperty(item.id)){
+    //     console.log("flow cred change action")
+    //      flows_cred[item.id].user       = database[process.env.TYPE].username;
+    //       flows_cred[item.id].password  = database[process.env.TYPE].password;
+    //       item.uri = database[process.env.TYPE].connection ;
+    //       item.name = database[process.env.TYPE].name ;
+    //   }
+    // }
 
     if (item.hasOwnProperty("type") && item.type === "function"){
       // function node
@@ -135,8 +135,8 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
 
   var createdElements_json_flows = JSON.stringify(createdElements);
   fs.writeFile(flowsLocation, createdElements_json_flows, 'utf8');
-  var json_flows_cred = JSON.stringify(flows_cred);
-  fs.writeFile(flowsCredLocation, json_flows_cred, 'utf8');
+  // var json_flows_cred = JSON.stringify(flows_cred);
+  // fs.writeFile(flowsCredLocation, json_flows_cred, 'utf8');
   var deletedSubflowItems_json_flows = JSON.stringify(deletedElements);
   fs.writeFile(__dirname + "/deletedSubflowItems_json_flow.json", deletedSubflowItems_json_flows, 'utf8');
 

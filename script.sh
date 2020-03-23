@@ -64,7 +64,7 @@ cd ../../../root/.node-red/ && npm i jetpack && figlet jetpack installed in node
 rm -rf ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cp -r ../../../../../root/.node-red/projects/revotio/customNodeModules/node-red-mongodb-tool-belt ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cd ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && npm i -g && echo node-red-mongodb-tool-belt INSTALLED
 rm -rf ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cp -r ../../../../../root/.node-red/projects/revotio/customNodeModules/node-red-contrib-mongodb2 ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cd ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && npm i -g && echo node-red-contrib-mongodb2 INSTALLED
 
-cd ../../../../../root/.node-red/projects/revotio/ && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
+cd ../../../../../root/.node-red/projects/revotio && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
 rm -rf ../../../../../files/SystemFiles
 mkdir -p ../../../../../files/SystemFiles
