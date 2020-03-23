@@ -138,5 +138,9 @@ fi
 
 figlet DONE :-D
 
+chmod +x start.sh
+chmod +x script.sh
+
+figlet chmod DONE!
 now=$(date +"%T")
 echo "Completed @ : $now" | cowsay -f ghostbusters
