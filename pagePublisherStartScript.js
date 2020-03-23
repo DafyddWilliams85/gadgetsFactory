@@ -7,11 +7,11 @@ var httpResults, wssResults, httpConfigValue, wssConfigValue
 var API_URL = process.env.API_URL
 var WSS_BASE_URL = process.env.WSS_BASE_URL
 var APP_NAME = process.env.APP_NAME
-var PAGE_PUBLISHER_VERSION = process.env.PAGE_PUBLISHER_VERSION
+// var PAGE_PUBLISHER_VERSION = process.env.PAGE_PUBLISHER_VERSION
 var APP_ID = process.env.APP_ID
-var PAGE_BUILDER = process.env.PAGE_BUILDER
+// var PAGE_BUILDER = process.env.PAGE_BUILDER
 
-if (PAGE_PUBLISHER_VERSION === "NEW"){
+// if (PAGE_PUBLISHER_VERSION === "NEW"){
     httpConfigValue = fs.readFileSync(__dirname +"/src/common/configs/api_config.js").toString('utf8')
 
         console.log(httpConfigValue)
@@ -93,25 +93,25 @@ console.log(nameIndexResults)
 
   // console.log("new done")
 
-} else {
-
-    httpConfigValue = fs.readFileSync(__dirname +"/js/value/configValue.js").toString('utf8')
-
-    console.log(httpConfigValue)
-
-    // var configValue = fs.readFileSync(__dirname +"/js/value/configValue.js")
-    // console.log(configValue)
-
-    httpResults = replace_in_file.sync({
-      files: __dirname +"/js/value/configValue.js",
-      from: /baseUrlPlaceholder/g,
-      to:  API_URL,
-      countMatches: true
-    });
-
-
-    console.log(httpResults)
-}
+// } else {
+//
+//     httpConfigValue = fs.readFileSync(__dirname +"/js/value/configValue.js").toString('utf8')
+//
+//     console.log(httpConfigValue)
+//
+//     // var configValue = fs.readFileSync(__dirname +"/js/value/configValue.js")
+//     // console.log(configValue)
+//
+//     httpResults = replace_in_file.sync({
+//       files: __dirname +"/js/value/configValue.js",
+//       from: /baseUrlPlaceholder/g,
+//       to:  API_URL,
+//       countMatches: true
+//     });
+//
+//
+//     console.log(httpResults)
+// }
 
 
 
