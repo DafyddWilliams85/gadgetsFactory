@@ -1,9 +1,24 @@
 {
+"communication":{},
+"helpcenter":{
+  "state": "active",
+  "rootPageId":229510,
+  "pages":{
+    "user_cockpit":2424882,
+    "users global":2425439,
+    "organization cockpit dashboard":2457709,
+    "organizations global":2490416,
+    "default project overview":2425569,
+    "partners_management":2425729,
+    "global_transactions_page":7110723
+  }
 
+},
 "SystemVars" :  {
-              "responseTimeout":10000,
+              "responseTimeout":30000,
               "delaySize":1000,
-              "secret":"T0K3NG3N3RAT0R"
+              "secret":"T0K3NG3N3RAT0R",
+              "systemAdministratorPermission" : "5e98003f2f5e52b78e00675f"
   },
 "gadgetObjects" :{
                  "datePickerOptions":{
@@ -158,6 +173,13 @@
                   "project":"/files/SystemFiles/icons/icon_rocket.svg",
                   "employee":"/files/SystemFiles/icons/icon_rocket.svg",
                   "user":"/files/SystemFiles/icons/icon_user.svg"
+               },
+               "material":{
+                "help":"help",
+                "database": "dashboard",
+                "delete":"delete",
+                "edit":"edit",
+                "copy":"file_copy"
                }
 
   },
@@ -177,6 +199,12 @@
               "0":"Administrator",
               "1":"User",
               "2":"Scoped"
+           },
+           "actions":{
+              "view":"View",
+              "create":"Create",
+              "edit":"Edit",
+              "delete":"Delete"
            }
 
   },

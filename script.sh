@@ -1,11 +1,35 @@
 #!/bin/bash
 
 # turn on bash's job control
-echo Paste your json data
-read DATA
+echo Provide env key
+read ENV_NAME
+sudo apt-get install jq
 
-echo $DATA > DATA.json
-echo DATA.json created
+echo  ____________________________ ____________________________
+echo  jq installed proceeding with == ENV_NAME = $ENV_NAME
+echo  ____________________________ ____________________________
+
+# echo  curl '/Info per env.json'
+
+ENV_JSON=`jq --compact-output '.'$ENV_NAME "Info per env.json"`
+
+echo  ENV_JSON  = $ENV_JSON
+if [ "$ENV_JSON" = "null" ]
+then
+
+  echo ENV_NAME = $ENV_NAME , not supported
+else
+
+
+  echo $ENV_JSON > DATA.json
+  echo DATA.json created
+
+# # turn on bash's job control
+# echo Paste your json data
+# read DATA
+#
+# echo $DATA > DATA.json
+# echo DATA.json created
 
 sudo apt-get install fortune cowsay -y
 sudo apt-get install figlet -y
