@@ -96,6 +96,12 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
       var appusers = /appusers/gi;
       item.func = item.func.replace(appusers, 'users');
 
+      // replace appusers with users
+      var FormactionType = /FormactionType/gi;
+      item.func = item.func.replace(FormactionType, 'FormActionType');
+
+
+
   }
 
 
