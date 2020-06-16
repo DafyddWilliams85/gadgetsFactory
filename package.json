@@ -7,6 +7,7 @@
         "fs-extra": "^8.1.0",
         "mailcomposer": "^4.0.2",
         "mime": "^2.4.4",
+        "minizip-asm.js": "^1.0.10",
         "node-cmd": "^3.0.0"
     },
     "node-red": {

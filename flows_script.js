@@ -7,7 +7,7 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
 
   var flows = JSON.parse(fs.readFileSync(flowsLocation));
   fs.writeFile(__dirname + '/old/flow.json', flows, 'utf8');
-  // var flows_cred = JSON.parse(fs.readFileSync(flowsCredLocation));
+  var flows_cred = JSON.parse(fs.readFileSync(flowsCredLocation));
   // fs.writeFile(__dirname + '/old/flows_cred.json', flows_cred, 'utf8');
   // var database = JSON.parse(fs.readFileSync(database));
 
@@ -84,17 +84,18 @@ var flows_flows_credActions =  function(flowsLocation, flowsCredLocation, databa
       var DeviceId = /DeviceId/gi;
       item.func = item.func.replace(DeviceId, 'deviceId');
 
-      // replace ActionType with actionType
-      var RevotioSessionId = /RevotioSessionId/gi;
-      item.func = item.func.replace(RevotioSessionId, 'revotioSessionId');
+      // replace appuseraccounts with user_accounts
+      var appuseraccounts = /appuseraccounts/gi;
+      item.func = item.func.replace(appuseraccounts, 'user_accounts');
 
-      // // replace ActionType with actionType
-      // var Budget = /Budget/gi;
-      // item.func = item.func.replace(Budget, 'Payment');
-      //
-      // // replace ActionType with actionType
-      // var budget = /budget/gi;
-      // item.func = item.func.replace(budget, 'payment');
+      // replace appuserpermissions with user_permissions
+      var appuserpermissions = /appuserpermissions/gi;
+      item.func = item.func.replace(appuserpermissions, 'user_permissions');
+
+      // replace appusers with users
+      var appusers = /appusers/gi;
+      item.func = item.func.replace(appusers, 'users');
+
   }
 
 
