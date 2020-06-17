@@ -1,0 +1,39 @@
+{
+
+        "container" : [
+            {
+                "type" : "modal",
+                "name" : "generic form modal",
+                "styles" : {
+                    "width" : "auto"
+                },
+                "id" : "faaf5cc1-b04b-2266-8057-c99556a4becd",
+                "orientation" : "vertical",
+                "columns" : [
+                    {
+                        "type" : "item",
+                        "name" : "Gadget",
+                        "styles" : {
+                            "width" : "auto"
+                        },
+                        "id" : "1870199d-1089-c4bc-5513-f6bb14e5f2a2",
+                        "content" : [
+                            {
+                                "type" : "custom-form",
+                                "label" : "Custom Form",
+                                "name" : "Generic form",
+                                "id" : "37f6eeec-435e-0ac0-685a-48399d97976d",
+                                "data" : {
+                                    "type" : "custom-form",
+                                    "label" : "Custom Form",
+                                    "name" : "Generic form",
+                                    "id" : "c9c4a478-bd32-8fd2-3c88-a8901c64793b"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    
+  }
