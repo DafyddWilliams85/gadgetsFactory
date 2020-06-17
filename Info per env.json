@@ -1,5 +1,5 @@
 {
 
-"revotio":{"TYPE":"revotio","APP_ID":"5e78729bc2803b4e2b321b93","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-new.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-new.revotio.com/ws/chat","APP_NAME":"PMT","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"NO","PAGE_PUBLISHER_VERSION":"NEW"}
+"revotio":{"TYPE":"revotio","APP_ID":"5ee9cfe81f91fdb63c18ae74","DEPLOYMENTTYPE":"production","GIT_USERNAME":"revotio","GIT_PASSWORD":"jW21h3MTebDXg1JrF26OZzmQLcRhNCYjJ9DWh","API_URL":"https://services-new.revotio.com","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-new.revotio.com/ws/chat","APP_NAME":"PMT","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"NO","PAGE_PUBLISHER_VERSION":"NEW"}
 
 }
