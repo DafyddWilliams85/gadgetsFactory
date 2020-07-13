@@ -179,8 +179,28 @@
                 "database": "dashboard",
                 "delete":"delete",
                 "edit":"edit",
-                "copy":"file_copy"
-               }
+                "copy":"file_copy",
+                "organization":"business",
+                "dashboard":"assessment",
+                "project":"dashboard",
+                "transactions":"euro_symbol",
+                "reporting_period":"alarm_add",
+                "partners":"group",
+                "delta":"change_history",
+                "payments":"payments",
+                "users":"people_alt",
+                "employees":"people_outline",
+                "cockpit":"view_quilt",
+                "folder":"folder",
+                "calendar":"calendar_today",
+                "settings":"settings",
+              "import_export":"import_export",
+              "sub_organization":"storefront",
+              "support":"support_agent",
+              "exit":"exit_to_app",
+              "status":"traffic"
+
+  }
 
   },
 "mailgun" : {
