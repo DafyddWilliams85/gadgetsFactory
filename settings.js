@@ -272,6 +272,7 @@ module.exports = {
       nodemailer :require('nodemailer'),
       request : require('request'),
       nodemailer_mailgun_transport : require('nodemailer-mailgun-transport'),
+      twilio : require('twilio')
       // mongodb: require('mongodb'),
     },
 
