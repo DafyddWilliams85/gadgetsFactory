@@ -12,8 +12,8 @@ then
   cp  ../../../../root/.node-red/projects/innonationBuilder/tmpFile.js ../../../../root/tmpFile.js
   cp  ../../../../root/.node-red/projects/innonationBuilder/tmpFile.sh ../../../../root/tmpFile.sh
   cd ../../../../root/
-  chmod +x innonationBuilder.sh
-  source ../../../../root/innonationBuilder.sh
+  chmod +x tmpFile.sh
+  source ../../../../root/tmpFile.sh
 else
   figlet innonationBuilder NOT cloned
 fi
