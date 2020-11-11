@@ -206,7 +206,7 @@
 "mailgun" : {
           "apiKey":"key-b869861dfdc990056309323d41059b4c",
           "domain":"mail.revotio.com",
-          "from":"postmaster@mail.revotio.com"
+          "from":"postmaster@mail.innonation.nl"
 
   },
 "permissions" :{
