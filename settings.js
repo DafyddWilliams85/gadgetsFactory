@@ -316,13 +316,13 @@ module.exports = {
     // Customising the editor
     editorTheme: {
       page: {
-         title: "BUILDER-NODE-RED",
-         favicon: "/root/.node-red/projects/innonationBuilder/files/logo/innonationBuilder/favicon.ico",
+         title: "Factory",
+         favicon: "/root/.node-red/projects/gadgetsFactory/files/logo/factory/favicon.ico",
          // css: "/absolute/path/to/custom/css/file",
          // scripts: [ "/absolute/path/to/custom/script/file", "/another/script/file"]
      },
      header: {
-         title: "BUILDER-NODE-RED",
+         title: "Factory",
          // image: "/absolute/path/to/header/image", // or null to remove image
          // url: "http://nodered.org" // optional url to make the header text/image a link to this url
      },
