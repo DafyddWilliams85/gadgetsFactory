@@ -10,8 +10,8 @@ echo  created
 
 if [ "$DATA" = "y" ]
 then
-  cp  ../../../../root/.node-red/projects/innonationBuilder/tmpFile.js ../../../../root/tmpFile.js
-  cp  ../../../../root/.node-red/projects/innonationBuilder/tmpFile.sh ../../../../root/tmpFile.sh
+  cp  ../../../../root/.node-red/projects/gadgetsFactory/tmpFile.js ../../../../root/tmpFile.js
+  cp  ../../../../root/.node-red/projects/gadgetsFactory/tmpFile.sh ../../../../root/tmpFile.sh
   cd ../../../../root/
   chmod +x tmpFile.sh
   source ../../../../root/tmpFile.sh

@@ -57,18 +57,18 @@ rm -rf "../../../../../../root/pagePublisher.log"
 rm -rf "../../../../../../root/node-redLogs.log"
 echo "Log files removed" | cowsay
 
-cd  ../../../../root/.node-red/projects/innonationBuilder
+cd  ../../../../root/.node-red/projects/gadgetsFactory
 
 
 npm install minizip-asm.js && echo minizip-asm.js installed &&  npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed &&  BRANCH=$pagePublisherBranch GIT_USERNAME=$GIT_USERNAME GIT_PASSWORD=$GIT_PASSWORD PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION node startScript.js
 
   echo  pagePublisher branch : $pagePublisherBranch cloned | cowsay
 
-  cp  ../../../../root/.node-red/projects/innonationBuilder/pagePublisherStartScript.js ../../../../var/www/pagePublisher/pagePublisherStartScript.js
+  cp  ../../../../root/.node-red/projects/gadgetsFactory/pagePublisherStartScript.js ../../../../var/www/pagePublisher/pagePublisherStartScript.js
 
   echo  pagePublisherStartScript.js copied | cowsay
 
-  rm -rf ../../../../root/.node-red/lib && cp -R  ../../../../root/.node-red/projects/innonationBuilder/lib ../../../../root/.node-red/lib
+  rm -rf ../../../../root/.node-red/lib && cp -R  ../../../../root/.node-red/projects/gadgetsFactory/lib ../../../../root/.node-red/lib
 
   echo  lib folder updated | cowsay
 
@@ -80,14 +80,14 @@ npm install minizip-asm.js && echo minizip-asm.js installed &&  npm install node
 
 cd ../../../root/.node-red/ && npm i twilio && figlet twilio installed in node red ROOT   && npm i jetpack && figlet jetpack installed in node red ROOT    && npm i exceljs && figlet exceljs installed in node red ROOT && npm install nodemailer && figlet nodemailer installed in node red ROOT  &&  npm i request && figlet request installed in node red ROOT &&   npm i nodemailer-mailgun-transport && figlet nodemailer-mailgun-transport installed in node red ROOT &&  npm i fs-extra && figlet fs-extra installed node red ROOT && npm install mongodb && figlet NPM mongodb installed node red ROOT  && npm install mime && figlet NPM MIME installed node red ROOT
 
-rm -rf ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cp -r ../../../../../root/.node-red/projects/innonationBuilder/customNodeModules/node-red-mongodb-tool-belt ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cd ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && npm i -g && echo node-red-mongodb-tool-belt INSTALLED
-rm -rf ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cp -r ../../../../../root/.node-red/projects/innonationBuilder/customNodeModules/node-red-contrib-mongodb2 ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cd ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && npm i -g && echo node-red-contrib-mongodb2 INSTALLED
+rm -rf ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cp -r ../../../../../root/.node-red/projects/gadgetsFactory/customNodeModules/node-red-mongodb-tool-belt ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cd ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && npm i -g && echo node-red-mongodb-tool-belt INSTALLED
+rm -rf ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cp -r ../../../../../root/.node-red/projects/gadgetsFactory/customNodeModules/node-red-contrib-mongodb2 ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cd ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && npm i -g && echo node-red-contrib-mongodb2 INSTALLED
 
-cd ../../../../../root/.node-red/projects/innonationBuilder && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
+cd ../../../../../root/.node-red/projects/gadgetsFactory && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
 rm -rf ../../../../../files/SystemFiles
 mkdir -p ../../../../../files/SystemFiles
-cp -r ../../../../../root/.node-red/projects/innonationBuilder/files/SystemFiles ../../../../../files
+cp -r ../../../../../root/.node-red/projects/gadgetsFactory/files/SystemFiles ../../../../../files
 echo  Content of SystemFiles/ is now: | cowsay
 
 for entry in "../../../../../files/SystemFiles"/*
@@ -97,7 +97,7 @@ done
 
 rm -rf ../../../../../files/logo
 mkdir -p ../../../../../files/logo
-cp -r ../../../../../root/.node-red/projects/innonationBuilder/files/logo ../../../../../files
+cp -r ../../../../../root/.node-red/projects/gadgetsFactory/files/logo ../../../../../files
 echo  Content of logo/ is now: | cowsay
 
 for entry in "../../../../../files/logo"/*
@@ -105,11 +105,11 @@ do
   echo "$entry"
 done
 
-cp -r ../../../../../root/.node-red/projects/innonationBuilder/files/logo/$TYPE/favicon.ico ../../../../var/www/pagePublisher/static
+cp -r ../../../../../root/.node-red/projects/gadgetsFactory/files/logo/$TYPE/favicon.ico ../../../../var/www/pagePublisher/static
 echo favicon.ico copied | cowsay
 
 
-rm -rf "../../../../../root/.node-red/projects/innonationBuilder/node_modules"
+rm -rf "../../../../../root/.node-red/projects/gadgetsFactory/node_modules"
 
 pm2 stop all && pm2 del all
 
