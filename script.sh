@@ -1,6 +1,8 @@
 # turn on bash's job control
-echo Provide env key
-read ENV_NAME
+# echo Provide env key
+# read ENV_NAME
+
+ENV_JSON=$3
 sudo apt-get install jq
 
 echo  ____________________________ ____________________________
@@ -9,7 +11,7 @@ echo  ____________________________ ____________________________
 
 # echo  curl '/Info per env.json'
 
-ENV_JSON=`jq --compact-output '.'$ENV_NAME "Info per env.json"`
+# ENV_JSON=`jq --compact-output '.'$ENV_NAME "Info per env.json"`
 
 echo  ENV_JSON  = $ENV_JSON
 if [ "$ENV_JSON" = "null" ]

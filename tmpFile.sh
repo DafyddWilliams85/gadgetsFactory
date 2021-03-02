@@ -2,9 +2,9 @@
 
 # turn on bash's job control
 # turn on bash's job control
-echo Are you sure you want to clone the new innonationBuilder repo? y/n
-read DATA
-
+# echo Are you sure you want to clone the new innonationBuilder repo? y/n
+# read DATA
+DATA=$2
 echo $DATA
 echo  created
 
