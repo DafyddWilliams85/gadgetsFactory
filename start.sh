@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # turn on bash's job control
-# echo Are you sure you want to clone the new innonationBuilder repo? y/n
+# echo Are you sure you want to clone the new gadgetsFactory repo? y/n
 # read DATA
 DATA=$1
 
