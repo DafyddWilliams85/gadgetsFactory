@@ -36,13 +36,14 @@ GIT_USERNAME=$( jq -r  '.GIT_USERNAME'  DATA.json)
 GIT_PASSWORD=$( jq -r  '.GIT_PASSWORD'  DATA.json)
 API_URL=$( jq -r  '.API_URL'  DATA.json)
 pagePublisherBranch=$( jq -r  '.pagePublisherBranch'  DATA.json)
+publisherBuild=$( jq -r  '.publisherBuild'  DATA.json)
 WSS_BASE_URL=$( jq -r  '.WSS_BASE_URL'  DATA.json)
 APP_NAME=$( jq -r  '.APP_NAME'  DATA.json)
 PAGE_PUBLISHER_VERSION=$( jq -r  '.PAGE_PUBLISHER_VERSION'  DATA.json)
 
 CLUSTER=$( jq -r  '.CLUSTER'  DATA.json)
 # #
-echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = WSS_BASE_URL = $WSS_BASE_URL, 9, PAGE_PUBLISHER_VERSION = $PAGE_PUBLISHER_VERSION ,PAGE_BUILDER = $PAGE_BUILDER, CLUSTER = $CLUSTER, PAGE_PUBLISHER_VERSION  = $PAGE_PUBLISHER_VERSION
+echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = WSS_BASE_URL = $WSS_BASE_URL, 9, PAGE_PUBLISHER_VERSION = $PAGE_PUBLISHER_VERSION ,PAGE_BUILDER = $PAGE_BUILDER, CLUSTER = $CLUSTER, PAGE_PUBLISHER_VERSION  = $PAGE_PUBLISHER_VERSION , publisherBuild = $publisherBuild
 
 rm -rf "DATA.json"
 echo DATA.json removed
@@ -125,7 +126,7 @@ then
   #   cd ../../../../../../var/www/pagePublisher &&  TYPE=$TYPE APP_ID=$APP_ID  pagePublisherBranch=$pagePublisherBranch  pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
   #   echo OLD pagePublisher started
   # el
-  if [ "$pagePublisherBranch" = "develop" ]
+  if [ "$publisherBuild" = "develop" ]
   then
     # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
     echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
@@ -133,7 +134,7 @@ then
     echo NEW DEV pagePublisher started
   else
     echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
-    cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run build >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
     echo NEW PROD pagePublisher started
   fi
 
@@ -148,7 +149,7 @@ else
   #   cd ../../../../../../var/www/pagePublisher &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
   #   echo OLD pagePublisher started
   # el
-  if [ "$pagePublisherBranch" = "develop" ]
+  if [ "$publisherBuild" = "develop" ]
   then
     # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
     echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
@@ -156,7 +157,7 @@ else
     echo NEW DEV pagePublisher started
   else
     echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
-    cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run build >> Publisher' --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+    cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'Publisher' -i 2 --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
     echo NEW PROD pagePublisher started
   fi
 
