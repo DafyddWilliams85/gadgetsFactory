@@ -18,7 +18,8 @@
               "responseTimeout":30000,
               "delaySize":1000,
               "secret":"T0K3NG3N3RAT0R",
-              "systemAdministratorPermission" : "5e98003f2f5e52b78e00675f"
+              "systemAdministratorPermission" : "5e98003f2f5e52b78e00675f",
+                "tokenSecret": "test12345@@@@@@@@@"
   },
 "gadgetObjects" :{
                  "datePickerOptions":{
