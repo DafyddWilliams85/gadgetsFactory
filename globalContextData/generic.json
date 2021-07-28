@@ -1,5 +1,19 @@
 {
+
+  "appVars":{
+    "time_registration_workable_hours_per_year":1720
+  },
 "communication":{},
+"cashing":{
+  "topbarActive":false,
+  "active": true
+},
+"menuSettings" :{
+  "exclused":["user authentication" , "reset password","two step authentication", "user account activation" ]
+},
+"location":{
+  "standardTimeZone":"Europe/Amsterdam"
+},
 "helpcenter":{
   "state": "active",
   "rootPageId":229510,
@@ -10,7 +24,9 @@
     "organizations global":2490416,
     "default project overview":2425569,
     "partners_management":2425729,
-    "global_transactions_page":7110723
+    "global_transactions_page":7110723,
+    "reporting_period":13271041,
+    "work_package_management":13434928
   }
 
 },
@@ -19,52 +35,52 @@
               "delaySize":1000,
               "secret":"T0K3NG3N3RAT0R",
               "systemAdministratorPermission" : "5e98003f2f5e52b78e00675f",
-                "tokenSecret": "test12345@@@@@@@@@"
+              "translation":true,
+              "language":"en",
+              "feedbackAction": true
   },
 "gadgetObjects" :{
+                "tabel":{
+                  "formatOptionsCurrency":{
+                       "calculationType":"sum",
+                       "decimal":2,
+                       "digitGroupSymbol":" ",
+                       "numberSymbol":"€"
+                   },
+                   "formatOptionsTime":{
+                        "calculationType":"sum",
+                        "decimal":2,
+                        "digitGroupSymbol":" ",
+                        "numberSymbol":""
+                    },
+                   "formatOptionsPercentage":{
+                        "calculationType":"avarage",
+                        "decimal":0,
+                        "digitGroupSymbol":" ",
+                        "numberSymbol":"%"
+                    },
+                  "columnHeadOptions":{
+                    "number":{"displayNumber" : 2 }
+
+                  }
+                },
                  "datePickerOptions":{
                     "autoClose":true
                  },
                  "dynamic-text-area":{
-                    "options":{
-                       "display":"flex",
-                       "field-display":"flex",
-                       "text-align":"left",
-                       "font-size":14,
-                       "font-weight":400,
-                       "font-family":"arial",
-                       "color":"#ccc",
-                       "label-font-size":16,
-                       "label-font-weight":400,
-                       "label-font-family":"arial",
-                       "label-color":"black",
-                       "label-margin-top":0,
-                       "label-margin-right":10,
-                       "label-margin-bottom":10,
-                       "label-margin-left":10,
-                       "label-padding-top":10,
-                       "label-padding-right":10,
-                       "label-padding-bottom":10,
-                       "label-padding-left":10,
-                       "value-font-size":14,
-                       "value-font-weight":400,
-                       "value-family":"verdana",
-                       "value-color":"black",
-                       "value-margin-top":0,
-                       "value-margin-right":0,
-                       "value-margin-bottom":0,
-                       "value-margin-left":0,
-                       "value-padding-top":0,
-                       "value-padding-right":0,
-                       "value-padding-bottom":0,
-                       "value-padding-left":0,
-                       "label-position":"left",
-                       "margin-top":0,
-                       "margin-right":20,
-                       "margin-bottom":0,
-                       "margin-left":0,
-                       "number-columns":1
-                    }
+                   "inlineTextSpace": "10",
+                      "options":{
+                          "label":{
+                                     "textWeight": "base",
+                                      "italic": true,
+                                      "size" : "lg"
+                          },
+                           "value":{
+                                      "textWeight": "extrabold",
+                                      "italic": false,
+                                      "size" : "xl"
+                          }
+                      }
                  },
                  "customForm":{
                     "timeArray":{
@@ -160,7 +176,6 @@
                   "archive": "fas fa-archive",
                   "databaseOLD": "fas fa-database",
                   "database": "dashboard"
-
                },
                "UserIcons":{
                   "User":"/SystemFiles/icons/",
@@ -195,19 +210,29 @@
                 "folder":"folder",
                 "calendar":"calendar_today",
                 "settings":"settings",
-              "import_export":"import_export",
-              "sub_organization":"storefront",
-              "support":"support_agent",
-              "exit":"exit_to_app",
-              "status":"traffic"
-
+                "power_settings_new":"power_settings_new",
+                "import_export":"import_export",
+                "sub_organization":"storefront",
+                "support":"support_agent",
+                "exit":"exit_to_app",
+                "status":"traffic",
+                "create":"add",
+                "view":"visibility",
+                "clear":"clear",
+                "work_package":"group_work",
+                  "home":"home",
+                "permission":"lock_open",
+                "email":"email",
+                "time":"query_builder",
+                "feedback":"feedback",
+                "language":"language",
+                "sub_organization_add":"store"
   }
-
-  },
+},
 "mailgun" : {
           "apiKey":"key-b869861dfdc990056309323d41059b4c",
           "domain":"mail.revotio.com",
-          "from":"postmaster@mail.innonation.nl"
+          "from":"postmaster@mail.revotio.com"
 
   },
 "permissions" :{
@@ -261,5 +286,5 @@
            "width": "auto"
         }
     },
-"innonation_api": "https://api.innonation.nl"
+"page_api": "https://api.innonation.nl"
 }

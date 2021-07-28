@@ -1,6 +1,62 @@
 {
-"factory":{"TYPE":"factory","APP_ID":"603e499aa8844db73eb26c98","DEPLOYMENTTYPE":"production","GIT_USERNAME":"innonationNL","GIT_PASSWORD":"Kv6VviY7j7K72FH","API_URL":"https://services-factory.innonation.nl","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-factory.innonation.nl/ws/chat","APP_NAME":"Factory","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"NO","PAGE_PUBLISHER_VERSION":"NEW","publisherBuild":"develop"},
-"factory_production":{"TYPE":"factory","APP_ID":"603e499aa8844db73eb26c98","DEPLOYMENTTYPE":"production","GIT_USERNAME":"innonationNL","GIT_PASSWORD":"Kv6VviY7j7K72FH","API_URL":"https://services-factory.innonation.nl","pagePublisherBranch":"develop","WSS_BASE_URL":"wss://services-factory.innonation.nl/ws/chat","APP_NAME":"Factory","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"NO","PAGE_PUBLISHER_VERSION":"NEW","publisherBuild":"production"},
-"factory_master":{"TYPE":"factory","APP_ID":"603e499aa8844db73eb26c98","DEPLOYMENTTYPE":"production","GIT_USERNAME":"innonationNL","GIT_PASSWORD":"Kv6VviY7j7K72FH","API_URL":"https://services-factory.innonation.nl","pagePublisherBranch":"master","WSS_BASE_URL":"wss://services-factory.innonation.nl/ws/chat","APP_NAME":"Factory","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"NO","PAGE_PUBLISHER_VERSION":"NEW","publisherBuild":"develop"},
-"factory_master_production":{"TYPE":"factory","APP_ID":"603e499aa8844db73eb26c98","DEPLOYMENTTYPE":"production","GIT_USERNAME":"innonationNL","GIT_PASSWORD":"Kv6VviY7j7K72FH","API_URL":"https://services-factory.innonation.nl","pagePublisherBranch":"master","WSS_BASE_URL":"wss://services-factory.innonation.nl/ws/chat","APP_NAME":"Factory","PAGE_BUILDER":"true","PAGE_PUBLISHER_VERSION":"NEW","CLUSTER":"NO","PAGE_PUBLISHER_VERSION":"NEW","publisherBuild":"production"}
+  "factory": {
+    "TYPE": "factory",
+    "APP_ID": "603e499aa8844db73eb26c98",
+    "DEPLOYMENTTYPE": "production",
+    "GIT_USERNAME": "innonationNL",
+    "GIT_PASSWORD": "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",
+    "API_URL": "https://services-factory.innonation.nl",
+    "pagePublisherBranch": "develop",
+    "WSS_BASE_URL": "wss://services-factory.innonation.nl/ws/chat",
+    "APP_NAME": "Factory",
+    "PAGE_BUILDER": "true",
+    "PAGE_PUBLISHER_VERSION": "NEW",
+    "CLUSTER": "NO",
+    "publisherBuild": "develop"
+  },
+  "factory_production": {
+    "TYPE": "factory",
+    "APP_ID": "603e499aa8844db73eb26c98",
+    "DEPLOYMENTTYPE": "production",
+    "GIT_USERNAME": "innonationNL",
+    "GIT_PASSWORD": "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",
+    "API_URL": "https://services-factory.innonation.nl",
+    "pagePublisherBranch": "develop",
+    "WSS_BASE_URL": "wss://services-factory.innonation.nl/ws/chat",
+    "APP_NAME": "Factory",
+    "PAGE_BUILDER": "true",
+    "PAGE_PUBLISHER_VERSION": "NEW",
+    "CLUSTER": "NO",
+    "publisherBuild": "production"
+  },
+  "factory_master": {
+    "TYPE": "factory",
+    "APP_ID": "603e499aa8844db73eb26c98",
+    "DEPLOYMENTTYPE": "production",
+    "GIT_USERNAME": "innonationNL",
+    "GIT_PASSWORD": "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",
+    "API_URL": "https://services-factory.innonation.nl",
+    "pagePublisherBranch": "master",
+    "WSS_BASE_URL": "wss://services-factory.innonation.nl/ws/chat",
+    "APP_NAME": "Factory",
+    "PAGE_BUILDER": "true",
+    "PAGE_PUBLISHER_VERSION": "NEW",
+    "CLUSTER": "NO",
+    "publisherBuild": "develop"
+  },
+  "factory_master_production": {
+    "TYPE": "factory",
+    "APP_ID": "603e499aa8844db73eb26c98",
+    "DEPLOYMENTTYPE": "production",
+    "GIT_USERNAME": "innonationNL",
+    "GIT_PASSWORD": "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",
+    "API_URL": "https://services-factory.innonation.nl",
+    "pagePublisherBranch": "master",
+    "WSS_BASE_URL": "wss://services-factory.innonation.nl/ws/chat",
+    "APP_NAME": "Factory",
+    "PAGE_BUILDER": "true",
+    "PAGE_PUBLISHER_VERSION": "NEW",
+    "CLUSTER": "NO",
+    "publisherBuild": "production"
+  }
 }

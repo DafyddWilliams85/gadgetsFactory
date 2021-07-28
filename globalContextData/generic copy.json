@@ -1,0 +1,290 @@
+{
+
+  "appVars":{
+    "time_registration_workable_hours_per_year":1720
+  },
+"communication":{},
+"cashing":{
+  "topbarActive":false,
+  "active": true
+},
+"menuSettings" :{
+  "exclused":["user authentication" , "reset password","two step authentication", "user account activation" ]
+},
+"location":{
+  "standardTimeZone":"Europe/Amsterdam"
+},
+"helpcenter":{
+  "state": "active",
+  "rootPageId":229510,
+  "pages":{
+    "user_cockpit":2424882,
+    "users global":2425439,
+    "organization cockpit dashboard":2457709,
+    "organizations global":2490416,
+    "default project overview":2425569,
+    "partners_management":2425729,
+    "global_transactions_page":7110723,
+    "reporting_period":13271041,
+    "work_package_management":13434928
+  }
+
+},
+"SystemVars" :  {
+              "responseTimeout":30000,
+              "delaySize":1000,
+              "secret":"T0K3NG3N3RAT0R",
+              "systemAdministratorPermission" : "5e98003f2f5e52b78e00675f",
+              "translation":true,
+              "language":"en",
+              "feedbackAction": true
+  },
+"gadgetObjects" :{
+                "tabel":{
+                  "formatOptionsCurrency":{
+                       "calculationType":"sum",
+                       "decimal":2,
+                       "digitGroupSymbol":" ",
+                       "numberSymbol":"€"
+                   },
+                   "formatOptionsTime":{
+                        "calculationType":"sum",
+                        "decimal":2,
+                        "digitGroupSymbol":" ",
+                        "numberSymbol":""
+                    },
+                   "formatOptionsPercentage":{
+                        "calculationType":"avarage",
+                        "decimal":0,
+                        "digitGroupSymbol":" ",
+                        "numberSymbol":"%"
+                    },
+                  "columnHeadOptions":{
+                    "number":{"displayNumber" : 2 }
+
+                  }
+                },
+                 "datePickerOptions":{
+                    "autoClose":true
+                 },
+                 "dynamic-text-area":{
+                   "inlineTextSpace": "10",
+                      "options":{
+                          "label":{
+                                     "textWeight": "base",
+                                      "italic": true,
+                                      "size" : "lg"
+                          },
+                           "value":{
+                                      "textWeight": "extrabold",
+                                      "italic": false,
+                                      "size" : "xl"
+                          }
+                      }
+                 },
+                 "customForm":{
+                    "timeArray":{
+                       "00:00":"00:00",
+                       "00:30":"00:30",
+                       "01:00":"01:00",
+                       "01:30":"01:30",
+                       "02:00":"02:00",
+                       "02:30":"02:30",
+                       "03:00":"03:00",
+                       "03:30":"03:30",
+                       "04:00":"04:00",
+                       "04:30":"04:30",
+                       "05:00":"05:00",
+                       "05:30":"05:30",
+                       "06:00":"06:00",
+                       "06:30":"06:30",
+                       "07:00":"07:00",
+                       "07:30":"07:30",
+                       "08:00":"08:00",
+                       "08:30":"08:30",
+                       "09:00":"09:00",
+                       "09:30":"09:30",
+                       "10:00":"10:00",
+                       "10:30":"10:30",
+                       "11:00":"11:00",
+                       "11:30":"11:30",
+                       "12:00":"12:00",
+                       "12:30":"12:30",
+                       "13:00":"13:00",
+                       "13:30":"13:30",
+                       "14:00":"14:00",
+                       "14:30":"14:30",
+                       "15:00":"15:00",
+                       "15:30":"15:30",
+                       "16:00":"16:00",
+                       "16:30":"16:30",
+                       "17:00":"17:00",
+                       "17:30":"17:30",
+                       "18:00":"18:00",
+                       "18:30":"18:30",
+                       "19:00":"19:00",
+                       "19:30":"19:30",
+                       "20:00":"20:00",
+                       "20:30":"20:30",
+                       "21:00":"21:00",
+                       "21:30":"21:30",
+                       "22:00":"22:00",
+                       "22:30":"22:30",
+                       "23:00":"23:00",
+                       "23:30":"23:30"
+                    }
+                 }
+
+  },
+"icons" : {
+               "fas":{
+                  "check":"fas fa-check-circle",
+                  "open":"fas fa-angle-double-right",
+                  "organization":"fas fa-briefcase",
+                  "project":"fas fa-project-diagram",
+                  "users":"fas fa-users",
+                  "participants":"fas fa-address-book",
+                  "work_package":"fas fa-cube",
+                  "settings":"fas fa-wrench",
+                  "create":"fas fa-plus",
+                  "Equipment":"fas fa-screwdriver",
+                  "Travel & subsistence":"fas fa-plane",
+                  "Subcontracting":"fas fa-male",
+                  "Personnel cost":"fas fa-clock",
+                  "Overhead":"fas fa-building",
+                  "Consumables":"fas fa-check-circle",
+                  "Other":"fas fa-check-circle",
+                  "dashboard":"fas fa-tachometer-alt",
+                  "team":"fas fa-cube",
+                  "epics":"fas fa-building",
+                  "user":"fas fa-male",
+                  "time":"far fa-clock",
+                  "logout":"fas fa-sign-out-alt",
+                  "trophy":"fas fa-trophy",
+                  "calendar":"fas fa-calendar",
+                  "rocket":"flight_takeoff",
+                  "edit":"fas fa-edit",
+                  "deleteOLD":"fas fa-trash-alt",
+                  "delete":"delete",
+                  "euro":"€",
+                  "file_management":"fas fa-folder",
+                  "back":"fas fa-reply",
+                  "clock":"fas fa-clock",
+                  "sun":"fas fa-sun",
+                  "upload":  "fas fa-upload",
+                  "download": "fas fa-download",
+                  "archive": "fas fa-archive",
+                  "databaseOLD": "fas fa-database",
+                  "database": "dashboard"
+               },
+               "UserIcons":{
+                  "User":"/SystemFiles/icons/",
+                  "UserName":"user Icon.png",
+                  "Admin":"/SystemFiles/icons/",
+                  "AdminName":"admin.png",
+                  "Triangle":"SystemFiles/icons/TrangleIcon.svg"
+               },
+               "images":{
+                  "organization":"/files/SystemFiles/icons/icon_organization.svg",
+                  "project":"/files/SystemFiles/icons/icon_rocket.svg",
+                  "employee":"/files/SystemFiles/icons/icon_rocket.svg",
+                  "user":"/files/SystemFiles/icons/icon_user.svg"
+               },
+               "material":{
+                "help":"help",
+                "database": "dashboard",
+                "delete":"delete",
+                "edit":"edit",
+                "copy":"file_copy",
+                "organization":"business",
+                "dashboard":"assessment",
+                "project":"dashboard",
+                "transactions":"euro_symbol",
+                "reporting_period":"alarm_add",
+                "partners":"group",
+                "delta":"change_history",
+                "payments":"payments",
+                "users":"people_alt",
+                "employees":"people_outline",
+                "cockpit":"view_quilt",
+                "folder":"folder",
+                "calendar":"calendar_today",
+                "settings":"settings",
+                "power_settings_new":"power_settings_new",
+                "import_export":"import_export",
+                "sub_organization":"storefront",
+                "support":"support_agent",
+                "exit":"exit_to_app",
+                "status":"traffic",
+                "create":"add",
+                "view":"visibility",
+                "clear":"clear",
+                "work_package":"group_work",
+                  "home":"home",
+                "permission":"lock_open",
+                "email":"email",
+                "time":"query_builder",
+                "feedback":"feedback",
+                "language":"language",
+                "sub_organization_add":"store"
+  }
+},
+"mailgun" : {
+          "apiKey":"key-b869861dfdc990056309323d41059b4c",
+          "domain":"mail.revotio.com",
+          "from":"postmaster@mail.revotio.com"
+
+  },
+"permissions" :{
+           "name":{
+              "Administrator":0,
+              "User":1,
+              "Scoped":2
+           },
+           "ID":{
+              "0":"Administrator",
+              "1":"User",
+              "2":"Scoped"
+           },
+           "actions":{
+              "view":"View",
+              "create":"Create",
+              "edit":"Edit",
+              "delete":"Delete"
+           }
+
+  },
+"table"  :{
+               "tableTitleStyles":{
+                "padding-top":"20px",
+                "font-size":"30px",
+                "margin-bottom":"0px",
+                "text-align":"center"
+               }
+
+  },
+"topbar_design" :{
+      "pageSpecificContanerPlaceholder":{
+                "background-color":"#1D2531",
+                "position":"sticky",
+                "top":0,
+                "z-index":1,
+                "height": "auto",
+                "margin-right": "-20px",
+                "margin-left": "-20px",
+                "width": "auto",
+                "box-shadow": "none"
+      },
+      "23b336f8-dcc1-49b4-3554-dabbb72f8011": {
+             "width": "auto"
+        },
+        "6007a4d7-e061-c25e-1a41-ab68e220d473": {
+            "width": "auto",
+            "max-width": "85%"
+        },
+        "1a99cddc-94bb-624d-69c3-4bf91c372a8f": {
+           "width": "auto"
+        }
+    },
+"page_api": "https://api.innonation.nl"
+}
