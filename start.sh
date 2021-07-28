@@ -14,7 +14,7 @@ then
   cp  ../../../../root/.node-red/projects/gadgetsFactory/tmpFile.sh ../../../../root/tmpFile.sh
   cd ../../../../root/
   chmod +x tmpFile.sh
-  source ../../../../root/tmpFile.sh
+  GIT_USERNAME=$4 GIT_PASSWORD=$5 source ../../../../root/tmpFile.sh 
 else
   figlet innonationBuilder NOT cloned
 fi
