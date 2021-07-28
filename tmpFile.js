@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const cmd = require('node-cmd');
 
 const GIT_USERNAME = "innonationNL";
-const GIT_PASSWORD = "ffc561e645f526d05fd86552e6bf03d3c6a19ff3";
+const GIT_PASSWORD = "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";
 
 remote = `https://${GIT_USERNAME}:${GIT_PASSWORD}@${"github.com/DafyddWilliams85/gadgetsFactory.git"}` ;
 
