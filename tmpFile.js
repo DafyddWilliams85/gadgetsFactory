@@ -16,15 +16,21 @@ GIT_PASSWORD = process.env.GIT_PASSWORD
 
 remote = `https://${GIT_USERNAME}:${GIT_PASSWORD}@${"github.com/DafyddWilliams85/gadgetsFactory.git"}` ;
 
-cmd.get(
-  'git clone -b ' + 'master'  + " "+ remote + ' ../../../../root/.node-red/projects/gadgetsFactory',
-  function(err, data, stderr){
-    if (err){
-      console.log(err);
-    }
-    if (stderr){
-      console.log(stderr);
-    }
-    console.log(data);
+// remote = `https://${GIT_USERNAME}:${GIT_PASSWORD}@${"github.com/DafyddWilliams85/PNO_portfolio_management.git"}` ;
 
-});
+const syncClone=cmd.runSync(  'git clone -b master '  + remote + ' ../../../../root/.node-red/projects/gadgetsFactory');
+
+console.log(syncClone);
+
+// cmd.get(
+//   'git clone -b ' + 'master'  + " "+ remote + ' ../../../../root/.node-red/projects/gadgetsFactory',
+//   function(err, data, stderr){
+//     if (err){
+//       console.log(err);
+//     }
+//     if (stderr){
+//       console.log(stderr);
+//     }
+//     console.log(data);
+//
+// });
