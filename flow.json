@@ -196,12 +196,12 @@
                 ]
             },
             {
-                "x": 540,
+                "x": 760,
                 "y": 140,
                 "wires": [
                     {
-                        "id": "4e19b9ea.51eff8",
-                        "port": 1
+                        "id": "e9e394d543bcea57",
+                        "port": 0
                     }
                 ]
             },
@@ -5986,7 +5986,9 @@
         "y": 80,
         "wires": [
             [],
-            [],
+            [
+                "e9e394d543bcea57"
+            ],
             []
         ],
         "outputLabels": [
@@ -11639,11 +11641,12 @@
         "type": "function",
         "z": "e25f5e2d.45871",
         "name": "Get gadgetContainers Object",
-        "func": "var request = global.get('request');\nvar Moment = global.get('moment');var MomentRange = global.get('momentrange');\nvar moment = MomentRange.extendMoment(Moment)\nvar crypto = global.get('crypto');\nvar momentTimezone = global.get('moment_timezone');\nvar lodash = global.get('lodash');\nvar _ = global.get('underscore');\nvar BSON = global.get('bson');\nvar ObjectID = BSON.ObjectID;\nvar accounting = global.get('accounting');\nvar accountingoptions = {\tsymbol : \"€\",\tdecimal : \".\", \tthousand: \" \", \tprecision : 0, \tformat: \"%s %v\"}; // example = Output = accounting.formatMoney(Number, accountingoptions );\nvar jsonwebtoken = global.get('jsonwebtoken');\nvar mongodbTools = global.get('mongodbTools');\nvar excelToJson = global.get('excelToJson');\nvar Excel = global.get('exceljs');\nvar fs = global.get('fsextra');\nvar xml2js = global.get('xml2js');\nvar json2xls = global.get('json2xls');\nvar nodemailer = global.get('nodemailer');\nvar mg = global.get('nodemailer_mailgun_transport');\n\nvar response, sessionUpdate , timer ;\nvar totalNumberOfGadgets, currentNumberOfGadgets;\nvar deviceId = msg.session.deviceId ; \nvar revotioSessionId = msg.session.revotioSessionId ;\nvar token = msg.session.token ;\n\nmsg.test = []\n\nmsg.page =  msg.session.Page\n\nmsg.endtime = new Date()\n\nglobal.set(\"communication.lastMessage\",new Date())\nif (global.get(\"communication\").hasOwnProperty(msg.session._id) === false\n){\n    if (msg.timer === false){\n        global.set(\"communication.lastIDSet\",new Date())\n        global.set(\"communication.\"+msg.session._id,{date: new Date(), diff :0, counter : 0})\n        msg.first = true\n    }\n    \n} else {\n    if (msg.hasOwnProperty(\"first\") === false){\n        msg.first = false\n    }\n    diff = moment(new Date()).diff(moment(global.get(\"communication.\"+msg.session._id+\".date\")))\n    global.set(\"communication.\"+msg.session._id +\".diff\",diff)\n    global.set(\"communication.\"+msg.session._id +\".counter\", global.get(\"communication.\"+msg.session._id+\".counter\")+ 1)\n   \n}\n\n\n// msg.test.push({level:2})\nif (msg.session.groupedObject.hasOwnProperty(msg.RevotioData.entity) === true){\n    msg.test.push({level:3.1})\n    totalNumberOfGadgets = msg.session.groupedObject[msg.RevotioData.entity].length\n    msg.test.push({level:3.2})\n} else {\n    msg.test.push({level:4.1})\n    totalNumberOfGadgets = msg.session.groupedObject.INIT.length\n    totalNumberOfGadgets = global.get('gadgetGroups.' + deviceId + \".\" + revotioSessionId+\".groupedObject.INIT\").length\n    msg.test.push({level:4.2})\n}\n\ncurrentNumberOfGadgets = msg.session.Gadgets.length\n\nif (    global.get(\"communication\").hasOwnProperty(msg.session._id) === true &&\n        ( totalNumberOfGadgets <= currentNumberOfGadgets  || \n        global.get(\"communication.\"+msg.session._id+\".diff\" )> global.get(\"SystemVars.responseTimeout\"))\n){\n  \n    global.set(\"communication.\"+msg.session._id)\n    msg.payload = {\n        deviceId: deviceId,\n        revotioSessionId: revotioSessionId,\n        token: token,\n        starttime: msg.starttime,\n        gadgetsList : msg.session.Gadgets,\n        Type: \"Update\"\n    }\n    \n    msg.headers = {\n    'Access-Control-Allow-Origin': '*',\n    'Access-Control-Allow-Methods': 'PUT,GET,POST,DELETE,OPTIONS',\n    'Access-Control-Allow-Headers': 'Content-Type',\n    'content-type': 'application/json',\n    };\n\n    response = msg; \n    updateObj = {\n                    query : {\n                            query :{_id:new ObjectID(msg.session._id)}, \n                            update : { \"$set\" : {Gadgets : [],\n                                                timestamp: new Date(),\n                                                responseSend : false\n                            }},\n                            options : {upsert: true}\n                            },\n                    connection:global.get(\"DB_data.connection\"),\n                    database:global.get(\"DB_data.appDB\"),\n                    collection:'sessions',\n                    operation:'update', // updateMany , updateOne\n                    }\n\n            mongodbTools.resolveAsync(updateObj, node, function(res){\n            })  \n   \n\nresponse = {\n    pageName: msg.RevotioData.FlowData.pageName,\n    req : msg.req,\n    res : msg.res,\n    payload : msg.payload,\n    headers : msg.headers,\n    page:msg.page,\n    session_id : msg.session._id,\n    page_session_id : msg.page_session_id\n}\nsessionUpdate = msg;\n\nreturn [response, sessionUpdate] } \n\nelse if (global.get(\"communication\").hasOwnProperty(msg.session._id) === true && msg.first === true){ \n    \n        msg.timer = true\n        timer = msg;\n    return [response, sessionUpdate,timer];\n}\n\n",
+        "func": "var request = global.get('request');\nvar Moment = global.get('moment');var MomentRange = global.get('momentrange');\nvar moment = MomentRange.extendMoment(Moment)\nvar crypto = global.get('crypto');\nvar momentTimezone = global.get('moment_timezone');\nvar lodash = global.get('lodash');\nvar _ = global.get('underscore');\nvar BSON = global.get('bson');\nvar ObjectID = BSON.ObjectID;\nvar accounting = global.get('accounting');\nvar accountingoptions = {\tsymbol : \"€\",\tdecimal : \".\", \tthousand: \" \", \tprecision : 0, \tformat: \"%s %v\"}; // example = Output = accounting.formatMoney(Number, accountingoptions );\nvar jsonwebtoken = global.get('jsonwebtoken');\nvar mongodbTools = global.get('mongodbTools');\nvar excelToJson = global.get('excelToJson');\nvar Excel = global.get('exceljs');\nvar fs = global.get('fsextra');\nvar xml2js = global.get('xml2js');\nvar json2xls = global.get('json2xls');\nvar nodemailer = global.get('nodemailer');\nvar mg = global.get('nodemailer_mailgun_transport');\n\nvar response, sessionUpdate , timer ;\nvar totalNumberOfGadgets, currentNumberOfGadgets;\nvar deviceId = msg.session.deviceId ; \nvar revotioSessionId = msg.session.revotioSessionId ;\nvar token = msg.session.token ;\n\nmsg.test = []\n\nmsg.page =  msg.session.Page\n\nmsg.endtime = new Date()\n\nglobal.set(\"communication.lastMessage\",new Date())\nif (global.get(\"communication\").hasOwnProperty(msg.session._id) === false\n){\n    if (msg.timer === false){\n        global.set(\"communication.lastIDSet\",new Date())\n        global.set(\"communication.\"+msg.session._id,{date: new Date(), diff :0, counter : 0})\n        msg.first = true\n    }\n    \n} else {\n    if (msg.hasOwnProperty(\"first\") === false){\n        msg.first = false\n    }\n    diff = moment(new Date()).diff(moment(global.get(\"communication.\"+msg.session._id+\".date\")))\n    global.set(\"communication.\"+msg.session._id +\".diff\",diff)\n    global.set(\"communication.\"+msg.session._id +\".counter\", global.get(\"communication.\"+msg.session._id+\".counter\")+ 1)\n   \n}\n\n\n// msg.test.push({level:2})\nif (msg.session.groupedObject.hasOwnProperty(msg.RevotioData.entity) === true){\n    msg.test.push({level:3.1})\n    totalNumberOfGadgets = msg.session.groupedObject[msg.RevotioData.entity].length\n    msg.test.push({level:3.2})\n} else {\n    msg.test.push({level:4.1})\n    totalNumberOfGadgets = msg.session.groupedObject.INIT.length\n    totalNumberOfGadgets = global.get('gadgetGroups.' + deviceId + \".\" + revotioSessionId+\".groupedObject.INIT\").length\n    msg.test.push({level:4.2})\n}\n\ncurrentNumberOfGadgets = msg.session.Gadgets.length\n\nif (    global.get(\"communication\").hasOwnProperty(msg.session._id) === true &&\n        ( totalNumberOfGadgets <= currentNumberOfGadgets  || \n        global.get(\"communication.\"+msg.session._id+\".diff\" )> global.get(\"SystemVars.responseTimeout\"))\n){\n  \n    global.set(\"communication.\"+msg.session._id)\n    msg.payload = {\n        deviceId: deviceId,\n        revotioSessionId: revotioSessionId,\n        token: token,\n        starttime: msg.starttime,\n        gadgetsList : msg.session.Gadgets,\n        Type: \"Update\"\n    }\n    \n    msg.headers = {\n    'Access-Control-Allow-Origin': '*',\n    'Access-Control-Allow-Methods': 'PUT,GET,POST,DELETE,OPTIONS',\n    'Access-Control-Allow-Headers': 'Content-Type',\n    'content-type': 'application/json',\n    };\n\n    response = msg; \n    updateObj = {\n                    query : {\n                            query :{_id:new ObjectID(msg.session._id)}, \n                            update : { \"$set\" : {Gadgets : [],\n                                                timestamp: new Date(),\n                                                responseSend : false\n                            }},\n                            options : {upsert: true}\n                            },\n                    connection:global.get(\"DB_data.connection\"),\n                    database:global.get(\"DB_data.appDB\"),\n                    collection:'sessions',\n                    operation:'update', // updateMany , updateOne\n                    }\n\n            mongodbTools.resolveAsync(updateObj, node, function(res){\n            })  \n   \n\nresponse = {\n    pageName: msg.pageName,\n    req : msg.req,\n    res : msg.res,\n    payload : msg.payload,\n    headers : msg.headers,\n    page:msg.page,\n    session_id : msg.session._id,\n    page_session_id : msg.page_session_id\n}\nsessionUpdate = msg;\n\nreturn [response, sessionUpdate] } \n\nelse if (global.get(\"communication\").hasOwnProperty(msg.session._id) === true && msg.first === true){ \n    \n        msg.timer = true\n        timer = msg;\n    return [response, sessionUpdate,timer];\n}\n\n",
         "outputs": 3,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 950,
         "y": 860,
         "wires": [
@@ -11703,11 +11706,12 @@
         "type": "function",
         "z": "e25f5e2d.45871",
         "name": "Update && Get session",
-        "func": "var request = global.get('request');\nvar Moment = global.get('moment');var MomentRange = global.get('momentrange');\nvar moment = MomentRange.extendMoment(Moment)\nvar crypto = global.get('crypto');\nvar momentTimezone = global.get('moment_timezone');\nvar lodash = global.get('lodash');\nvar _ = global.get('underscore');\nvar BSON = global.get('bson');\nvar ObjectID = BSON.ObjectID;\nvar accounting = global.get('accounting');\nvar accountingoptions = {\tsymbol : \"€\",\tdecimal : \".\", \tthousand: \" \", \tprecision : 0, \tformat: \"%s %v\"}; // example = Output = accounting.formatMoney(Number, accountingoptions );\nvar jsonwebtoken = global.get('jsonwebtoken');\nvar mongodbTools = global.get('mongodbTools');\nvar excelToJson = global.get('excelToJson');\nvar Excel = global.get('exceljs');\nvar fs = global.get('fsextra');\nvar xml2js = global.get('xml2js');\nvar json2xls = global.get('json2xls');\nvar nodemailer = global.get('nodemailer');\nvar mg = global.get('nodemailer_mailgun_transport');\n\n\n// reset msg object\n\nRevotioData = msg.RevotioData\npayload = msg.payload\nres = msg.res\nreq = msg.req\nstarttime = msg.starttime\nstarttime2 = msg.starttime2\nstarttime3= msg.starttime3\ncommunicationData = msg.communicationData\n\nmsg = {\n    payload:payload,\n    RevotioData:RevotioData,\n    res : res,\n    req : req,\n    starttime : starttime,\n    starttime2:starttime2,\n    starttime3:msg.starttime3,\n    communicationData : communicationData\n}\n\n// check if its dev env\n// if (env.get(\"PREFORMANCE_CHECK\") && env.get(\"PREFORMANCE_CHECK\") === true){\n    _.each(msg.payload.gadgetsList, function(item,index){\n        item.starttime      = msg.starttime \n        item.starttime2      = msg.starttime2 \n        item.starttime3      = msg.starttime3\n        item.starttime_2_diff       = moment(item.starttime2).diff(moment(msg.starttime))\n         item.starttime2_3_diff       = moment(item.starttime3).diff(moment(msg.starttime2))\n        item.endtime        = new Date() \n        // item.endtimeMS      = item.endtime.getTime()\n        \n        // if (msg.starttime && typeof  msg.starttime === \"date\"){\n        item.timediff       = moment(item.endtime).diff(moment(msg.starttime))\n        // }\n    })\n\n// }\n\nmsg.timer = false\n\nupdateObj = {\n                    query : {\n                            query :{_id:new ObjectID(msg.RevotioData.session._id)}, \n                            update : { \"$set\": {last_gadgets_update : new Date()}, \"$push\": { Gadgets: { \"$each\": msg.payload.gadgetsList } }},\n                            options : {upsert: true, returnOriginal: false}\n                            },\n                    connection:global.get(\"DB_data.connection\"),\n                    database:global.get(\"DB_data.appDB\"),\n                    collection:'sessions',\n                    operation:'findOneAndUpdate', // updateMany , updateOne\n                    }\n\n            mongodbTools.resolveAsync(updateObj, node, function(res){\n                \n                if (typeof res === 'object' && res.hasOwnProperty(\"value\")){\n                     msg.session = res.value\n \n                    node.send(msg) \n                   \n                }\n            \n            \n            }) \n            \n            \n",
+        "func": "var request = global.get('request');\nvar Moment = global.get('moment');var MomentRange = global.get('momentrange');\nvar moment = MomentRange.extendMoment(Moment)\nvar crypto = global.get('crypto');\nvar momentTimezone = global.get('moment_timezone');\nvar lodash = global.get('lodash');\nvar _ = global.get('underscore');\nvar BSON = global.get('bson');\nvar ObjectID = BSON.ObjectID;\nvar accounting = global.get('accounting');\nvar accountingoptions = {\tsymbol : \"€\",\tdecimal : \".\", \tthousand: \" \", \tprecision : 0, \tformat: \"%s %v\"}; // example = Output = accounting.formatMoney(Number, accountingoptions );\nvar jsonwebtoken = global.get('jsonwebtoken');\nvar mongodbTools = global.get('mongodbTools');\nvar excelToJson = global.get('excelToJson');\nvar Excel = global.get('exceljs');\nvar fs = global.get('fsextra');\nvar xml2js = global.get('xml2js');\nvar json2xls = global.get('json2xls');\nvar nodemailer = global.get('nodemailer');\nvar mg = global.get('nodemailer_mailgun_transport');\n\n\n// reset msg object\n\nRevotioData = msg.RevotioData\npayload = msg.payload\nres = msg.res\nreq = msg.req\nstarttime = msg.starttime\nstarttime2 = msg.starttime2\nstarttime3= msg.starttime3\ncommunicationData = msg.communicationData\npageName = msg.pageName\nmsg = {\n    payload:payload,\n    RevotioData:RevotioData,\n    res : res,\n    req : req,\n    starttime : starttime,\n    starttime2:starttime2,\n    starttime3:msg.starttime3,\n    communicationData : communicationData,\n    pageName:pageName\n}\n\n// check if its dev env\n// if (env.get(\"PREFORMANCE_CHECK\") && env.get(\"PREFORMANCE_CHECK\") === true){\n    _.each(msg.payload.gadgetsList, function(item,index){\n        item.starttime      = msg.starttime \n        item.starttime2      = msg.starttime2 \n        item.starttime3      = msg.starttime3\n        item.starttime_2_diff       = moment(item.starttime2).diff(moment(msg.starttime))\n         item.starttime2_3_diff       = moment(item.starttime3).diff(moment(msg.starttime2))\n        item.endtime        = new Date() \n        // item.endtimeMS      = item.endtime.getTime()\n        \n        // if (msg.starttime && typeof  msg.starttime === \"date\"){\n        item.timediff       = moment(item.endtime).diff(moment(msg.starttime))\n        // }\n    })\n\n// }\n\nmsg.timer = false\n\nupdateObj = {\n                    query : {\n                            query :{_id:new ObjectID(msg.RevotioData.session._id)}, \n                            update : { \"$set\": {last_gadgets_update : new Date()}, \"$push\": { Gadgets: { \"$each\": msg.payload.gadgetsList } }},\n                            options : {upsert: true, returnOriginal: false}\n                            },\n                    connection:global.get(\"DB_data.connection\"),\n                    database:global.get(\"DB_data.appDB\"),\n                    collection:'sessions',\n                    operation:'findOneAndUpdate', // updateMany , updateOne\n                    }\n\n            mongodbTools.resolveAsync(updateObj, node, function(res){\n                \n                if (typeof res === 'object' && res.hasOwnProperty(\"value\")){\n                     msg.session = res.value\n \n                    node.send(msg) \n                   \n                }\n            \n            \n            }) \n            \n            \n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 430,
         "y": 840,
         "wires": [
@@ -11726,6 +11730,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 950,
         "y": 780,
         "wires": [
@@ -11783,6 +11788,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 1510,
         "y": 780,
         "wires": [
@@ -11804,6 +11810,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 1220,
         "y": 780,
         "wires": [
@@ -11822,6 +11829,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 1830,
         "y": 820,
         "wires": [
@@ -14516,7 +14524,7 @@
         "type": "debug",
         "z": "22428f45.8ab",
         "name": "EXIT POST",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
@@ -25492,7 +25500,7 @@
         "type": "debug",
         "z": "9de255bd.0d0938",
         "name": "progressbar INIT post",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -41477,7 +41485,7 @@
         "type": "debug",
         "z": "22428f45.8ab",
         "name": "A",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -41494,7 +41502,7 @@
         "type": "debug",
         "z": "22428f45.8ab",
         "name": "B",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -41511,7 +41519,7 @@
         "type": "debug",
         "z": "9de255bd.0d0938",
         "name": "gadgetList Response",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -41522,5 +41530,22 @@
         "x": 700,
         "y": 60,
         "wires": []
+    },
+    {
+        "id": "e9e394d543bcea57",
+        "type": "function",
+        "z": "a55f7aee.572be",
+        "name": "Set msg.pageName",
+        "func": "\nif (msg.RevotioData.hasOwnProperty(\"session\") &&\n    msg.RevotioData.session.hasOwnProperty(\"Page\")\n){\n    msg.pageName = msg.RevotioData.session.Page\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 140,
+        "wires": [
+            []
+        ]
     }
 ]
