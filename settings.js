@@ -315,6 +315,9 @@ module.exports = {
 
     // Customising the editor
     editorTheme: {
+      codeEditor: {
+       lib: "monaco"
+   },
       page: {
          title: "Factory",
          favicon: "/root/.node-red/projects/gadgetsFactory/files/logo/factory/favicon.ico",
