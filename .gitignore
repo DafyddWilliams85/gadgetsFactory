@@ -1,3 +1,5 @@
 *.backup
+appData.json
+deploymentData.json
 *.node_modules
 *.old

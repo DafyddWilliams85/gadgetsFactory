@@ -26,7 +26,7 @@ else
     echo deploymentData.json created
     #
     TYPE=$( jq -r  '.deploymentData.'$2'.TYPE'  appData.json)
-    APP_ID=$( jq -r  '.deploymentData.'$2'.APP_ID'  appData.json)
+    APP_ID=$1
     DEPLOYMENTTYPE=$( jq -r  '.deploymentData.'$2'.DEPLOYMENTTYPE'  appData.json)
     GIT_USERNAME=$( jq -r  '.deploymentData.GITHUB_DATA.GIT_USERNAME'  appData.json)
     GIT_PASSWORD=$( jq -r  '.deploymentData.GITHUB_DATA.GIT_PASSWORD'  appData.json)
@@ -80,7 +80,7 @@ else
     cd ../../../root/.node-red/ && npm i twilio && figlet twilio installed in node red ROOT   && npm i jetpack && figlet jetpack installed in node red ROOT    && npm i exceljs && figlet exceljs installed in node red ROOT && npm install nodemailer && figlet nodemailer installed in node red ROOT  &&  npm i request && figlet request installed in node red ROOT &&   npm i nodemailer-mailgun-transport && figlet nodemailer-mailgun-transport installed in node red ROOT &&  npm i fs-extra && figlet fs-extra installed node red ROOT && npm install mongodb && figlet NPM mongodb installed node red ROOT  && npm install mime && figlet NPM MIME installed node red ROOT
 
     rm -rf ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cp -r ../../../../../root/.node-red/projects/gadgetsFactory/customNodeModules/node-red-mongodb-tool-belt ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cd ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && npm i -g && echo node-red-mongodb-tool-belt INSTALLED
-    rm -rf ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cp -r ../../../../../root/.node-red/projects/gadgetsFactory/customNodeModules/node-red-contrib-mongodb2 ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cd ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && npm i -g && echo node-red-contrib-mongodb2 INSTALLED
+    # rm -rf ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cp -r ../../../../../root/.node-red/projects/gadgetsFactory/customNodeModules/node-red-contrib-mongodb2 ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cd ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && npm i -g && echo node-red-contrib-mongodb2 INSTALLED
 
     cd ../../../../../root/.node-red/projects/gadgetsFactory && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
@@ -138,7 +138,7 @@ else
 
 
       echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
-      cd ../../../../../../root/.node-red &&  PREFORMANCE_CHECK=$PREFORMANCE_CHECK TYPE=$TYPE APP_ID=$APP_ID  pagePublisherBranch=$pagePublisherBranch pm2 start node-red --name 'Backend - API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
+      cd ../../../../../../root/.node-red &&  PREFORMANCE_CHECK=$PREFORMANCE_CHECK TYPE=$TYPE APP_ID=$APP_ID GIT_REPO=$GIT_REPO pagePublisherBranch=$pagePublisherBranch pm2 start node-red --name 'Backend - API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
       echo Backend started CLUSTER
     else
 
@@ -160,7 +160,7 @@ else
       fi
 
       echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
-      cd ../../../../../../root/.node-red &&  PREFORMANCE_CHECK=$PREFORMANCE_CHECK TYPE=$TYPE APP_ID=$APP_ID  pagePublisherBranch=$pagePublisherBranch pm2 start node-red --name 'Backend - API'  --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
+      cd ../../../../../../root/.node-red &&  PREFORMANCE_CHECK=$PREFORMANCE_CHECK TYPE=$TYPE APP_ID=$APP_ID GIT_REPO=$GIT_REPO pagePublisherBranch=$pagePublisherBranch pm2 start node-red --name 'Backend - API'  --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
       echo Backend started CLUSTER
     fi
 
