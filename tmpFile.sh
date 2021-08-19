@@ -1,24 +1,19 @@
 #!/bin/bash
 
-# turn on bash's job control
-# turn on bash's job control
-# echo Are you sure you want to clone the new gadgetsFactory repo? y/n
-# read DATA
-DATA=$2
-echo $DATA
-echo  created
 
-if [ "$DATA" = "y" ]
-then
   pm2 stop all
   figlet pm2 stoped
   rm -rf ../../../../root/.node-red/projects/gadgetsFactory
   figlet gadgetsFactory REVOVED // gadgetsFactory script
-  npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed && GIT_USERNAME=$4 GIT_PASSWORD=$5 REPOSITORY=$6 node tmpFile.js
-  figlet gadgetsFactory cloned // gadgetsFactory script
-  cd ../../../../root/.node-red/projects/gadgetsFactory
-  chmod +x script.sh
-  source script.sh
-else
-  figlet gadgetsFactory NOT cloned // gadgetsFactory script
-fi
+
+  sudo apt-get install jq -y
+  GIT_USERNAME=$( jq -r  '.deploymentData.GITHUB_DATA.GIT_USERNAME'  appData.json)
+  GIT_PASSWORD=$( jq -r  '.deploymentData.GITHUB_DATA.GIT_PASSWORD'  appData.json)
+  GIT_REPO=$( jq -r  '.deploymentData.GITHUB_DATA.GIT_REPO'  appData.json)
+
+
+  npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed && GIT_USERNAME=$GIT_USERNAME GIT_PASSWORD=$GIT_PASSWORD GIT_REPO=$GIT_REPO node tmpFile.js
+  figlet $GIT_REPO cloned // $GIT_REPO script
+  cp ../../../../root/appData.json ../../../../root/.node-red/projects/$GIT_REPO/appData.json
+  cd ../../../../root/.node-red/projects/$GIT_REPO
+  chmod +x script.sh && source script.sh
