@@ -12,32 +12,23 @@ var PAGE_PUBLISHER_VERSION = process.env.PAGE_PUBLISHER_VERSION
 var APP_ID = process.env.APP_ID
 var PAGE_BUILDER = process.env.PAGE_BUILDER
 var APP_LOGO = process.env.APP_LOGO
+var API_KEY = process.env.API_KEY
 
 
 if (PAGE_PUBLISHER_VERSION === "NEW"){
 // API_URL
 
-if (fs.existsSync('../../../../root/.node-red/projects/gadgetsFactory/globalContextData/generic.json')){
-  const genericJson = fs.readJsonSync('../../../../root/.node-red/projects/gadgetsFactory/globalContextData/generic.json')
-  // API_KEY
-  if (  genericJson.hasOwnProperty("SystemVars") &&
-        typeof genericJson.SystemVars === 'object' &&
-        genericJson.SystemVars.hasOwnProperty("tokenSecret")
-      ){
   progressApiKey = fs.readFileSync(__dirname +"/src/common/configs/api_config.js").toString('utf8')
-
   console.log(progressApiKey)
 
   progressResults = replace_in_file.sync({
     files: __dirname +"/src/common/configs/api_config.js",
     from: /API_KEY/g,
-    to:  genericJson.SystemVars.tokenSecret,
+    to:  API_KEY,
     countMatches: true
   });
 
   console.log(progressApiKey)
-
-}}
 
 
   httpConfigValue = fs.readFileSync(__dirname +"/src/common/configs/api_config.js").toString('utf8')
