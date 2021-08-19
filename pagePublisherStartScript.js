@@ -28,7 +28,7 @@ if (PAGE_PUBLISHER_VERSION === "NEW"){
     countMatches: true
   });
 
-  console.log(progressApiKey)
+  console.log(progressResults)
 
 
   httpConfigValue = fs.readFileSync(__dirname +"/src/common/configs/api_config.js").toString('utf8')
