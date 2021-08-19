@@ -41547,5 +41547,78 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "6c9e8c5e9b1141aa",
+        "type": "function",
+        "z": "a2b40f09.d18fd8",
+        "name": "",
+        "func": "node.warn({ name: faker.name.findName()})\n\nconst { MongoClient } = mongodb\n// or as an es module:\n// import { MongoClient } from 'mongodb'\n\n// Connection URL\nconst url = global.get(\"DB_data.connection\")\nconst client = new MongoClient(url)\n\n// Database Name\n// const dbName = 'factory'\n\nasync function main() {\n    // Use connect method to connect to the server\n    await client.connect()\n    node.warn('Connected successfully to server')\n    const db = client.db(global.get(\"DB_data.appDB\"))\n    const collection = db.collection('pages')\n\n    // the following code examples can be pasted here...\n\n    // var findResult = await collection.find({}).toArray()\n\n    // msg.result = findResult\n\n    msg.aggResult = await collection.aggregate([\n        { $match: { gadget_data_upload: false } },\n        // { $group: { _id: \"$cust_id\", total: { $sum: \"$amount\" } } }\n    ]).toArray()\n    \n    node.send(msg) //msg;\n\n}\n\n// main()\n    // .then(console.log)\n    // .catch(console.error)\n    // .finally(() => client.close())\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "faker",
+                "module": "faker"
+            },
+            {
+                "var": "mongodb",
+                "module": "mongodb"
+            }
+        ],
+        "x": 960,
+        "y": 300,
+        "wires": [
+            [
+                "359b436377817e19"
+            ]
+        ]
+    },
+    {
+        "id": "2c168502533fd0fe",
+        "type": "inject",
+        "z": "a2b40f09.d18fd8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 790,
+        "y": 300,
+        "wires": [
+            [
+                "6c9e8c5e9b1141aa"
+            ]
+        ]
+    },
+    {
+        "id": "359b436377817e19",
+        "type": "debug",
+        "z": "a2b40f09.d18fd8",
+        "name": "B",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 280,
+        "wires": []
     }
 ]
