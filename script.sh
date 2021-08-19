@@ -31,7 +31,7 @@ else
     GIT_USERNAME=$( jq -r  '.deploymentData.GITHUB_DATA.GIT_USERNAME'  appData.json)
     GIT_PASSWORD=$( jq -r  '.deploymentData.GITHUB_DATA.GIT_PASSWORD'  appData.json)
     GIT_REPO=$( jq -r  '.deploymentData.GITHUB_DATA.GIT_REPO'  appData.json)
-
+    API_KEY=$( jq -r  '.appData.SystemVars.tokenSecret'  appData.json)
     API_URL=$( jq -r  '.deploymentData.'$2'.API_URL'  appData.json)
     pagePublisherBranch=$( jq -r  '.deploymentData.'$2'.pagePublisherBranch'  appData.json)
     publisherBuild=$( jq -r  '.deploymentData.'$2'.publisherBuild'  appData.json)
@@ -41,7 +41,7 @@ else
 
     CLUSTER=$( jq -r  '.deploymentData.'$2'.CLUSTER'  appData.json)
     # #
-    echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = WSS_BASE_URL = $WSS_BASE_URL, 9, PAGE_PUBLISHER_VERSION = $PAGE_PUBLISHER_VERSION ,PAGE_BUILDER = $PAGE_BUILDER, CLUSTER = $CLUSTER, PAGE_PUBLISHER_VERSION  = $PAGE_PUBLISHER_VERSION , publisherBuild = $publisherBuild
+    echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID ,  3 = DEPLOYMENTTYPE  = $DEPLOYMENTTYPE , 4 = GIT_USERNAME = $GIT_USERNAME ,5 = GIT_PASSWORD = $GIT_PASSWORD , 6 = API_URL = $API_URL , 7 = pagePublisherBranch = $pagePublisherBranch, 8 = WSS_BASE_URL = $WSS_BASE_URL, 9, PAGE_PUBLISHER_VERSION = $PAGE_PUBLISHER_VERSION ,PAGE_BUILDER = $PAGE_BUILDER, CLUSTER = $CLUSTER, PAGE_PUBLISHER_VERSION  = $PAGE_PUBLISHER_VERSION , publisherBuild = $publisherBuild , API_KEY=$API_KEY
 
     # rm -rf "DATA.json"
     # echo DATA.json removed
@@ -71,7 +71,7 @@ else
 
       echo  lib folder updated | cowsay
 
-      cd  ../../../../var/www/pagePublisher&& figlet In PagePublisherFolder &&  rm -rf package-lock.json && figlet package-lock.json  REMOVED && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && PAGE_BUILDER=$PAGE_BUILDER APP_ID=$APP_ID API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL APP_NAME=$APP_NAME PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION APP_LOGO=$APP_LOGO PUBLIC_URL=$PUBLIC_URL  node pagePublisherStartScript.js
+      cd  ../../../../var/www/pagePublisher&& figlet In PagePublisherFolder &&  rm -rf package-lock.json && figlet package-lock.json  REMOVED && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && PAGE_BUILDER=$PAGE_BUILDER APP_ID=$APP_ID API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL APP_NAME=$APP_NAME PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION APP_LOGO=$APP_LOGO PUBLIC_URL=$PUBLIC_URL API_KEY=$API_KEY  node pagePublisherStartScript.js
 
       # cd  ../../../../var/www/pagePublisher&& figlet In PagePublisherFolder &&  rm -rf package-lock.json && figlet package-lock.json  REMOVED &&  npm i && figlet PagePublisherFolder Installed && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && PAGE_BUILDER=$PAGE_BUILDER APP_ID=$APP_ID API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL APP_NAME=$APP_NAME PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION node pagePublisherStartScript.js
 
