@@ -56,18 +56,18 @@ else
     rm -rf "../../../../../../root/node-redLogs.log"
     echo "Log files removed" | cowsay
 
-    cd  ../../../../root/.node-red/projects/gadgetsFactory
+    cd  ../../../../root/.node-red/projects/$GIT_REPO
 
 
     npm install minizip-asm.js && echo minizip-asm.js installed &&  npm install node-cmd && echo node-cmd installed && npm i fs-extra && echo fs-extra installed &&  BRANCH=$pagePublisherBranch GIT_USERNAME=$GIT_USERNAME GIT_PASSWORD=$GIT_PASSWORD PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION node startScript.js
 
       echo  pagePublisher branch : $pagePublisherBranch cloned | cowsay
 
-      cp  ../../../../root/.node-red/projects/gadgetsFactory/pagePublisherStartScript.js ../../../../var/www/pagePublisher/pagePublisherStartScript.js
+      cp  ../../../../root/.node-red/projects/$GIT_REPO/pagePublisherStartScript.js ../../../../var/www/pagePublisher/pagePublisherStartScript.js
 
       echo  pagePublisherStartScript.js copied | cowsay
 
-      rm -rf ../../../../root/.node-red/lib && cp -R  ../../../../root/.node-red/projects/gadgetsFactory/lib ../../../../root/.node-red/lib
+      rm -rf ../../../../root/.node-red/lib && cp -R  ../../../../root/.node-red/projects/$GIT_REPO/lib ../../../../root/.node-red/lib
 
       echo  lib folder updated | cowsay
 
@@ -79,14 +79,12 @@ else
 
     cd ../../../root/.node-red/ && npm i twilio && figlet twilio installed in node red ROOT   && npm i jetpack && figlet jetpack installed in node red ROOT    && npm i exceljs && figlet exceljs installed in node red ROOT && npm install nodemailer && figlet nodemailer installed in node red ROOT  &&  npm i request && figlet request installed in node red ROOT &&   npm i nodemailer-mailgun-transport && figlet nodemailer-mailgun-transport installed in node red ROOT &&  npm i fs-extra && figlet fs-extra installed node red ROOT && npm install mongodb && figlet NPM mongodb installed node red ROOT  && npm install mime && figlet NPM MIME installed node red ROOT
 
-    rm -rf ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cp -r ../../../../../root/.node-red/projects/gadgetsFactory/customNodeModules/node-red-mongodb-tool-belt ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cd ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && npm i -g && echo node-red-mongodb-tool-belt INSTALLED
-    # rm -rf ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cp -r ../../../../../root/.node-red/projects/gadgetsFactory/customNodeModules/node-red-contrib-mongodb2 ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && cd ../../../../../root/.node-red/node_modules/node-red-contrib-mongodb2 && npm i -g && echo node-red-contrib-mongodb2 INSTALLED
-
-    cd ../../../../../root/.node-red/projects/gadgetsFactory && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
+    rm -rf ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cp -r ../../../../../root/.node-red/projects/$GIT_REPO/customNodeModules/node-red-mongodb-tool-belt ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && cd ../../../../../root/.node-red/node_modules/node-red-mongodb-tool-belt && npm i -g && echo node-red-mongodb-tool-belt INSTALLED
+    cd ../../../../../root/.node-red/projects/$GIT_REPO && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID node flows_script.js
 
     rm -rf ../../../../../files/SystemFiles
     mkdir -p ../../../../../files/SystemFiles
-    cp -r ../../../../../root/.node-red/projects/gadgetsFactory/files/SystemFiles ../../../../../files
+    cp -r ../../../../../root/.node-red/projects/$GIT_REPO/files/SystemFiles ../../../../../files
     echo  Content of SystemFiles/ is now: | cowsay
 
     for entry in "../../../../../files/SystemFiles"/*
@@ -96,7 +94,7 @@ else
 
     rm -rf ../../../../../files/logo
     mkdir -p ../../../../../files/logo
-    cp -r ../../../../../root/.node-red/projects/gadgetsFactory/files/logo ../../../../../files
+    cp -r ../../../../../root/.node-red/projects/$GIT_REPO/files/logo ../../../../../files
     echo  Content of logo/ is now: | cowsay
 
     for entry in "../../../../../files/logo"/*
@@ -104,11 +102,8 @@ else
       echo "$entry"
     done
 
-    cp -r ../../../../../root/.node-red/projects/gadgetsFactory/files/logo/$TYPE/favicon.ico ../../../../var/www/pagePublisher/static
+    cp -r ../../../../../root/.node-red/projects/$GIT_REPO/files/logo/$TYPE/favicon.ico ../../../../var/www/pagePublisher/static
     echo favicon.ico copied | cowsay
-
-
-    rm -rf "../../../../../root/.node-red/projects/gadgetsFactory/node_modules"
 
     pm2 stop all && pm2 del all
 
@@ -118,15 +113,8 @@ else
 
     if [ "$CLUSTER" = "YES" ]
     then
-
-      # if [ "$PAGE_PUBLISHER_VERSION" = "OLD" ]
-      # then
-      #   cd ../../../../../../var/www/pagePublisher &&  TYPE=$TYPE APP_ID=$APP_ID  pagePublisherBranch=$pagePublisherBranch  pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-      #   echo OLD pagePublisher started
-      # el
       if [ "$publisherBuild" = "develop" ]
       then
-        # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
         echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
         cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
         echo NEW DEV pagePublisher started
@@ -135,21 +123,12 @@ else
         cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
         echo NEW PROD pagePublisher started
       fi
-
-
       echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
       cd ../../../../../../root/.node-red &&  PREFORMANCE_CHECK=$PREFORMANCE_CHECK TYPE=$TYPE APP_ID=$APP_ID GIT_REPO=$GIT_REPO pagePublisherBranch=$pagePublisherBranch pm2 start node-red --name 'Backend - API' -i max --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
       echo Backend started CLUSTER
     else
-
-      # if [ "$PAGE_PUBLISHER_VERSION" = "OLD" ]
-      # then
-      #   cd ../../../../../../var/www/pagePublisher &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'- pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
-      #   echo OLD pagePublisher started
-      # el
       if [ "$publisherBuild" = "develop" ]
       then
-        # cd ../../../../../../var/www/pagePublisher && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> pP' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
         echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
         cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
         echo NEW DEV pagePublisher started
@@ -158,7 +137,6 @@ else
         cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'Publisher' -i 2 --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
         echo NEW PROD pagePublisher started
       fi
-
       echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
       cd ../../../../../../root/.node-red &&  PREFORMANCE_CHECK=$PREFORMANCE_CHECK TYPE=$TYPE APP_ID=$APP_ID GIT_REPO=$GIT_REPO pagePublisherBranch=$pagePublisherBranch pm2 start node-red --name 'Backend - API'  --restart-delay=3000 -l ../../../../../../root/node-redLogs.log
       echo Backend started CLUSTER
