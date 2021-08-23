@@ -2,4 +2,5 @@
 appData.json
 deploymentData.json
 *.node_modules
+*node_modules
 *.old
