@@ -5,10 +5,12 @@
     "dependencies": {
         "exceljs": "^3.3.0",
         "fs-extra": "^8.1.0",
+        "json-fn": "^1.1.1",
         "mailcomposer": "^4.0.2",
         "mime": "^2.4.4",
         "minizip-asm.js": "^1.0.10",
-        "node-cmd": "^3.0.0"
+        "node-cmd": "^3.0.0",
+        "replace-in-file": "^6.2.0"
     },
     "node-red": {
         "settings": {
