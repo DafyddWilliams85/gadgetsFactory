@@ -121,15 +121,15 @@ else
 
     echo  pagePublisher branch : $pagePublisherBranch cloned | cowsay
 
-    cp  ../../../../root/.node-red/projects/$GIT_REPO/pagePublisherStartScript.js ../../../../var/www/pagePublisher/pagePublisherStartScript.js
+    cp  ../../../../root/.node-red/projects/$GIT_REPO/pagePublisherStartScript.mjs ../../../../var/www/pagePublisher/pagePublisherStartScript.mjs
 
-    echo  pagePublisherStartScript.js copied | cowsay
+    echo  pagePublisherStartScript.mjs copied | cowsay
 
     rm -rf ../../../../root/.node-red/lib && cp -R  ../../../../root/.node-red/projects/$GIT_REPO/lib ../../../../root/.node-red/lib
 
     echo  lib folder updated | cowsay
 
-    cd  ../../../../var/www/pagePublisher&& figlet In PagePublisherFolder &&  rm -rf package-lock.json && figlet package-lock.json  REMOVED && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && APP_THEME=$APP_THEME PAGE_BUILDER=$PAGE_BUILDER APP_ID=$APP_ID API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL APP_NAME=$APP_NAME PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION APP_LOGO=$APP_LOGO PUBLIC_URL=$PUBLIC_URL APP_PROGRESS_TYPE=$APP_PROGRESS_TYPE APP_PRIMARY_COLOR=$APP_PRIMARY_COLOR FILE_ENDPOINT_URL=$FILE_ENDPOINT_URL API_KEY=$API_KEY node pagePublisherStartScript.js
+    cd  ../../../../var/www/pagePublisher&& figlet In PagePublisherFolder &&  rm -rf package-lock.json && figlet package-lock.json  REMOVED && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed && APP_THEME=$APP_THEME PAGE_BUILDER=$PAGE_BUILDER APP_ID=$APP_ID API_URL=$API_URL WSS_BASE_URL=$WSS_BASE_URL APP_NAME=$APP_NAME PAGE_PUBLISHER_VERSION=$PAGE_PUBLISHER_VERSION APP_LOGO=$APP_LOGO PUBLIC_URL=$PUBLIC_URL APP_PROGRESS_TYPE=$APP_PROGRESS_TYPE APP_PRIMARY_COLOR=$APP_PRIMARY_COLOR FILE_ENDPOINT_URL=$FILE_ENDPOINT_URL API_KEY=$API_KEY node pagePublisherStartScript.mjs
     echo  configValue.js file changed | cowsay
 
     # cd ../../../root/.node-red/ && npm i twilio && figlet twilio installed in node red ROOT   && npm i jetpack && figlet jetpack installed in node red ROOT    && npm i exceljs && figlet exceljs installed in node red ROOT && npm install nodemailer && figlet nodemailer installed in node red ROOT  &&  npm i request && figlet request installed in node red ROOT &&   npm i nodemailer-mailgun-transport && figlet nodemailer-mailgun-transport installed in node red ROOT &&  npm i fs-extra && figlet fs-extra installed node red ROOT && npm install mongodb && figlet NPM mongodb installed node red ROOT  && npm install mime && figlet NPM MIME installed node red ROOT
