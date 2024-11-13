@@ -8,6 +8,15 @@ GIT_REPO    = process.env.GIT_REPO
 remote = `https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/DafyddWilliams85/${GIT_REPO}.git` ;
 destination = ` ../../../../root/.node-red/projects/${GIT_REPO}` ;
 
-const syncClone=cmd.runSync(  'git clone -b master '  + remote + destination);
+cmd.get(
+  'git clone -b master '  + remote + destination,
+  function(err, data, stderr){
+    if (err){
+      console.log(err);
+    }
+    if (stderr){
+      console.log(stderr);
+    }
+    console.log(data);
 
-console.log(syncClone);
+});

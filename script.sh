@@ -10,7 +10,8 @@ echo  jq installed proceeding with == ENV_NAME = $2
 echo  ____________________________ ____________________________
 
 # echo  curl '/Info per env.json'
-ENV_JSON=`jq --compact-output '.'$2 "deploymentData.appData.json"`
+# ENV_JSON=`jq --compact-output '.'$2 "deploymentData.appData.json"`
+ENV_JSON= jq '.deploymentData.appData' appData.json
 
 echo  ENV_JSON  = $ENV_JSON
 if [ "$ENV_JSON" = "null" ]
