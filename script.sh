@@ -82,7 +82,7 @@ else
 
 
 
-    cd ../../../../../root/.node-red/projects/$GIT_REPO && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed  && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID TITLE=$TITLE ICON=$ICON ACTIVE_TABS=$ACTIVE_TABS node flows_script.js
+    # cd ../../../../../root/.node-red/projects/$GIT_REPO && npm i fs-extra && figlet fs-extra installed && npm i json-fn && figlet json-fn installed && npm i replace-in-file && echo replace-in-file installed  && DEPLOYMENTTYPE=$DEPLOYMENTTYPE TYPE=$TYPE APP_ID=$APP_ID TITLE=$TITLE ICON=$ICON ACTIVE_TABS=$ACTIVE_TABS node flows_script.js
 
 
 
