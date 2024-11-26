@@ -172,11 +172,11 @@ else
       if [ "$publisherBuild" = "develop" ]
       then
         echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
-        cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+        cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' -i max --restart-delay=3000 -l ../../../../../../files/pagePublisher.log
         echo NEW DEV pagePublisher started
       else
         echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
-        cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'Publisher' -i max --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+        cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'Publisher' -i max --restart-delay=3000 -l ../../../../../../files/pagePublisher.log
         echo NEW PROD pagePublisher started
       fi
       echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
@@ -186,11 +186,11 @@ else
       if [ "$publisherBuild" = "develop" ]
       then
         echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
-        cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+        cd ../../../../../../var/www/pagePublisher &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed &&  TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm run dev' --name $TYPE'- == run dev >> Publisher' --restart-delay=3000 -l ../../../../../../files/pagePublisher.log
         echo NEW DEV pagePublisher started
       else
         echo TYPE=$TYPE APP_ID=$APP_ID APP_NAME=$APP_NAME API_URL=$API_URL WEBSOCKET_URL=$WSS_BASE_URL
-        cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'Publisher' -i 2 --restart-delay=3000 -l ../../../../../../root/pagePublisher.log
+        cd ../../../../../../var/www/pagePublisher  &&  rm -rf node-modules && figlet node-modules REMOVED &&  npm i && figlet PagePublisherFolder Installed && TYPE=$TYPE APP_ID=$APP_ID pm2 start 'npm start' --name $TYPE'Publisher' -i 2 --restart-delay=3000 -l ../../../../../../files/pagePublisher.log
         echo NEW PROD pagePublisher started
       fi
       echo  1 = TYPE = $TYPE, 2 = APP_ID = $APP_ID = starting Backend
